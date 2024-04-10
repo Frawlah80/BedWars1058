@@ -104,6 +104,8 @@ public class Messages {
     public static String COMMAND_FORCESTART_SUCCESS = "cmd-start";
     public static String COMMAND_FORCESTART_NO_PERM = "cmd-start-no-perm";
     public static String COMMAND_COOLDOWN = "cmd-cooldown";
+    public static String COMMAND_MAP_NOT_IN_ARENA = "cmd-map-not-in-arena";
+    public static String COMMAND_MAP_ARENA_NAME = "cmd-map-arena-name";
 
     /**
      * Arena join/ leave related
