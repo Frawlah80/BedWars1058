@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - master
+      
 
 jobs:
   extract-and-push:
