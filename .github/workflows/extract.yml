@@ -23,7 +23,7 @@ jobs:
 
       - name: Pull latest changes
         run: |
-          git pull origin main
+          git pull origin master
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
