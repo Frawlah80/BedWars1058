@@ -1,0 +1,32 @@
+name: Compile
+
+on:
+  push:
+    branches:
+      - '*'
+  pull_request:
+    branches:
+      - '*'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Set up JDK
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'adopt'
+          java-version: '19.0.2+7'
+
+      - name: Build with Maven
+        run: mvn -B clean install
+
+      - name: Upload JAR file
+        uses: actions/upload-artifact@v4
+        with:
+          name: BedWars1058
+          path: target/*.jar
