@@ -3,7 +3,7 @@ name: Extract Zip and Push to Repo
 on:
   push:
     branches:
-      - main
+      - master
 
 jobs:
   extract-and-push:
