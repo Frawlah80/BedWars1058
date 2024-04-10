@@ -23,6 +23,7 @@ package com.andrei1058.bedwars;
 import com.andrei1058.bedwars.api.arena.IArena;
 import com.andrei1058.bedwars.api.configuration.ConfigManager;
 import com.andrei1058.bedwars.api.configuration.ConfigPath;
+import com.andrei1058.bedwars.api.database.IDatabase;
 import com.andrei1058.bedwars.api.language.Language;
 import com.andrei1058.bedwars.api.levels.Level;
 import com.andrei1058.bedwars.api.party.Party;
@@ -48,7 +49,6 @@ import com.andrei1058.bedwars.commands.shout.ShoutCommand;
 import com.andrei1058.bedwars.configuration.*;
 import com.andrei1058.bedwars.database.Database;
 import com.andrei1058.bedwars.database.SQLite;
-import com.andrei1058.bedwars.halloween.HalloweenSpecial;
 import com.andrei1058.bedwars.language.*;
 import com.andrei1058.bedwars.levels.internal.InternalLevel;
 import com.andrei1058.bedwars.levels.internal.LevelListeners;
@@ -77,7 +77,6 @@ import com.andrei1058.bedwars.support.party.NoParty;
 import com.andrei1058.bedwars.support.party.PAF;
 import com.andrei1058.bedwars.support.party.PAFBungeecordRedisApi;
 import com.andrei1058.bedwars.support.party.PartiesAdapter;
-import com.andrei1058.bedwars.support.preloadedparty.PrePartyListener;
 import com.andrei1058.bedwars.support.vault.*;
 import com.andrei1058.bedwars.support.vipfeatures.VipFeatures;
 import com.andrei1058.bedwars.support.vipfeatures.VipListeners;
@@ -134,7 +133,7 @@ public class BedWars extends JavaPlugin {
     public static ArenaManager arenaManager = new ArenaManager();
 
     //remote database
-    private static Database remoteDatabase;
+    private static IDatabase remoteDatabase;
 
     private boolean serverSoftwareSupport = true;
 
@@ -294,7 +293,7 @@ public class BedWars extends JavaPlugin {
                 //registerEvents(new ArenaListeners());
                 ArenaSocket.lobbies.addAll(config.getList(ConfigPath.GENERAL_CONFIGURATION_BUNGEE_OPTION_LOBBY_SERVERS));
                 new SendTask();
-                registerEvents(new AutoscaleListener(), new PrePartyListener(), new JoinListenerBungee());
+                registerEvents(new AutoscaleListener(), /*new PrePartyListener(),*/ new JoinListenerBungee());
                 Bukkit.getScheduler().runTaskTimerAsynchronously(this, new LoadedUsersCleaner(), 60L, 60L);
             } else {
                 registerEvents(new ServerPingListener(), new JoinListenerBungeeLegacy());
@@ -515,9 +514,6 @@ public class BedWars extends JavaPlugin {
             Bukkit.getPluginManager().disablePlugin(this);
             return;
         }
-
-        // Halloween Special
-        HalloweenSpecial.init();
 
         // TNT Spoil Feature
         SpoilPlayerTNTFeature.init();
@@ -741,7 +737,7 @@ public class BedWars extends JavaPlugin {
     /**
      * Get remote database.
      */
-    public static Database getRemoteDatabase() {
+    public static IDatabase getRemoteDatabase() {
         return remoteDatabase;
     }
 
@@ -773,5 +769,9 @@ public class BedWars extends JavaPlugin {
     @Override
     public ChunkGenerator getDefaultWorldGenerator(String worldName, String id) {
         return new VoidChunkGenerator();
+    }
+
+    public static void setRemoteDatabase(IDatabase database){
+        remoteDatabase = database;
     }
 }

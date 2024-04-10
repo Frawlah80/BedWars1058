@@ -24,6 +24,7 @@ import com.andrei1058.bedwars.api.arena.IArena;
 import com.andrei1058.bedwars.api.arena.shop.IContentTier;
 import com.andrei1058.bedwars.api.command.ParentCommand;
 import com.andrei1058.bedwars.api.configuration.ConfigManager;
+import com.andrei1058.bedwars.api.database.IDatabase;
 import com.andrei1058.bedwars.api.events.player.PlayerAfkEvent;
 import com.andrei1058.bedwars.api.language.Language;
 import com.andrei1058.bedwars.api.party.Party;
@@ -454,6 +455,15 @@ public class API implements com.andrei1058.bedwars.api.BedWars {
     @Override
     public boolean isShuttingDown() {
         return BedWars.isShuttingDown();
+    }
+
+    @Override
+    public void setRemoteDatabase(IDatabase database) {
+        BedWars.setRemoteDatabase(database);
+    }
+    @Override
+    public IDatabase getRemoteDatabase() {
+        return BedWars.getRemoteDatabase();
     }
 
     @Override
