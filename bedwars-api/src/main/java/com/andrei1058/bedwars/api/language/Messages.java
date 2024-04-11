@@ -145,6 +145,12 @@ public class Messages {
     public static String ARENA_GUI_SKIPPED_ITEM_LORE = "arena-selector-skipped-item-lore";
 
     /**
+     * Arena Build Limit
+     */
+    public static String ARENA_MAX_BUILD_HEIGHT_REACHED = "arena-max-build-height-reached";
+    public static String ARENA_MIN_BUILD_HEIGHT_REACHED = "arena-min-build-height-reached";
+
+    /**
      * Spectator related
      */
     public static String ARENA_SPECTATOR_TELEPORTER_GUI_NAME = "spectator-tp-gui-name";
