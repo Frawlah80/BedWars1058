@@ -322,7 +322,6 @@ public class Misc {
 
     public static String replaceStatsPlaceholders(Player player, @NotNull String s, boolean papiReplacements) {
         IPlayerStats stats = BedWars.getStatsManager().get(player.getUniqueId());
-        IArena a = Arena.getArenaByPlayer(player);
 
         if (s.contains("{kills}"))
             s = s.replace("{kills}", String.valueOf(stats.getKills()));
@@ -347,10 +346,6 @@ public class Misc {
         if (s.contains("{player}")) s = s.replace("{player}", player.getDisplayName());
         if (s.contains("{playername")) s = s.replace("{playername}", player.getName());
         if (s.contains("{prefix}")) s = s.replace("{prefix}", BedWars.getChatSupport().getPrefix(player));
-
-        // Non-stats placeholders here.. sorry
-        if (s.contains("{arenaDisplayName}")) s = s.replace("{arenaDisplayName}", a.getDisplayName());
-        if (s.contains("{arenaName}")) s = s.replace("{arenaName}", a.getArenaName());
 
         return papiReplacements ? SupportPAPI.getSupportPAPI().replace(player, s) : s;
     }
