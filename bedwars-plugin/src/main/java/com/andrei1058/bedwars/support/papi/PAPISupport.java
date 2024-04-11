@@ -263,16 +263,6 @@ public class PAPISupport extends PlaceholderExpansion {
                     response = a.getArenaName();
                 }
                 break;
-            case "arena_displayname_msg":
-                if (a != null) {
-                    response += Language.getMsg(player, Messages.COMMAND_MAP_ARENA_NAME).replace("{ARENA_DISPLAYNAME}", a.getDisplayName());
-                }
-                break;
-            case "arena_name_msg":
-                if (a != null) {
-                    response += Language.getMsg(player, Messages.COMMAND_MAP_ARENA_NAME).replace("{ARENA_NAME}", a.getArenaName());
-                }
-                break;
         }
         return response;
     }
