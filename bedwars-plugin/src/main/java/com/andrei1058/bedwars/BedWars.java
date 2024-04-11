@@ -48,7 +48,6 @@ import com.andrei1058.bedwars.commands.party.PartyCommand;
 import com.andrei1058.bedwars.commands.rejoin.RejoinCommand;
 import com.andrei1058.bedwars.commands.shout.ShoutCommand;
 import com.andrei1058.bedwars.configuration.*;
-import com.andrei1058.bedwars.database.Database;
 import com.andrei1058.bedwars.database.SQLite;
 import com.andrei1058.bedwars.language.*;
 import com.andrei1058.bedwars.levels.internal.InternalLevel;
@@ -65,6 +64,7 @@ import com.andrei1058.bedwars.lobbysocket.SendTask;
 import com.andrei1058.bedwars.maprestore.internal.InternalAdapter;
 import com.andrei1058.bedwars.metrics.MetricsManager;
 import com.andrei1058.bedwars.money.internal.MoneyListeners;
+import com.andrei1058.bedwars.shop.OverrideShop;
 import com.andrei1058.bedwars.shop.ShopCache;
 import com.andrei1058.bedwars.shop.ShopManager;
 import com.andrei1058.bedwars.shop.quickbuy.PlayerQuickBuyCache;
@@ -471,6 +471,30 @@ public class BedWars extends JavaPlugin {
 
         /* Initialize shop */
         shop = new ShopManager();
+        shop.loadShop();
+
+        /* Load shop overrides */
+        File dir = new File(BedWars.plugin.getDataFolder(), "/Shops");
+        if (dir.exists()) {
+            List<File> files = new ArrayList<>();
+            File[] fls = dir.listFiles();
+            for (File fl : Objects.requireNonNull(fls)) {
+                if (fl.isFile()) {
+                    if (fl.getName().endsWith(".yml")) {
+                        files.add(fl);
+                    }
+                }
+            }
+            for (File file : files) {
+                if (file.getName().equalsIgnoreCase("default-shop.yml")) continue;
+                new OverrideShop(shop, file.getName().replace(".yml", ""));
+            }
+        }
+
+        /* Initialize instances */
+        shopCache = new ShopCache();
+        playerQuickBuyCache = new PlayerQuickBuyCache();
+
 
         //Leave this code at the end of the enable method
         for (Language l : Language.getLanguages()) {
