@@ -7,6 +7,20 @@ pull requests instead of making hundreds of forks."
 BedWars is a mini-game where you have to defend your bed and destroy the others.  
 Once your bed is destroyed, you cannot respawn.
 
+## What's new:
+- Added Build Height Limit messages:
+  - Credits: [BedWars1058-BuildLimit](https://github.com/Frawlah80/BedWars1058-BuildLimit)
+  - You can now configure MAX BUILD HEIGHT and MIN BUILD HEIGHT in the arena's config. Messages (such as "Build height limit reached!" or "You cannot build any further down!" are configurable (in language files)!)
+- Added Map Command:
+  - Credits: [BedWars1058-MapCommand](https://github.com/Frawlah80/BedWars1058-MapCommand)
+  - Added commands: /map & /wtfmap
+  - Messages are configurable in language files (as {arenaDisplayName} to show the arena display name or {arenaName} to show the arena's original name)
+- Added new placeholders:
+  - Credits: None
+  - Added %bw1058_arena_displayname% & %bw1058_arena_name%
+- Added PerGroupShop:
+  - Full Credits: [BedWars2023](https://github.com/tomkeuper/BedWars2023)
+
 ## Main features
 
 ###### Flexible | Ways you can run the plugin:
@@ -38,7 +52,6 @@ The waiting-lobby inside the map can be removed once the game starts.
 - Items can have weight so you can't buy a weaker item than your current one etc.
 - Special items available: BedBug, Dream Defender, Egg Bridge, TNT Jump and Straight Fireball.
 - Quick buy feature is available and is synced between nodes as well in bungee mode.
-- Per Group Shop: Each group can have their own shop (items, item cost and more!). **NEW** 
 
 ###### Team Upgrades | Customization:
 - You may have different team upgrades per arena group.
