@@ -108,6 +108,7 @@ public class PAPISupport extends PlaceholderExpansion {
             return "-";
         }
 
+
         /* Player required placeholders */
         if (player == null) return null;
 
@@ -153,9 +154,6 @@ public class PAPISupport extends PlaceholderExpansion {
         String response = "";
         IArena a = Arena.getArenaByPlayer(player);
         switch (s) {
-            case "map":
-                response = String.valueOf(Arena.getArenaByPlayer(player));
-                break;
             case "current_online":
                 response = String.valueOf(Arena.getArenaByPlayer().size());
                 break;
@@ -254,6 +252,16 @@ public class PAPISupport extends PlaceholderExpansion {
                             response = String.format("%02d:%02d:%02d", time.toHours(), time.toMinutes(), time.toSeconds());
                         }
                     } else response = "";
+                }
+                break;
+            case "arena_displayname":
+                if (a != null) {
+                    response = a.getDisplayName();
+                }
+                break;
+            case "arena_name":
+                if (a != null) {
+                    response = a.getArenaName();
                 }
                 break;
         }
