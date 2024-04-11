@@ -299,9 +299,6 @@ public class English extends Language {
         yml.addDefault(Messages.MONEY_REWARD_FINAL_KILL, "{prefix}&6+{money} Coins (Final Kill).");
         yml.addDefault(Messages.MONEY_REWARD_REGULAR_KILL, "{prefix}&6+{money} Coins (Regular Kill).");
 
-        yml.addDefault(Messages.FORMAT_PAPI_ARENA_DISPLAYNAME, "{ARENA_DISPLAYNAME}");
-        yml.addDefault(Messages.FORMAT_PAPI_ARENA_NAME, "{ARENA_NAME}");
-
         /* Lobby Command Items */
         yml.addDefault(Messages.GENERAL_CONFIGURATION_LOBBY_ITEMS_NAME.replace("%path%", "stats"), "&eStats");
         yml.addDefault(Messages.GENERAL_CONFIGURATION_LOBBY_ITEMS_LORE.replace("%path%", "stats"), Collections.singletonList("&fRight-click to see your stats!"));

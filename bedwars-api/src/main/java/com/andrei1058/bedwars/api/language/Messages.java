@@ -107,9 +107,6 @@ public class Messages {
     public static String COMMAND_MAP_NOT_IN_ARENA = "cmd-map-not-in-arena";
     public static String COMMAND_MAP_ARENA_NAME = "cmd-map-arena-name";
 
-    public static String FORMAT_PAPI_ARENA_DISPLAYNAME = "format-papi-arena-displayname";
-    public static String FORMAT_PAPI_ARENA_NAME = "format-papi-arena-name";
-
     /**
      * Arena join/ leave related
      */
