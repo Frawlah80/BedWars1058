@@ -4,9 +4,21 @@ on:
   push:
     branches:
       - '*'
+    paths-ignore:
+      - '**/README.md'
+      - '**/CHANGELOG'
+      - '**/CONTRIBUTING.md'
+      - '**/LICENSE'
+      - '**/.github/**'
   pull_request:
     branches:
       - '*'
+    paths-ignore:
+      - '**/README.md'
+      - '**/CHANGELOG'
+      - '**/CONTRIBUTING.md'
+      - '**/LICENSE'
+      - '**/.github/**'
 
 jobs:
   build:
