@@ -29,7 +29,6 @@ import com.andrei1058.bedwars.api.language.Messages;
 import com.andrei1058.bedwars.api.stats.IPlayerStats;
 import com.andrei1058.bedwars.arena.Arena;
 import com.andrei1058.bedwars.commands.shout.ShoutCommand;
-import com.andrei1058.bedwars.stats.PlayerStats;
 import me.clip.placeholderapi.expansion.PlaceholderExpansion;
 import org.bukkit.entity.Player;
 import org.jetbrains.annotations.NotNull;
@@ -257,11 +256,13 @@ public class PAPISupport extends PlaceholderExpansion {
             case "arena_displayname":
                 if (a != null) {
                     response = a.getDisplayName();
+                    response += Language.getMsg(player, Messages.COMMAND_MAP_ARENA_NAME).replace("{ARENA_DISPLAYNAME}", a.getDisplayName());
                 }
                 break;
             case "arena_name":
                 if (a != null) {
                     response = a.getArenaName();
+                    response += Language.getMsg(player, Messages.COMMAND_MAP_ARENA_NAME).replace("{ARENA_NAME}", a.getArenaName());
                 }
                 break;
         }
