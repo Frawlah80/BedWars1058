@@ -153,6 +153,9 @@ public class PAPISupport extends PlaceholderExpansion {
         String response = "";
         IArena a = Arena.getArenaByPlayer(player);
         switch (s) {
+            case "map":
+                response = String.valueOf(Arena.getArenaByPlayer(player));
+                break;
             case "current_online":
                 response = String.valueOf(Arena.getArenaByPlayer().size());
                 break;
