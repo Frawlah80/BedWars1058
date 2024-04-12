@@ -26,9 +26,9 @@ import com.andrei1058.bedwars.api.arena.team.ITeam;
 import com.andrei1058.bedwars.api.configuration.ConfigPath;
 import com.andrei1058.bedwars.api.events.player.PlayerInvisibilityPotionEvent;
 import com.andrei1058.bedwars.arena.Arena;
+import com.andrei1058.bedwars.arena.tasks.InvisibilityPotionFootstepsTask;
 import com.andrei1058.bedwars.sidebar.SidebarService;
 import org.bukkit.Bukkit;
-import org.bukkit.Effect;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -75,8 +75,8 @@ public class InvisibilityPotionListener implements Listener {
         if (invisFootstepsSneakDisabled && p.isSneaking()) return;
         //Material blockUnder = p.getLocation().clone().add(0, -1, 0).getBlock().getType();
         //if (blockUnder == Material.AIR) return;
-        if (!p.isOnGround()) return; // This may cause problems if the player is cheating or something idk, not safe but will try
-        p.getWorld().playEffect(p.getLocation().add(0.0D, 0.005D, 0.0D), Effect.FOOTSTEP, 1);
+        if (!p.isOnGround()) return;
+        Bukkit.getScheduler().runTaskTimer(plugin, new InvisibilityPotionFootstepsTask(p), 0L, 5L);
     }
 
     @EventHandler
