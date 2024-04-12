@@ -29,7 +29,6 @@ import com.andrei1058.bedwars.api.language.Messages;
 import com.andrei1058.bedwars.api.server.ServerType;
 import com.andrei1058.bedwars.api.server.SetupType;
 import com.andrei1058.bedwars.arena.Arena;
-import com.andrei1058.bedwars.arena.Misc;
 import com.andrei1058.bedwars.arena.SetupSession;
 import com.andrei1058.bedwars.shop.main.ShopCategory;
 import com.andrei1058.bedwars.shop.main.ShopIndex;
@@ -273,7 +272,7 @@ public class Inventory implements Listener {
                         player.getInventory().setItem(slotNum, cursorItem);
                     }
                     // Update inventory to prevent ghost item
-                    Bukkit.getScheduler().runTaskLater(Bukkit.getPluginManager().getPlugin("BedWars2023"), (player)::updateInventory, 1L);
+                    Bukkit.getScheduler().runTaskLater(Bukkit.getPluginManager().getPlugin("BedWars1058"), (player)::updateInventory, 1L);
                 }
                 slotNum++;
             }
