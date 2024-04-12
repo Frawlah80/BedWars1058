@@ -65,6 +65,7 @@ public class InvisibilityPotionListener implements Listener {
         }
     }
 
+    @SuppressWarnings("deprecation")
     @EventHandler
     public void onInvisPlayerMove(PlayerMoveEvent e) {
         if (!invisFootstepsEnabled) return;
@@ -72,9 +73,10 @@ public class InvisibilityPotionListener implements Listener {
         if (!this.invisPlayers.contains(p)) return;
         if (nms.getVersion() > 5) return;
         if (invisFootstepsSneakDisabled && p.isSneaking()) return;
-        Material blockUnder = p.getLocation().clone().add(0, -1, 0).getBlock().getType();
-        if (blockUnder == Material.AIR) return;
-        p.getWorld().playEffect(p.getLocation().add(0.0D, 0.01D, 0.0D), Effect.FOOTSTEP, 1);
+        //Material blockUnder = p.getLocation().clone().add(0, -1, 0).getBlock().getType();
+        //if (blockUnder == Material.AIR) return;
+        if (!p.isOnGround()) return; // This may cause problems if the player is cheating or something idk, not safe but will try
+        p.getWorld().playEffect(p.getLocation().add(0.0D, 0.005D, 0.0D), Effect.FOOTSTEP, 1);
     }
 
     @EventHandler
