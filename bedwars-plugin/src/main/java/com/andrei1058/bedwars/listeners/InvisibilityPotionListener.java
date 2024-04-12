@@ -74,7 +74,7 @@ public class InvisibilityPotionListener implements Listener {
         if (invisFootstepsSneakDisabled && p.isSneaking()) return;
         Material blockUnder = p.getLocation().clone().add(0, -1, 0).getBlock().getType();
         if (blockUnder == Material.AIR) return;
-        p.getWorld().playEffect(p.getLocation().add(0.0D, 0.5D, 0.0D), Effect.FOOTSTEP, 0);
+        p.getWorld().playEffect(p.getLocation().add(0.0D, 0.01D, 0.0D), Effect.FOOTSTEP, 1);
     }
 
     @EventHandler
