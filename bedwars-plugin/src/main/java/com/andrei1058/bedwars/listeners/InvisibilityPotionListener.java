@@ -25,10 +25,13 @@ import com.andrei1058.bedwars.api.arena.IArena;
 import com.andrei1058.bedwars.api.arena.team.ITeam;
 import com.andrei1058.bedwars.api.configuration.ConfigPath;
 import com.andrei1058.bedwars.api.events.player.PlayerInvisibilityPotionEvent;
+import com.andrei1058.bedwars.api.events.player.PlayerLeaveArenaEvent;
 import com.andrei1058.bedwars.arena.Arena;
 import com.andrei1058.bedwars.arena.tasks.InvisibilityPotionFootstepsTask;
 import com.andrei1058.bedwars.sidebar.SidebarService;
 import org.bukkit.Bukkit;
+import org.bukkit.Effect;
+import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -53,6 +56,8 @@ public class InvisibilityPotionListener implements Listener {
     private final List<Player> invisPlayers = new ArrayList<>();
     private final boolean invisFootstepsEnabled = BedWars.config.getBoolean(ConfigPath.GENERAL_CONFIGURATION_INVIS_FOOTSTEPS_ENABLED);
     private final boolean invisFootstepsSneakDisabled = BedWars.config.getBoolean(ConfigPath.GENERAL_CONFIGURATION_INVIS_FOOTSTEPS_SNEAKDISABLED);
+    //private int invisFootstepsInterval = BedWars.config.getInt(ConfigPath.GENERAL_CONFIGURATION_INVIS_FOOTSTEPS_INTERVAL);
+    private int invisFootstepsInterval = 6;
 
     @EventHandler
     public void onInvisPot(PlayerInvisibilityPotionEvent e) {
@@ -73,10 +78,26 @@ public class InvisibilityPotionListener implements Listener {
         if (!this.invisPlayers.contains(p)) return;
         if (nms.getVersion() > 5) return;
         if (invisFootstepsSneakDisabled && p.isSneaking()) return;
-        //Material blockUnder = p.getLocation().clone().add(0, -1, 0).getBlock().getType();
-        //if (blockUnder == Material.AIR) return;
         if (!p.isOnGround()) return;
-        Bukkit.getScheduler().runTaskTimer(plugin, new InvisibilityPotionFootstepsTask(p), 0L, 5L);
+        Location from = e.getFrom();
+        Location to = e.getTo();
+        if (from.getBlock() != to.getBlock()) {
+            if (this.invisFootstepsInterval == 3) {
+                p.getWorld().playEffect(p.getLocation().add(0.0D, 0.01D, 0.4D), Effect.FOOTSTEP, 1);
+                this.invisFootstepsInterval--;
+            } else if (this.invisFootstepsInterval <= 0) {
+                p.getWorld().playEffect(p.getLocation().add(0.4D, 0.01D, 0.0D), Effect.FOOTSTEP, 1);
+                this.invisFootstepsInterval = 6;
+            } else {
+                this.invisFootstepsInterval--;
+            }
+        }
+    }
+
+    @EventHandler
+    public void onPlayerLeaveArena(PlayerLeaveArenaEvent e) {
+        Player p = e.getPlayer();
+        if (this.invisPlayers.contains(p)) this.invisPlayers.remove(p);
     }
 
     @EventHandler

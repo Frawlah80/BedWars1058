@@ -3,6 +3,7 @@ package com.andrei1058.bedwars.arena.tasks;
 import org.bukkit.Effect;
 import org.bukkit.entity.Player;
 
+@Deprecated
 public class InvisibilityPotionFootstepsTask implements Runnable {
     private final Player p;
     public InvisibilityPotionFootstepsTask(Player p) {

@@ -268,6 +268,8 @@ public class ConfigPath {
     public static final String GENERAL_CONFIGURATION_INVIS_FOOTSTEPS = "invis-potion-settings";
     public static final String GENERAL_CONFIGURATION_INVIS_FOOTSTEPS_ENABLED = GENERAL_CONFIGURATION_INVIS_FOOTSTEPS+".enabled";
     public static final String GENERAL_CONFIGURATION_INVIS_FOOTSTEPS_SNEAKDISABLED = GENERAL_CONFIGURATION_INVIS_FOOTSTEPS+".no-footsteps-on-sneak";
+    //public static final String GENERAL_CONFIGURATION_INVIS_FOOTSTEPS_INTERVAL = GENERAL_CONFIGURATION_INVIS_FOOTSTEPS+".interval-between-effect-spawn";
+
     public static final String SHOP_SETTINGS_PATH = "shop-settings";
     public static final String SHOP_SPECIALS_PATH = "shop-specials";
     public static final String SHOP_QUICK_DEFAULTS_PATH = "quick-buy-defaults";

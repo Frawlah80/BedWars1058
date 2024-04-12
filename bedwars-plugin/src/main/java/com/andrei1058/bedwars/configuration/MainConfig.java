@@ -216,6 +216,7 @@ public class MainConfig extends ConfigManager {
 
         yml.addDefault(ConfigPath.GENERAL_CONFIGURATION_INVIS_FOOTSTEPS_ENABLED, true);
         yml.addDefault(ConfigPath.GENERAL_CONFIGURATION_INVIS_FOOTSTEPS_SNEAKDISABLED, true);
+        //yml.addDefault(ConfigPath.GENERAL_CONFIGURATION_INVIS_FOOTSTEPS_INTERVAL, 10);
         save();
 
         //remove old config
