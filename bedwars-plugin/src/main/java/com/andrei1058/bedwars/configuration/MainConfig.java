@@ -213,6 +213,9 @@ public class MainConfig extends ConfigManager {
         yml.addDefault(ConfigPath.GENERAL_GAME_END_SB_TOP_STATISTIC, DefaultStatistics.KILLS.toString());
         yml.addDefault(ConfigPath.GENERAL_GAME_END_SB_TOP_HIDE_MISSING, true);
         yml.options().copyDefaults(true);
+
+        yml.addDefault(ConfigPath.GENERAL_CONFIGURATION_INVIS_FOOTSTEPS_ENABLED, true);
+        yml.addDefault(ConfigPath.GENERAL_CONFIGURATION_INVIS_FOOTSTEPS_SNEAKDISABLED, true);
         save();
 
         //remove old config

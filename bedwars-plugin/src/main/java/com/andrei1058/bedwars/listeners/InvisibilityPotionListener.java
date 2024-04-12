@@ -20,20 +20,27 @@
 
 package com.andrei1058.bedwars.listeners;
 
+import com.andrei1058.bedwars.BedWars;
 import com.andrei1058.bedwars.api.arena.IArena;
 import com.andrei1058.bedwars.api.arena.team.ITeam;
+import com.andrei1058.bedwars.api.configuration.ConfigPath;
 import com.andrei1058.bedwars.api.events.player.PlayerInvisibilityPotionEvent;
 import com.andrei1058.bedwars.arena.Arena;
 import com.andrei1058.bedwars.sidebar.SidebarService;
 import org.bukkit.Bukkit;
+import org.bukkit.Effect;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerItemConsumeEvent;
+import org.bukkit.event.player.PlayerMoveEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.potion.PotionEffect;
 import org.jetbrains.annotations.NotNull;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import static com.andrei1058.bedwars.BedWars.nms;
 import static com.andrei1058.bedwars.BedWars.plugin;
@@ -43,6 +50,32 @@ import static com.andrei1058.bedwars.BedWars.plugin;
  * potion or when the potion is gone. It is required because it is related to scoreboards.
  */
 public class InvisibilityPotionListener implements Listener {
+    private final List<Player> invisPlayers = new ArrayList<>();
+    private final boolean invisFootstepsEnabled = BedWars.config.getBoolean(ConfigPath.GENERAL_CONFIGURATION_INVIS_FOOTSTEPS_ENABLED);
+    private final boolean invisFootstepsSneakDisabled = BedWars.config.getBoolean(ConfigPath.GENERAL_CONFIGURATION_INVIS_FOOTSTEPS_SNEAKDISABLED);
+
+    @EventHandler
+    public void onInvisPot(PlayerInvisibilityPotionEvent e) {
+        if (!invisFootstepsEnabled) return;
+        Player p = e.getPlayer();
+        if (e.getType() == PlayerInvisibilityPotionEvent.Type.ADDED) {
+            this.invisPlayers.add(p);
+        } else if (e.getType() == PlayerInvisibilityPotionEvent.Type.REMOVED) {
+            this.invisPlayers.remove(p);
+        }
+    }
+
+    @EventHandler
+    public void onInvisPlayerMove(PlayerMoveEvent e) {
+        if (!invisFootstepsEnabled) return;
+        Player p = e.getPlayer();
+        if (!this.invisPlayers.contains(p)) return;
+        if (nms.getVersion() > 5) return;
+        if (invisFootstepsSneakDisabled && p.isSneaking()) return;
+        Material blockUnder = p.getLocation().clone().add(0, -1, 0).getBlock().getType();
+        if (blockUnder == Material.AIR) return;
+        p.getWorld().playEffect(p.getLocation().add(0.0D, 0.5D, 0.0D), Effect.FOOTSTEP, 0);
+    }
 
     @EventHandler
     public void onPotion(@NotNull PlayerInvisibilityPotionEvent e) {
