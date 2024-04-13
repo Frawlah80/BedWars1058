@@ -20,7 +20,11 @@ Once your bed is destroyed, you cannot respawn.
 - Added PerGroupShop:
   - Full Credits: [BedWars2023](https://github.com/tomkeuper/BedWars2023)
 - Added Invisibility Potion Effect:
+  - Credits: [BedWars2023](https://github.com/tomkeuper/BedWars2023)
   - Added footstep particles (configurable in config).
+- Added Anti-Drop:
+  - Credit: [BedWars1058-AntiDrop](https://polymart.org/resource/bedwars1058-antidrop-addon.1661?__cf_chl_tk=54SoQcQ1KkWUBrb6kAO301OFl5.q3rosFaEUJz.nHkk-1712989639-0.0.1.1-1578)
+  - Configurable in config (You can disable this feature).
 
 ## Main features
 
