@@ -270,6 +270,8 @@ public class ConfigPath {
     public static final String GENERAL_CONFIGURATION_INVIS_FOOTSTEPS_SNEAKDISABLED = GENERAL_CONFIGURATION_INVIS_FOOTSTEPS+".no-footsteps-on-sneak";
     public static final String GENERAL_CONFIGURATION_INVIS_FOOTSTEPS_DISABLE_IF_NOT_ON_GROUND = GENERAL_CONFIGURATION_INVIS_FOOTSTEPS+".no-footsteps-if-not-on-ground";
 
+    public static final String GENERAL_CONFIGURATION_ADVENTUREMODE_ON_WAITINGLOBBY_JOIN = "adventure-mode-on-waiting-lobby-join";
+
     public static final String GENERAL_CONFIGURATION_DISABLE_ITEM_DROP_WHILE_VOIDING = "disable-void-item-drop";
 
     public static final String SHOP_SETTINGS_PATH = "shop-settings";
