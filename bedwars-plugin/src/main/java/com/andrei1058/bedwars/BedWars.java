@@ -58,6 +58,7 @@ import com.andrei1058.bedwars.listeners.blockstatus.BlockStatusListener;
 import com.andrei1058.bedwars.listeners.chat.ChatAFK;
 import com.andrei1058.bedwars.listeners.chat.ChatFormatting;
 import com.andrei1058.bedwars.listeners.dropshandler.PlayerVoidDropListener;
+import com.andrei1058.bedwars.listeners.WaitingLobbyJoinListener;
 import com.andrei1058.bedwars.listeners.joinhandler.*;
 import com.andrei1058.bedwars.lobbysocket.ArenaSocket;
 import com.andrei1058.bedwars.lobbysocket.LoadedUsersCleaner;
@@ -321,6 +322,8 @@ public class BedWars extends JavaPlugin {
         registerEvents(new InvisibilityPotionListener());
 
         registerEvents(new PlayerVoidDropListener());
+
+        registerEvents(new WaitingLobbyJoinListener());
 
         /* Load join signs. */
         loadArenasAndSigns();
