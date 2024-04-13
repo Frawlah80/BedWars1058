@@ -14,7 +14,6 @@ import com.andrei1058.bedwars.api.stats.IPlayerStats;
 import com.andrei1058.bedwars.arena.Arena;
 import com.andrei1058.bedwars.arena.stats.StatisticsOrdered;
 import com.andrei1058.bedwars.levels.internal.PlayerLevel;
-import com.andrei1058.bedwars.stats.PlayerStats;
 import com.andrei1058.spigot.sidebar.*;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
@@ -269,6 +268,10 @@ public class BwSidebar implements ISidebar {
         if (null != level) {
             providers.add(new PlaceholderProvider("{progress}", level::getProgress));
             providers.add(new PlaceholderProvider("{level}", () -> String.valueOf(level.getLevelName())));
+            providers.add(new PlaceholderProvider("{levelNoBrackets}", () -> level.getLevelName()
+                    .replace("[", "")
+                    .replace("]", "")
+            ));
             providers.add(new PlaceholderProvider("{levelUnformatted}", () -> String.valueOf(level.getLevel())));
             providers.add(new PlaceholderProvider("{currentXp}", level::getFormattedCurrentXp));
             providers.add(new PlaceholderProvider("{requiredXp}", level::getFormattedRequiredXp));
