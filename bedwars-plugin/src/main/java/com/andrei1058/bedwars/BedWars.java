@@ -291,6 +291,14 @@ public class BedWars extends JavaPlugin {
             registerEvents(new HealPoolListner());
         }
 
+        if (config.getBoolean(ConfigPath.GENERAL_CONFIGURATION_DISABLE_ITEM_DROP_WHILE_VOIDING)) {
+            registerEvents(new PlayerVoidDropListener());
+        }
+
+        if (config.getBoolean(ConfigPath.GENERAL_CONFIGURATION_ADVENTUREMODE_ON_WAITINGLOBBY_JOIN)) {
+            registerEvents(new WaitingLobbyJoinListener());
+        }
+
         if (getServerType() == ServerType.BUNGEE) {
             if (autoscale) {
                 //registerEvents(new ArenaListeners());
@@ -320,10 +328,6 @@ public class BedWars extends JavaPlugin {
         registerEvents(new ChunkLoad());
 
         registerEvents(new InvisibilityPotionListener());
-
-        registerEvents(new PlayerVoidDropListener());
-
-        registerEvents(new WaitingLobbyJoinListener());
 
         /* Load join signs. */
         loadArenasAndSigns();

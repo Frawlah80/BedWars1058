@@ -16,14 +16,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class PlayerVoidDropListener implements Listener {
-    private final boolean disableItemDropWhileVoiding = BedWars.config.getBoolean(ConfigPath.GENERAL_CONFIGURATION_DISABLE_ITEM_DROP_WHILE_VOIDING);
 
     @EventHandler(ignoreCancelled = true)
     public void onItemDropWhileVoiding(PlayerDropItemEvent e) {
         Player player = e.getPlayer();
         IArena a = Arena.getArenaByPlayer(player);
 
-        if (!disableItemDropWhileVoiding) return;
         if (!a.isPlayer(player)) return;
         if (a.getStatus() != GameState.playing) return;
 
