@@ -60,7 +60,6 @@ import java.util.logging.Level;
 
 import static com.andrei1058.bedwars.api.language.Language.getMsg;
 
-@Deprecated(forRemoval = true)
 @SuppressWarnings("unused")
 public class v1_8_R3 extends VersionSupport {
 
@@ -150,12 +149,14 @@ public class v1_8_R3 extends VersionSupport {
 
     @Override
     public boolean isSword(ItemStack itemStack) {
+        if (CraftItemStack.asNMSCopy(itemStack) == null) return false;
         if (CraftItemStack.asNMSCopy(itemStack).getItem() == null) return false;
         return CraftItemStack.asNMSCopy(itemStack).getItem() instanceof ItemSword;
     }
 
     @Override
     public boolean isAxe(ItemStack itemStack) {
+        if (CraftItemStack.asNMSCopy(itemStack) == null) return false;
         if (CraftItemStack.asNMSCopy(itemStack).getItem() == null) return false;
         return CraftItemStack.asNMSCopy(itemStack).getItem() instanceof ItemAxe;
     }
