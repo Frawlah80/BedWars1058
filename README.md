@@ -19,6 +19,7 @@ Once your bed is destroyed, you cannot respawn.
   - %bw1058_arena_displayname%
   - %bw1058_arena_name%
   - %bw1058_player_level_no_brackets% (removes brackets in levels. Example: [1⭐] would look like 1⭐, and it will still retain the colors)
+  - {levelNoBrackets} placeholder for lobby scoreboard
 - Added PerGroupShop:
   - Full Credits: [BedWars2023](https://github.com/tomkeuper/BedWars2023)
 - Added Invisibility Potion Effect:
