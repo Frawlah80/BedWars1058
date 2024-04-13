@@ -322,6 +322,8 @@ public class BedWars extends JavaPlugin {
 
         registerEvents(new PlayerVoidDropListener());
 
+        registerEvents(new WaitingLobbyJoinListener());
+
         /* Load join signs. */
         loadArenasAndSigns();
 
