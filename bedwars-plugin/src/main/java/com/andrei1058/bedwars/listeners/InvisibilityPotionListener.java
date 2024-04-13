@@ -24,10 +24,10 @@ import com.andrei1058.bedwars.BedWars;
 import com.andrei1058.bedwars.api.arena.IArena;
 import com.andrei1058.bedwars.api.arena.team.ITeam;
 import com.andrei1058.bedwars.api.configuration.ConfigPath;
+import com.andrei1058.bedwars.api.events.gameplay.GameEndEvent;
 import com.andrei1058.bedwars.api.events.player.PlayerInvisibilityPotionEvent;
 import com.andrei1058.bedwars.api.events.player.PlayerLeaveArenaEvent;
 import com.andrei1058.bedwars.arena.Arena;
-import com.andrei1058.bedwars.arena.tasks.InvisibilityPotionFootstepsTask;
 import com.andrei1058.bedwars.sidebar.SidebarService;
 import org.bukkit.Bukkit;
 import org.bukkit.Effect;
@@ -43,6 +43,7 @@ import org.bukkit.potion.PotionEffect;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import static com.andrei1058.bedwars.BedWars.nms;
@@ -54,9 +55,10 @@ import static com.andrei1058.bedwars.BedWars.plugin;
  */
 public class InvisibilityPotionListener implements Listener {
     private final List<Player> invisPlayers = new ArrayList<>();
+    private final HashMap<Player, Integer> steps = new HashMap<>(); // ty bw2023
     private final boolean invisFootstepsEnabled = BedWars.config.getBoolean(ConfigPath.GENERAL_CONFIGURATION_INVIS_FOOTSTEPS_ENABLED);
     private final boolean invisFootstepsSneakDisabled = BedWars.config.getBoolean(ConfigPath.GENERAL_CONFIGURATION_INVIS_FOOTSTEPS_SNEAKDISABLED);
-    //private int invisFootstepsInterval = BedWars.config.getInt(ConfigPath.GENERAL_CONFIGURATION_INVIS_FOOTSTEPS_INTERVAL);
+    private final boolean invisFootstepsNotOnGroundDisable = BedWars.config.getBoolean(ConfigPath.GENERAL_CONFIGURATION_INVIS_FOOTSTEPS_DISABLE_IF_NOT_ON_GROUND);
     private int invisFootstepsInterval = 6;
 
     @EventHandler
@@ -65,8 +67,29 @@ public class InvisibilityPotionListener implements Listener {
         Player p = e.getPlayer();
         if (e.getType() == PlayerInvisibilityPotionEvent.Type.ADDED) {
             this.invisPlayers.add(p);
+            steps.put(e.getPlayer(), 12);
         } else if (e.getType() == PlayerInvisibilityPotionEvent.Type.REMOVED) {
             this.invisPlayers.remove(p);
+            steps.remove(e.getPlayer());
+        }
+    }
+
+    @EventHandler
+    public void onGameEnd(GameEndEvent e) {
+        for (Player p : e.getArena().getPlayers()) {
+            if (this.invisPlayers.contains(p)) {
+                this.invisPlayers.remove(p);
+                steps.remove(p);
+            }
+        }
+    }
+
+    @EventHandler
+    public void onPlayerLeave(PlayerLeaveArenaEvent e) {
+        Player p = e.getPlayer();
+        if (this.invisPlayers.contains(p)) {
+            this.invisPlayers.remove(p);
+            steps.remove(p);
         }
     }
 
@@ -78,7 +101,7 @@ public class InvisibilityPotionListener implements Listener {
         if (!this.invisPlayers.contains(p)) return;
         if (nms.getVersion() > 5) return;
         if (invisFootstepsSneakDisabled && p.isSneaking()) return;
-        if (!p.isOnGround()) return;
+        if (invisFootstepsNotOnGroundDisable && !p.isOnGround()) return;
         Location from = e.getFrom();
         Location to = e.getTo();
         if (from.getBlock() != to.getBlock()) {
