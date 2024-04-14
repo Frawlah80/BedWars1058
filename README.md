@@ -28,6 +28,8 @@ Once your bed is destroyed, you cannot respawn.
 - Added Anti-Drop:
   - Credit: [BedWars1058-AntiDrop](https://polymart.org/resource/bedwars1058-antidrop-addon.1661?__cf_chl_tk=54SoQcQ1KkWUBrb6kAO301OFl5.q3rosFaEUJz.nHkk-1712989639-0.0.1.1-1578)
   - Configurable in config (You can disable this feature).
+- Added Adventure Mode feature in main-lobby:
+  - Configurable in config (You can disable this feature). 
 
 ## Main features
 
