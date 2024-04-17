@@ -339,8 +339,6 @@ public class English extends Language {
                 "&fProgress: &b{currentXp}&7/&a{requiredXp}",
                 "{progress}",
                 "",
-                "&fLoot Chests: &e0",
-                "",
                 "&fCoins: &6{moneyCommas}" ,
                 "",
                 "&fTotal Kills: &a{kills}",

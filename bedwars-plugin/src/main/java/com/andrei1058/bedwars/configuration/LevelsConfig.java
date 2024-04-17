@@ -302,7 +302,7 @@ public class LevelsConfig extends ConfigManager {
             levels.getYml().addDefault("levels.1900-1999.name", "&7[&5{number}&8✪&7] ");
             levels.getYml().addDefault("levels.1900-1999.rankup-cost", 2500);
 
-            levels.getYml().addDefault("levels.2000.name", "&8[&72&f00&70&l✪&8] ");
+            levels.getYml().addDefault("levels.2000.name", "&8[&72&f00&70✪&8] ");
             levels.getYml().addDefault("levels.2000.rankup-cost", 2000);
 
             // I ain't doing anything more than this...
