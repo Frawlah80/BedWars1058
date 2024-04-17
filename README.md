@@ -20,6 +20,7 @@ Once your bed is destroyed, you cannot respawn.
   - %bw1058_arena_name%
   - %bw1058_player_level_no_brackets% (removes brackets in levels. Example: [1⭐] would look like 1⭐, and it will still retain the colors)
   - {levelNoBrackets} placeholder for lobby scoreboard
+  - {moneyCommas} placeholder for lobby scoreboard (example: shows vault money as "1,000,000" instead of the default 1000000.0)
 - Added PerGroupShop:
   - Full Credits: [BedWars2023](https://github.com/tomkeuper/BedWars2023)
 - Added Invisibility Potion Effect:
@@ -28,7 +29,7 @@ Once your bed is destroyed, you cannot respawn.
 - Added Anti-Drop:
   - Credit: [BedWars1058-AntiDrop](https://polymart.org/resource/bedwars1058-antidrop-addon.1661?__cf_chl_tk=54SoQcQ1KkWUBrb6kAO301OFl5.q3rosFaEUJz.nHkk-1712989639-0.0.1.1-1578)
   - Configurable in config (You can disable this feature).
-- Added Adventure Mode feature in main-lobby:
+- Added Adventure Mode feature in waiting-lobby:
   - Configurable in config (You can disable this feature). 
 
 ## Main features
