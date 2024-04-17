@@ -334,7 +334,7 @@ public class English extends Language {
                 "&e&lBED WARS",
                 "&7{date} &8{server}",
                 "",
-                "&fYour Level: &r{levelNoBrackets}",
+                "Your Level: &r{levelNoBrackets}",
                 "",
                 "&fProgress: &b{currentXp}&7/&a{requiredXp}",
                 "{progress}",

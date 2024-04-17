@@ -125,7 +125,7 @@ public class LevelsConfig extends ConfigManager {
             levels.getYml().addDefault("levels.1025.rankup-cost", 1500);
             levels.getYml().addDefault("levels.1026.name", "&c[&61&e0&a2&b6&d✫&5] ");
             levels.getYml().addDefault("levels.1026.rankup-cost", 1500);
-            levels.getYml().addDefault("levels.1027.name", "&c[&61&e0&a2&b7&d✫&55] ");
+            levels.getYml().addDefault("levels.1027.name", "&c[&61&e0&a2&b7&d✫&5] ");
             levels.getYml().addDefault("levels.1027.rankup-cost", 1500);
             levels.getYml().addDefault("levels.1028.name", "&c[&61&e0&a2&b8&d✫&5] ");
             levels.getYml().addDefault("levels.1028.rankup-cost", 1500);
