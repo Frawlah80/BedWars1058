@@ -341,7 +341,7 @@ public class English extends Language {
                 "",
                 "&fLoot Chests: &e0",
                 "",
-                "&fCoins: &6{money}" ,
+                "&fCoins: &6{moneyCommas}" ,
                 "",
                 "&fTotal Kills: &a{kills}",
                 "&fTotal Wins: &a{wins}",

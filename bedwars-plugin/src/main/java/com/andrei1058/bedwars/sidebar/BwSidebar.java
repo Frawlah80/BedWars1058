@@ -22,6 +22,7 @@ import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
+import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.util.*;
 import java.util.concurrent.ConcurrentLinkedQueue;
@@ -37,6 +38,7 @@ public class BwSidebar implements ISidebar {
             return "";
         }
     };
+    private static final DecimalFormat COMMAS_FORMAT = new DecimalFormat("#,###");
 
     private final Player player;
     private IArena arena;
@@ -259,6 +261,7 @@ public class BwSidebar implements ISidebar {
         ConcurrentLinkedQueue<PlaceholderProvider> providers = new ConcurrentLinkedQueue<>();
         providers.add(new PlaceholderProvider("{player}", player::getDisplayName));
         providers.add(new PlaceholderProvider("{money}", () -> String.valueOf(getEconomy().getMoney(player))));
+        providers.add(new PlaceholderProvider("{moneyCommas}", () -> String.valueOf(COMMAS_FORMAT.format(getEconomy().getMoney(player)))));
         providers.add(new PlaceholderProvider("{playerName}", player::getCustomName));
         providers.add(new PlaceholderProvider("{date}", () -> dateFormat.format(new Date(System.currentTimeMillis()))));
         // fixme 29/08/2023: disabled for now because this is not a dynamic placeholder. Let's see what's the impact.
