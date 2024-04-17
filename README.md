@@ -31,6 +31,8 @@ Once your bed is destroyed, you cannot respawn.
   - Configurable in config (You can disable this feature).
 - Added Adventure Mode feature in waiting-lobby:
   - Configurable in config (You can disable this feature). 
+- New default levels:
+  - Added "popular server" prestiges (1 star - 2000 star)
 
 ## Main features
 
