@@ -6,10 +6,14 @@ import com.andrei1058.bedwars.arena.Arena;
 import org.bukkit.Effect;
 import org.bukkit.Location;
 import org.bukkit.Material;
+import org.bukkit.block.Block;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.BlockPlaceEvent;
+import org.bukkit.scheduler.BukkitRunnable;
+
+import static com.andrei1058.bedwars.BedWars.plugin;
 
 public class SpongePlaceListener implements Listener {
 
@@ -25,6 +29,7 @@ public class SpongePlaceListener implements Listener {
 
         playSmokeEffect(e.getBlock().getLocation());
 
+        removeSpongeBlock(e.getBlock());
     }
 
     private void playSmokeEffect(Location loc) {
@@ -32,9 +37,18 @@ public class SpongePlaceListener implements Listener {
             for (int y = -1; y <= 1; y++) {
                 for (int z = -1; z <= 1; z++) {
                     Location effectLoc = loc.clone().add(x, y, z);
-                    loc.getWorld().playEffect(effectLoc, Effect.SMOKE, 0);
+                    loc.getWorld().playEffect(effectLoc, Effect.CLOUD, 1);
                 }
             }
         }
+    }
+
+    private void removeSpongeBlock(Block spongeBlock) {
+        new BukkitRunnable() {
+            @Override
+            public void run() {
+                spongeBlock.setType(Material.AIR);
+            }
+        }.runTaskLater(plugin, 40L);
     }
 }
