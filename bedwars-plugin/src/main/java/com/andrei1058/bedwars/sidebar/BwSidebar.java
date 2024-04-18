@@ -272,7 +272,7 @@ public class BwSidebar implements ISidebar {
             providers.add(new PlaceholderProvider("{progress}", level::getProgress));
             providers.add(new PlaceholderProvider("{level}", () -> String.valueOf(level.getLevelName())));
             providers.add(new PlaceholderProvider("{levelNoBrackets}", () -> level.getLevelName()
-                    .replace("[", "")
+                    .replaceAll(".*\\[", "")
                     .replace("]", "")
             ));
             providers.add(new PlaceholderProvider("{levelUnformatted}", () -> String.valueOf(level.getLevel())));
