@@ -274,6 +274,8 @@ public class ConfigPath {
 
     public static final String GENERAL_CONFIGURATION_DISABLE_ITEM_DROP_WHILE_VOIDING = "disable-void-item-drop";
 
+    public static final String GENERAL_CONFIGURATION_ENABLE_SPONGE_EFFECT = "enable-sponge-effect";
+
     public static final String SHOP_SETTINGS_PATH = "shop-settings";
     public static final String SHOP_SPECIALS_PATH = "shop-specials";
     public static final String SHOP_QUICK_DEFAULTS_PATH = "quick-buy-defaults";

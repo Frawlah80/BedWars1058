@@ -299,6 +299,10 @@ public class BedWars extends JavaPlugin {
             registerEvents(new WaitingLobbyJoinListener());
         }
 
+        if (config.getBoolean(ConfigPath.GENERAL_CONFIGURATION_ENABLE_SPONGE_EFFECT)) {
+            registerEvents(new SpongePlaceListener());
+        }
+
         if (getServerType() == ServerType.BUNGEE) {
             if (autoscale) {
                 //registerEvents(new ArenaListeners());

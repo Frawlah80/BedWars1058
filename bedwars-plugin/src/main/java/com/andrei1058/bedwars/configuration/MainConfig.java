@@ -221,6 +221,8 @@ public class MainConfig extends ConfigManager {
         yml.addDefault(ConfigPath.GENERAL_CONFIGURATION_DISABLE_ITEM_DROP_WHILE_VOIDING, true);
 
         yml.addDefault(ConfigPath.GENERAL_CONFIGURATION_ADVENTUREMODE_ON_WAITINGLOBBY_JOIN, true);
+
+        yml.addDefault(ConfigPath.GENERAL_CONFIGURATION_ENABLE_SPONGE_EFFECT, true);
         save();
 
         //remove old config
