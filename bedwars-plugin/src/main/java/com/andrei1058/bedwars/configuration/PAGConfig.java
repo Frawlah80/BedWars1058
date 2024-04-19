@@ -1,6 +1,5 @@
 package com.andrei1058.bedwars.configuration;
 
-import com.andrei1058.bedwars.BedWars;
 import com.andrei1058.bedwars.api.configuration.ConfigManager;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.plugin.Plugin;
@@ -26,6 +25,8 @@ public class PAGConfig extends ConfigManager {
         yml.addDefault("Arenas." + "Arena1" + ".gold.amount", 1);
         yml.addDefault("Arenas." + "Arena1" + ".gold.delay", 4);
         yml.addDefault("Arenas." + "Arena1" + ".gold.spawn-limit", 16);
+
+        save();
 
         }
 
