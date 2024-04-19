@@ -113,9 +113,8 @@ public class BedWars extends JavaPlugin {
     private static ServerType serverType = ServerType.MULTIARENA;
     public static boolean debug = true, autoscale = false;
     public static String mainCmd = "bw", link = "https://discord.gg/";
-    public static ConfigManager signs, generators;
+    public static ConfigManager signs, generators, pagConfig;
     public static MainConfig config;
-    public static PAGConfig pagConfig;
     public static ShopManager shop;
     public static PlayerQuickBuyCache playerQuickBuyCache;
     public static ShopCache shopCache;
@@ -211,6 +210,9 @@ public class BedWars extends JavaPlugin {
         config = new MainConfig(this, "config");
 
         generators = new GeneratorsConfig(this, "generators", this.getDataFolder().getPath());
+
+        pagConfig = new PAGConfig(this, "per-arena-gen", this.getDataFolder().getPath());
+
         // Initialize signs config after the main config
         if (getServerType() != ServerType.BUNGEE) {
             signs = new SignsConfig(this, "signs", this.getDataFolder().getPath());
@@ -523,9 +525,6 @@ public class BedWars extends JavaPlugin {
 
         /* Load Money Configuration */
         MoneyConfig.init();
-
-        /* Load PerArenaGenerator Configuration */
-        PAGConfig.init();
 
         // bStats metrics
         MetricsManager.initService(this);
