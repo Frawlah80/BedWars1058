@@ -524,6 +524,9 @@ public class BedWars extends JavaPlugin {
         /* Load Money Configuration */
         MoneyConfig.init();
 
+        /* Load PerArenaGenerator Configuration */
+        PAGConfig.init();
+
         // bStats metrics
         MetricsManager.initService(this);
 
