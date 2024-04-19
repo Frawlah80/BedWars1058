@@ -38,6 +38,7 @@ Once your bed is destroyed, you cannot respawn.
 - Added Sponge Effect:
   - Despawn Sponge after 2 seconds
   - Play Cloud effect on place (not the best atm but there is room for improvement)
+  - You can disable this feature in config if you do not like it and continue to use a separate addon for this...
 - Added Per Arena Generator:
   - Iron/Gold Amount, Delay, Max Spawn are configurable per arena. 
   - Configurable in per-arena-gen.yml 
