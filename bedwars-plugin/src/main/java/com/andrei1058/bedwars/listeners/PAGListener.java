@@ -7,6 +7,7 @@ import com.andrei1058.bedwars.api.arena.generator.IGenerator;
 import com.andrei1058.bedwars.api.arena.team.ITeam;
 import com.andrei1058.bedwars.api.events.gameplay.GameStateChangeEvent;
 
+import com.andrei1058.bedwars.api.events.upgrades.UpgradeBuyEvent;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 
@@ -30,12 +31,12 @@ public class PAGListener implements Listener {
 
                     if (gen.getType() == GeneratorType.IRON) {
 
-                        if (ironDelay != 0) {
-                            gen.setDelay(ironDelay);
-                        }
-
                         if (ironAmount != 0) {
                             gen.setAmount(ironAmount);
+                        }
+
+                        if (ironDelay != 0) {
+                            gen.setDelay(ironDelay);
                         }
 
                         if (ironSpawnAmount != 0) {
@@ -44,12 +45,12 @@ public class PAGListener implements Listener {
 
                     } else if (gen.getType() == GeneratorType.GOLD) {
 
-                        if (goldDelay != 0) {
-                            gen.setDelay(goldDelay);
-                        }
-
                         if (goldAmount != 0) {
                             gen.setAmount(goldAmount);
+                        }
+
+                        if (goldDelay != 0) {
+                            gen.setDelay(goldDelay);
                         }
 
                         if (goldSpawnAmount != 0) {
@@ -59,6 +60,59 @@ public class PAGListener implements Listener {
                     }
                 }
             }
+        }
+
+    }
+
+    @EventHandler
+    public void onForgePurchase(UpgradeBuyEvent e) {
+
+        if (e.getTeamUpgrade().getName().equals("forge.tier-1")) {
+
+            int ironAmount1 = BedWars.pagConfig.getInt("Arenas." + e.getArena().getArenaName() + ".iron-forge.iron.amount");
+            int ironDelay1 = BedWars.pagConfig.getInt("Arenas." + e.getArena().getArenaName() + ".iron-forge.iron.delay");
+            int ironSpawnAmount1 = BedWars.pagConfig.getInt("Arenas." + e.getArena().getArenaName() + ".iron-forge.iron.spawn-limit");
+
+            int goldAmount1 = BedWars.pagConfig.getInt("Arenas." + e.getArena().getArenaName() + ".iron-forge.gold.amount");
+            int goldDelay1 = BedWars.pagConfig.getInt("Arenas." + e.getArena().getArenaName() + ".iron-forge.gold.delay");
+            int goldSpawnAmount1 = BedWars.pagConfig.getInt("Arenas." + e.getArena().getArenaName() + ".iron-forge.gold.spawn-limit");
+
+            ITeam team = e.getTeam();
+
+            for (IGenerator gen : team.getGenerators()) {
+
+                if (gen.getType() == GeneratorType.IRON) {
+
+                    if (ironDelay1 != 0) {
+                        gen.setDelay(ironDelay1);
+                    }
+
+                    if (ironAmount1 != 0) {
+                        gen.setAmount(ironAmount1);
+                    }
+
+                    if (ironSpawnAmount1 != 0) {
+                        gen.setSpawnLimit(ironSpawnAmount1);
+                    }
+
+                } else if (gen.getType() == GeneratorType.GOLD) {
+
+                    if (goldDelay1 != 0) {
+                        gen.setDelay(goldDelay1);
+                    }
+
+                    if (goldAmount1 != 0) {
+                        gen.setAmount(goldAmount1);
+                    }
+
+                    if (goldSpawnAmount1 != 0) {
+                        gen.setSpawnLimit(goldSpawnAmount1);
+                    }
+
+                }
+
+            }
+
         }
 
     }
