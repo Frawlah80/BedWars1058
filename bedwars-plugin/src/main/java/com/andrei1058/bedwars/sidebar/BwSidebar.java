@@ -273,7 +273,7 @@ public class BwSidebar implements ISidebar {
             providers.add(new PlaceholderProvider("{level}", () -> String.valueOf(level.getLevelName())));
             providers.add(new PlaceholderProvider("{levelNoBrackets}", () -> level.getLevelName()
                     .replaceAll(".*\\[", "")
-                    .replace("]", "")
+                    .replaceAll("].*", "")
             ));
             providers.add(new PlaceholderProvider("{levelUnformatted}", () -> String.valueOf(level.getLevel())));
             providers.add(new PlaceholderProvider("{currentXp}", level::getFormattedCurrentXp));

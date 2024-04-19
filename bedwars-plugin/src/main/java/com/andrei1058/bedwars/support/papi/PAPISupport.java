@@ -196,7 +196,7 @@ public class PAPISupport extends PlaceholderExpansion {
             case "player_level_no_brackets":
                 response = BedWars.getLevelSupport().getLevel(player)
                         .replaceAll(".*\\[", "")
-                        .replace("]", "");
+                        .replaceAll("].*", "");
                 break;
             case "player_level_raw":
                 response = String.valueOf(BedWars.getLevelSupport().getPlayerLevel(player));
