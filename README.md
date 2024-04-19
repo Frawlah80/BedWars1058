@@ -3,6 +3,8 @@
 pull requests instead of making hundreds of forks."
 ~ andrei1058
 
+##### For private use only! Forked for mc.frawlah.me
+
 # BedWars1058
 BedWars is a mini-game where you have to defend your bed and destroy the others.  
 Once your bed is destroyed, you cannot respawn.
@@ -33,6 +35,12 @@ Once your bed is destroyed, you cannot respawn.
   - Configurable in config (You can disable this feature). 
 - New default levels:
   - Added "popular server" prestiges (1 star - 2000 star)
+- Added Sponge Effect:
+  - Despawn Sponge after 2 seconds
+  - Play Cloud effect on place (not the best atm but there is room for improvement)
+- Added Per Arena Generator:
+  - Iron/Gold Amount, Delay, Max Spawn are configurable per arena. 
+  - Configurable in per-arena-gen.yml 
 
 ## Main features
 
