@@ -115,6 +115,7 @@ public class BedWars extends JavaPlugin {
     public static String mainCmd = "bw", link = "https://discord.gg/";
     public static ConfigManager signs, generators;
     public static MainConfig config;
+    public static PAGConfig pagConfig;
     public static ShopManager shop;
     public static PlayerQuickBuyCache playerQuickBuyCache;
     public static ShopCache shopCache;
