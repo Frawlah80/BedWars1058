@@ -39,6 +39,8 @@ import com.andrei1058.bedwars.arena.spectator.SpectatorListeners;
 import com.andrei1058.bedwars.arena.stats.DefaultStatsHandler;
 import com.andrei1058.bedwars.arena.tasks.OneTick;
 import com.andrei1058.bedwars.arena.tasks.Refresh;
+import com.andrei1058.bedwars.arena.tasks.particle.SpongeParticleSupport;
+import com.andrei1058.bedwars.arena.tasks.particle.versions.Legacy;
 import com.andrei1058.bedwars.arena.upgrades.BaseListener;
 import com.andrei1058.bedwars.arena.upgrades.HealPoolListner;
 import com.andrei1058.bedwars.commands.bedwars.MainCommand;
@@ -118,6 +120,8 @@ public class BedWars extends JavaPlugin {
     public static ShopManager shop;
     public static PlayerQuickBuyCache playerQuickBuyCache;
     public static ShopCache shopCache;
+
+    private static SpongeParticleSupport spongeParticleSupport;
 
     public static StatsManager statsManager;
     public static BedWars plugin;
@@ -299,8 +303,9 @@ public class BedWars extends JavaPlugin {
             registerEvents(new WaitingLobbyJoinListener());
         }
 
-        if (config.getBoolean(ConfigPath.GENERAL_CONFIGURATION_ENABLE_SPONGE_EFFECT)) {
+        if (config.getBoolean(ConfigPath.GENERAL_CONFIGURATION_ENABLE_SPONGE_EFFECT) && version.equals("v1_8_3")) {
             registerEvents(new SpongePlaceListener());
+            setupSpongeParticle();
         }
 
         if (getServerType() == ServerType.BUNGEE) {
@@ -815,4 +820,13 @@ public class BedWars extends JavaPlugin {
     public static void setRemoteDatabase(IDatabase database){
         remoteDatabase = database;
     }
+
+    public static SpongeParticleSupport getSpongeParticleSupport() {
+        return spongeParticleSupport;
+    }
+
+    private void setupSpongeParticle() {
+        spongeParticleSupport = new Legacy();
+    }
+
 }
