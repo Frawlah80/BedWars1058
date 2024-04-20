@@ -7,7 +7,6 @@ import com.andrei1058.bedwars.api.arena.generator.IGenerator;
 import com.andrei1058.bedwars.api.arena.team.ITeam;
 import com.andrei1058.bedwars.api.events.gameplay.GameStateChangeEvent;
 import com.andrei1058.bedwars.api.events.upgrades.UpgradeBuyEvent;
-import com.andrei1058.bedwars.api.upgrades.TeamUpgrade;
 
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -72,11 +71,9 @@ public class PAGListener implements Listener {
     @EventHandler
     public void onForgePurchase(UpgradeBuyEvent e) {
 
-        TeamUpgrade upgrade = e.getTeamUpgrade();
+        if (e.getTeamUpgrade().getName().equals("forge")) {
 
-        if (upgrade.getName().equals("forge")) {
-
-            if (upgrade.getTierCount() == 1) {
+            if (e.getTeamUpgrade().getTierCount() == 1) {
 
                 BedWars.debug("Forge Tier-1 Purchase detected!");
 
