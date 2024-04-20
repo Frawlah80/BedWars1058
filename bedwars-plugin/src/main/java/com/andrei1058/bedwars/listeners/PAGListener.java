@@ -71,13 +71,11 @@ public class PAGListener implements Listener {
     @EventHandler
     public void onForgePurchase(UpgradeBuyEvent e) {
 
-        BedWars.debug("PAG: Passing UpgradeBuyEvent");
-
         if (e.getTeamUpgrade().getName().contains("forge")) {
 
             BedWars.debug("PAG: Forge Upgrade Detected");
 
-            if (e.getTeamUpgrade().getTierCount() == 1) {
+            if (e.getTeamUpgrade().getTierCount() == 0) {
 
                 BedWars.debug("Forge Tier-1 Purchase detected!");
 
