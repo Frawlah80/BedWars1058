@@ -60,8 +60,11 @@ public class PAGListener implements Listener {
                         }
 
                     }
+
                 }
+
             }
+
         }
 
     }
@@ -74,6 +77,8 @@ public class PAGListener implements Listener {
         if (upgrade.getName().equals("forge")) {
 
             if (upgrade.getTierCount() == 1) {
+
+                BedWars.debug("Forge Tier-1 Purchase detected!");
 
                 int ironAmount1 = BedWars.pagConfig.getInt("Arenas." + e.getArena().getArenaName() + ".iron-forge.iron.amount");
                 int ironDelay1 = BedWars.pagConfig.getInt("Arenas." + e.getArena().getArenaName() + ".iron-forge.iron.delay");
