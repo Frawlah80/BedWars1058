@@ -254,6 +254,15 @@ public class BedWars extends JavaPlugin {
             out.log(java.util.logging.Level.WARNING, "Lobby location is not set!");
         }
 
+        if (Bukkit.getServer().getPluginManager().getPlugin("TAB") == null) {
+            out.severe("This server does not have TAB by NEZNAMY installed!");
+            out.severe("We highly recommend you download TAB by NEZNAMY!");
+            out.severe("However, if you still wish to not use TAB plugin:");
+            out.severe("You can go to config.yml and");
+            out.severe("enable everything under player-list & health");
+        }
+
+
         /* Load lobby world if not main level
          * when the server finishes loading. */
         if (getServerType() == ServerType.MULTIARENA)
