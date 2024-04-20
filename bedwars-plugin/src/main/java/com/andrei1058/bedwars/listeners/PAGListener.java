@@ -75,6 +75,8 @@ public class PAGListener implements Listener {
 
         if (e.getTeamUpgrade().getName().equals("forge")) {
 
+            BedWars.debug("PAG: Forge Upgrade Detected");
+
             if (e.getTeamUpgrade().getTierCount() == 1) {
 
                 BedWars.debug("Forge Tier-1 Purchase detected!");
