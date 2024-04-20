@@ -278,7 +278,7 @@ public class English extends Language {
         yml.addDefault(Messages.NEXT_EVENT_DRAGON_SPAWN, "&fSudden Death");
         yml.addDefault(Messages.NEXT_EVENT_EMERALD_UPGRADE_II, "&fEmerald II");
         yml.addDefault(Messages.NEXT_EVENT_EMERALD_UPGRADE_III, "&fEmerald III");
-        yml.addDefault(Messages.NEXT_EVENT_GAME_END, "&4Game End");
+        yml.addDefault(Messages.NEXT_EVENT_GAME_END, "&fGame End");
         yml.addDefault(Messages.NEXT_EVENT_TITLE_ANNOUNCE_BEDS_DESTROYED, "&cBED DESTROYED!");
         yml.addDefault(Messages.NEXT_EVENT_SUBTITLE_ANNOUNCE_BEDS_DESTROYED, "&fAll beds have been destroyed!");
         yml.addDefault(Messages.NEXT_EVENT_CHAT_ANNOUNCE_BEDS_DESTROYED, "&c&lAll beds have been destroyed!");
@@ -390,186 +390,365 @@ public class English extends Language {
                 "&e{serverIp}")
         );
         yml.addDefault(Messages.SCOREBOARD_DEFAULT_STARTING_SPEC, Arrays.asList(
-                "&f&lBED WARS,&f&lBED WARS,&f&lBED WARS,&f&lBED WARS,&f&lBED WARS,&f&lBED WARS,&f&lBED WARS,&f&l{poweredBy},&f&l{poweredBy},&f&l{poweredBy},&e&lBED WARS,&e&lBED WARS,&e&lBED WARS,&e&lBED WARS,&e&lBED WARS,&e&lBED WARS,&e&lBED WARS,&e&l{poweredBy},&e&l{poweredBy},&e&l{poweredBy}",
+                "&e&lBED WARS",
                 "&7{date} &8{server}",
-                "&o&7Spectating",
-                "&fMap: &a{map}",
                 "",
+                "&fMap: &a{map}",
                 "&fPlayers: &a{on}/{max}",
                 "",
                 "&fStarting in &a{time}s",
                 "",
                 "§fMode: &a{group}",
-                "&fVersion: &7{version}",
+                "&fVersion: &71.0",
                 "",
                 "&e{serverIp}")
         );
         yml.addDefault(Messages.SCOREBOARD_DEFAULT_PLAYING, Arrays.asList(
-                "&f&lBED WARS,&f&lBED WARS,&f&lBED WARS,&f&lBED WARS,&f&lBED WARS,&f&lBED WARS,&f&lBED WARS,&f&l{poweredBy},&f&l{poweredBy},&f&l{poweredBy},&e&lBED WARS,&e&lBED WARS,&e&lBED WARS,&e&lBED WARS,&e&lBED WARS,&e&lBED WARS,&e&lBED WARS,&e&l{poweredBy},&e&l{poweredBy},&e&l{poweredBy}",
-                "&7{date}",
+                "&e&lBED WARS",
+                "&7{date} &8{server}",
                 "",
                 "&f{nextEvent} in &a{time}",
                 "",
-                "{team}",
-                "{team}",
-                "{team}",
-                "{team}",
-                "{team}",
-                "{team}",
-                "{team}",
-                "{team}",
-                "{team}",
-                "{team}",
+                "{TeamRedColor}R &f{TeamRedName}&f: {TeamRedStatus}",
+                "{TeamBlueColor}B &f{TeamBlueName}&f: {TeamBlueStatus}",
+                "{TeamGreenColor}G &f{TeamGreenName}&f: {TeamGreenStatus}",
+                "{TeamYellowColor}Y &f{TeamYellowName}&f: {TeamYellowStatus}",
+                "{TeamAquaColor}A &f{TeamAquaName}&f: {TeamAquaStatus}",
+                "{TeamWhiteColor}W &f{TeamWhiteName}&f: {TeamWhiteStatus}",
+                "{TeamPinkColor}P &f{TeamPinkName}&f: {TeamPinkStatus}",
+                "{TeamGrayColor}S &f{TeamGrayName}&f: {TeamGrayStatus}",
                 "",
                 "&e{serverIp}")
         );
         yml.addDefault(Messages.SCOREBOARD_DEFAULT_PLAYING_SPEC, Arrays.asList(
-                "&f&lBED WARS,&f&lBED WARS,&f&lBED WARS,&f&lBED WARS,&f&lBED WARS,&f&lBED WARS,&f&lBED WARS,&f&l{poweredBy},&f&l{poweredBy},&f&l{poweredBy},&e&lBED WARS,&e&lBED WARS,&e&lBED WARS,&e&lBED WARS,&e&lBED WARS,&e&lBED WARS,&e&lBED WARS,&e&l{poweredBy},&e&l{poweredBy},&e&l{poweredBy}",
-                "&7{date}",
-                "&o&7Spectating {spectatorTarget}",
+                "&e&lBED WARS",
+                "&7{date} &8{server}",
                 "",
                 "&f{nextEvent} in &a{time}",
                 "",
-                "{team}",
-                "{team}",
-                "{team}",
-                "{team}",
-                "{team}",
-                "{team}",
-                "{team}",
-                "{team}",
-                "{team}",
-                "{team}",
+                "{TeamRedColor}R &f{TeamRedName}&f: {TeamRedStatus}",
+                "{TeamBlueColor}B &f{TeamBlueName}&f: {TeamBlueStatus}",
+                "{TeamGreenColor}G &f{TeamGreenName}&f: {TeamGreenStatus}",
+                "{TeamYellowColor}Y &f{TeamYellowName}&f: {TeamYellowStatus}",
+                "{TeamAquaColor}A &f{TeamAquaName}&f: {TeamAquaStatus}",
+                "{TeamWhiteColor}W &f{TeamWhiteName}&f: {TeamWhiteStatus}",
+                "{TeamPinkColor}P &f{TeamPinkName}&f: {TeamPinkStatus}",
+                "{TeamGrayColor}S &f{TeamGrayName}&f: {TeamGrayStatus}",
                 "",
                 "&e{serverIp}")
         );
         yml.addDefault(Messages.SCOREBOARD_DEFAULT_RESTARTING_SPEC, Arrays.asList(
-                "&f&lBED WARS,&f&lBED WARS,&f&lBED WARS,&f&lBED WARS,&f&lBED WARS,&f&lBED WARS,&f&lBED WARS,&f&l{poweredBy},&f&l{poweredBy},&f&l{poweredBy},&e&lBED WARS,&e&lBED WARS,&e&lBED WARS,&e&lBED WARS,&e&lBED WARS,&e&lBED WARS,&e&lBED WARS,&e&l{poweredBy},&e&l{poweredBy},&e&l{poweredBy}",
-                "&7{date}",
+                "&e&lBED WARS",
+                "&7{date} &8{server}",
                 "",
-                "&6Winner: {winnerTeamColor}{winnerTeamName} &6⭐",
+                "&fGame ended!",
                 "",
-                "&7&lTop Kills:",
-                "&f{topTeamColor}{topPlayerDisplayName}&7 - &l{topValue}",
-                "&f{topTeamColor}{topPlayerDisplayName}&7 - &l{topValue}",
-                "&f{topTeamColor}{topPlayerDisplayName}&7 - &l{topValue}",
-                "&f{topTeamColor}{topPlayerDisplayName}&7 - &l{topValue}",
-                "&f{topTeamColor}{topPlayerDisplayName}&7 - &l{topValue}",
-                "&f{topTeamColor}{topPlayerDisplayName}&7 - &l{topValue}",
-                "&f{topTeamColor}{topPlayerDisplayName}&7 - &l{topValue}",
-                "&f{topTeamColor}{topPlayerDisplayName}&7 - &l{topValue}",
+                "{TeamRedColor}R &f{TeamRedName}&f: {TeamRedStatus}",
+                "{TeamBlueColor}B &f{TeamBlueName}&f: {TeamBlueStatus}",
+                "{TeamGreenColor}G &f{TeamGreenName}&f: {TeamGreenStatus}",
+                "{TeamYellowColor}Y &f{TeamYellowName}&f: {TeamYellowStatus}",
+                "{TeamAquaColor}A &f{TeamAquaName}&f: {TeamAquaStatus}",
+                "{TeamWhiteColor}W &f{TeamWhiteName}&f: {TeamWhiteStatus}",
+                "{TeamPinkColor}P &f{TeamPinkName}&f: {TeamPinkStatus}",
+                "{TeamGrayColor}S &f{TeamGrayName}&f: {TeamGrayStatus}",
                 "",
                 "&e{serverIp}")
         );
 
         yml.addDefault(Messages.SCOREBOARD_DEFAULT_RESTARTING_WIN1, Arrays.asList(
-                "&f&lBED WARS,&f&lBED WARS,&f&lBED WARS,&f&lBED WARS,&f&lBED WARS,&f&lBED WARS,&f&lBED WARS,&f&l{poweredBy},&f&l{poweredBy},&f&l{poweredBy},&e&lBED WARS,&e&lBED WARS,&e&lBED WARS,&e&lBED WARS,&e&lBED WARS,&e&lBED WARS,&e&lBED WARS,&e&l{poweredBy},&e&l{poweredBy},&e&l{poweredBy}",
-                "&7{date}",
+                "&e&lBED WARS",
+                "&7{date} &8{server}",
                 "",
-                "&6Winner: {winnerTeamColor}{winnerTeamName} &6⭐",
+                "&fGame ended!",
                 "",
-                "&7&lTop Kills:",
-                "&f{topTeamColor}{topPlayerDisplayName}&7 - &l{topValue}",
-                "&f{topTeamColor}{topPlayerDisplayName}&7 - &l{topValue}",
-                "&f{topTeamColor}{topPlayerDisplayName}&7 - &l{topValue}",
-                "&f{topTeamColor}{topPlayerDisplayName}&7 - &l{topValue}",
-                "&f{topTeamColor}{topPlayerDisplayName}&7 - &l{topValue}",
-                "&f{topTeamColor}{topPlayerDisplayName}&7 - &l{topValue}",
-                "&f{topTeamColor}{topPlayerDisplayName}&7 - &l{topValue}",
-                "&f{topTeamColor}{topPlayerDisplayName}&7 - &l{topValue}",
+                "{TeamRedColor}R &f{TeamRedName}&f: {TeamRedStatus}",
+                "{TeamBlueColor}B &f{TeamBlueName}&f: {TeamBlueStatus}",
+                "{TeamGreenColor}G &f{TeamGreenName}&f: {TeamGreenStatus}",
+                "{TeamYellowColor}Y &f{TeamYellowName}&f: {TeamYellowStatus}",
+                "{TeamAquaColor}A &f{TeamAquaName}&f: {TeamAquaStatus}",
+                "{TeamWhiteColor}W &f{TeamWhiteName}&f: {TeamWhiteStatus}",
+                "{TeamPinkColor}P &f{TeamPinkName}&f: {TeamPinkStatus}",
+                "{TeamGrayColor}S &f{TeamGrayName}&f: {TeamGrayStatus}",
                 "",
                 "&e{serverIp}")
         );
 
         yml.addDefault(Messages.SCOREBOARD_DEFAULT_RESTARTING_WIN2, Arrays.asList(
-                "&f&lBED WARS,&f&lBED WARS,&f&lBED WARS,&f&lBED WARS,&f&lBED WARS,&f&lBED WARS,&f&lBED WARS,&f&l{poweredBy},&f&l{poweredBy},&f&l{poweredBy},&e&lBED WARS,&e&lBED WARS,&e&lBED WARS,&e&lBED WARS,&e&lBED WARS,&e&lBED WARS,&e&lBED WARS,&e&l{poweredBy},&e&l{poweredBy},&e&l{poweredBy}",
-                "&7{date}",
+                "&e&lBED WARS",
+                "&7{date} &8{server}",
                 "",
-                "&6Winner: {winnerTeamColor}{winnerTeamName} &6⭐",
+                "&fGame ended!",
                 "",
-                "&7&lTop Kills:",
-                "&f{topTeamColor}{topPlayerDisplayName}&7 - &l{topValue}",
-                "&f{topTeamColor}{topPlayerDisplayName}&7 - &l{topValue}",
-                "&f{topTeamColor}{topPlayerDisplayName}&7 - &l{topValue}",
-                "&f{topTeamColor}{topPlayerDisplayName}&7 - &l{topValue}",
-                "&f{topTeamColor}{topPlayerDisplayName}&7 - &l{topValue}",
-                "&f{topTeamColor}{topPlayerDisplayName}&7 - &l{topValue}",
-                "&f{topTeamColor}{topPlayerDisplayName}&7 - &l{topValue}",
-                "&f{topTeamColor}{topPlayerDisplayName}&7 - &l{topValue}",
+                "{TeamRedColor}R &f{TeamRedName}&f: {TeamRedStatus}",
+                "{TeamBlueColor}B &f{TeamBlueName}&f: {TeamBlueStatus}",
+                "{TeamGreenColor}G &f{TeamGreenName}&f: {TeamGreenStatus}",
+                "{TeamYellowColor}Y &f{TeamYellowName}&f: {TeamYellowStatus}",
+                "{TeamAquaColor}A &f{TeamAquaName}&f: {TeamAquaStatus}",
+                "{TeamWhiteColor}W &f{TeamWhiteName}&f: {TeamWhiteStatus}",
+                "{TeamPinkColor}P &f{TeamPinkName}&f: {TeamPinkStatus}",
+                "{TeamGrayColor}S &f{TeamGrayName}&f: {TeamGrayStatus}",
                 "",
                 "&e{serverIp}")
         );
 
         yml.addDefault(Messages.SCOREBOARD_DEFAULT_RESTARTING_LOSER, Arrays.asList(
-                "&f&lBED WARS,&f&lBED WARS,&f&lBED WARS,&f&lBED WARS,&f&lBED WARS,&f&lBED WARS,&f&lBED WARS,&f&l{poweredBy},&f&l{poweredBy},&f&l{poweredBy},&e&lBED WARS,&e&lBED WARS,&e&lBED WARS,&e&lBED WARS,&e&lBED WARS,&e&lBED WARS,&e&lBED WARS,&e&l{poweredBy},&e&l{poweredBy},&e&l{poweredBy}",
-                "&7{date}",
+                "&e&lBED WARS",
+                "&7{date} &8{server}",
                 "",
-                "&6Winner: {winnerTeamColor}{winnerTeamName} &6⭐",
+                "&fGame ended!",
                 "",
-                "&7&lTop Kills:",
-                "&f{topTeamColor}{topPlayerDisplayName}&7 - &l{topValue}",
-                "&f{topTeamColor}{topPlayerDisplayName}&7 - &l{topValue}",
-                "&f{topTeamColor}{topPlayerDisplayName}&7 - &l{topValue}",
-                "&f{topTeamColor}{topPlayerDisplayName}&7 - &l{topValue}",
-                "&f{topTeamColor}{topPlayerDisplayName}&7 - &l{topValue}",
-                "&f{topTeamColor}{topPlayerDisplayName}&7 - &l{topValue}",
-                "&f{topTeamColor}{topPlayerDisplayName}&7 - &l{topValue}",
-                "&f{topTeamColor}{topPlayerDisplayName}&7 - &l{topValue}",
+                "{TeamRedColor}R &f{TeamRedName}&f: {TeamRedStatus}",
+                "{TeamBlueColor}B &f{TeamBlueName}&f: {TeamBlueStatus}",
+                "{TeamGreenColor}G &f{TeamGreenName}&f: {TeamGreenStatus}",
+                "{TeamYellowColor}Y &f{TeamYellowName}&f: {TeamYellowStatus}",
+                "{TeamAquaColor}A &f{TeamAquaName}&f: {TeamAquaStatus}",
+                "{TeamWhiteColor}W &f{TeamWhiteName}&f: {TeamWhiteStatus}",
+                "{TeamPinkColor}P &f{TeamPinkName}&f: {TeamPinkStatus}",
+                "{TeamGrayColor}S &f{TeamGrayName}&f: {TeamGrayStatus}",
                 "",
                 "&e{serverIp}")
         );
 
+        // Doubles
+        yml.addDefault(Messages.SCOREBOARD_DEFAULT_WAITING.replaceFirst("Default", "Doubles"), Arrays.asList(
+                "&e&lBED WARS",
+                "&7{date} &8{server}",
+                "",
+                "&fMap: &a{map}",
+                "&fPlayers: &a{on}/{max}",
+                "",
+                "&fWaiting...",
+                "",
+                "&fMode: &a{group}",
+                "&fVersion: &7v1.0",
+                "",
+                "&e{serverIp}")
+        );
+
+        yml.addDefault(Messages.SCOREBOARD_DEFAULT_WAITING_SPEC.replaceFirst("Default", "Doubles"), Arrays.asList(
+                "&e&lBED WARS",
+                "&7{date} &8{server}",
+                "",
+                "&fMap: &a{map}",
+                "&fPlayers: &a{on}/{max}",
+                "",
+                "&fWaiting...",
+                "",
+                "&fMode: &a{group}",
+                "&fVersion: &7v1.0",
+                "",
+                "&e{serverIp}")
+        );
+
+        yml.addDefault(Messages.SCOREBOARD_DEFAULT_STARTING.replaceFirst("Default", "Doubles"), Arrays.asList(
+                "&e&lBED WARS",
+                "&7{date} &8{server}",
+                "",
+                "&fMap: &a{map}",
+                "&fPlayers: &a{on}/{max}",
+                "",
+                "&fStarting in &a{time}s",
+                "",
+                "&fMode: &a{group}",
+                "&fVersion: &7v1.0",
+                "",
+                "&e{serverIp}")
+        );
+
+        yml.addDefault(Messages.SCOREBOARD_DEFAULT_STARTING_SPEC.replaceFirst("Default", "Doubles"), Arrays.asList(
+                "&e&lBED WARS",
+                "&7{date} &8{server}",
+                "",
+                "&fMap: &a{map}",
+                "&fPlayers: &a{on}/{max}",
+                "",
+                "&fStarting in &a{time}s",
+                "",
+                "§fMode: &a{group}",
+                "&fVersion: &71.0",
+                "",
+                "&e{serverIp}")
+        );
 
         yml.addDefault(Messages.SCOREBOARD_DEFAULT_PLAYING.replaceFirst("Default", "Doubles"), Arrays.asList(
-                "&f&lBED WARS,&f&lBED WARS,&f&lBED WARS,&f&lBED WARS,&f&lBED WARS,&f&lBED WARS,&f&lBED WARS,&f&l{poweredBy},&f&l{poweredBy},&f&l{poweredBy},&e&lBED WARS,&e&lBED WARS,&e&lBED WARS,&e&lBED WARS,&e&lBED WARS,&e&lBED WARS,&e&lBED WARS,&e&l{poweredBy},&e&l{poweredBy},&e&l{poweredBy}",
-                "&7{date}",
+                "&e&lBED WARS",
+                "&7{date} &8{server}",
                 "",
                 "&f{nextEvent} in &a{time}",
                 "",
-                "{team}",
-                "{team}",
-                "{team}",
-                "{team}",
-                "{team}",
-                "{team}",
-                "{team}",
-                "{team}",
+                "{TeamRedColor}R &f{TeamRedName}&f: {TeamRedStatus}",
+                "{TeamBlueColor}B &f{TeamBlueName}&f: {TeamBlueStatus}",
+                "{TeamGreenColor}G &f{TeamGreenName}&f: {TeamGreenStatus}",
+                "{TeamYellowColor}Y &f{TeamYellowName}&f: {TeamYellowStatus}",
+                "{TeamAquaColor}A &f{TeamAquaName}&f: {TeamAquaStatus}",
+                "{TeamWhiteColor}W &f{TeamWhiteName}&f: {TeamWhiteStatus}",
+                "{TeamPinkColor}P &f{TeamPinkName}&f: {TeamPinkStatus}",
+                "{TeamGrayColor}S &f{TeamGrayName}&f: {TeamGrayStatus}",
                 "",
                 "&e{serverIp}")
         );
 
         yml.addDefault(Messages.SCOREBOARD_DEFAULT_PLAYING_SPEC.replaceFirst("Default", "Doubles"), Arrays.asList(
-                "&f&lBED WARS,&f&lBED WARS,&f&lBED WARS,&f&lBED WARS,&f&lBED WARS,&f&lBED WARS,&f&lBED WARS,&f&l{poweredBy},&f&l{poweredBy},&f&l{poweredBy},&e&lBED WARS,&e&lBED WARS,&e&lBED WARS,&e&lBED WARS,&e&lBED WARS,&e&lBED WARS,&e&lBED WARS,&e&l{poweredBy},&e&l{poweredBy},&e&l{poweredBy}",
-                "&7{date}",
-                "&o&7Spectating {spectatorTarget}",
+                "&e&lBED WARS",
+                "&7{date} &8{server}",
+                "",
                 "&f{nextEvent} in &a{time}",
                 "",
-                "{team}",
-                "{team}",
-                "{team}",
-                "{team}",
-                "{team}",
-                "{team}",
-                "{team}",
-                "{team}",
+                "{TeamRedColor}R &f{TeamRedName}&f: {TeamRedStatus}",
+                "{TeamBlueColor}B &f{TeamBlueName}&f: {TeamBlueStatus}",
+                "{TeamGreenColor}G &f{TeamGreenName}&f: {TeamGreenStatus}",
+                "{TeamYellowColor}Y &f{TeamYellowName}&f: {TeamYellowStatus}",
+                "{TeamAquaColor}A &f{TeamAquaName}&f: {TeamAquaStatus}",
+                "{TeamWhiteColor}W &f{TeamWhiteName}&f: {TeamWhiteStatus}",
+                "{TeamPinkColor}P &f{TeamPinkName}&f: {TeamPinkStatus}",
+                "{TeamGrayColor}S &f{TeamGrayName}&f: {TeamGrayStatus}",
+                "",
+                "&e{serverIp}")
+        );
+
+        yml.addDefault(Messages.SCOREBOARD_DEFAULT_RESTARTING_SPEC.replaceFirst("Default", "Doubles"), Arrays.asList(
+                "&e&lBED WARS",
+                "&7{date} &8{server}",
+                "",
+                "&fGame ended!",
+                "",
+                "{TeamRedColor}R &f{TeamRedName}&f: {TeamRedStatus}",
+                "{TeamBlueColor}B &f{TeamBlueName}&f: {TeamBlueStatus}",
+                "{TeamGreenColor}G &f{TeamGreenName}&f: {TeamGreenStatus}",
+                "{TeamYellowColor}Y &f{TeamYellowName}&f: {TeamYellowStatus}",
+                "{TeamAquaColor}A &f{TeamAquaName}&f: {TeamAquaStatus}",
+                "{TeamWhiteColor}W &f{TeamWhiteName}&f: {TeamWhiteStatus}",
+                "{TeamPinkColor}P &f{TeamPinkName}&f: {TeamPinkStatus}",
+                "{TeamGrayColor}S &f{TeamGrayName}&f: {TeamGrayStatus}",
+                "",
+                "&e{serverIp}")
+        );
+
+        yml.addDefault(Messages.SCOREBOARD_DEFAULT_RESTARTING_WIN1.replaceFirst("Default", "Doubles"), Arrays.asList(
+                "&e&lBED WARS",
+                "&7{date} &8{server}",
+                "",
+                "&fGame ended!",
+                "",
+                "{TeamRedColor}R &f{TeamRedName}&f: {TeamRedStatus}",
+                "{TeamBlueColor}B &f{TeamBlueName}&f: {TeamBlueStatus}",
+                "{TeamGreenColor}G &f{TeamGreenName}&f: {TeamGreenStatus}",
+                "{TeamYellowColor}Y &f{TeamYellowName}&f: {TeamYellowStatus}",
+                "{TeamAquaColor}A &f{TeamAquaName}&f: {TeamAquaStatus}",
+                "{TeamWhiteColor}W &f{TeamWhiteName}&f: {TeamWhiteStatus}",
+                "{TeamPinkColor}P &f{TeamPinkName}&f: {TeamPinkStatus}",
+                "{TeamGrayColor}S &f{TeamGrayName}&f: {TeamGrayStatus}",
+                "",
+                "&e{serverIp}")
+        );
+
+        yml.addDefault(Messages.SCOREBOARD_DEFAULT_RESTARTING_WIN2.replaceFirst("Default", "Doubles"), Arrays.asList(
+                "&e&lBED WARS",
+                "&7{date} &8{server}",
+                "",
+                "&fGame ended!",
+                "",
+                "{TeamRedColor}R &f{TeamRedName}&f: {TeamRedStatus}",
+                "{TeamBlueColor}B &f{TeamBlueName}&f: {TeamBlueStatus}",
+                "{TeamGreenColor}G &f{TeamGreenName}&f: {TeamGreenStatus}",
+                "{TeamYellowColor}Y &f{TeamYellowName}&f: {TeamYellowStatus}",
+                "{TeamAquaColor}A &f{TeamAquaName}&f: {TeamAquaStatus}",
+                "{TeamWhiteColor}W &f{TeamWhiteName}&f: {TeamWhiteStatus}",
+                "{TeamPinkColor}P &f{TeamPinkName}&f: {TeamPinkStatus}",
+                "{TeamGrayColor}S &f{TeamGrayName}&f: {TeamGrayStatus}",
+                "",
+                "&e{serverIp}")
+        );
+
+        yml.addDefault(Messages.SCOREBOARD_DEFAULT_RESTARTING_LOSER.replaceFirst("Default", "Doubles"), Arrays.asList(
+                "&e&lBED WARS",
+                "&7{date} &8{server}",
+                "",
+                "&fGame ended!",
+                "",
+                "{TeamRedColor}R &f{TeamRedName}&f: {TeamRedStatus}",
+                "{TeamBlueColor}B &f{TeamBlueName}&f: {TeamBlueStatus}",
+                "{TeamGreenColor}G &f{TeamGreenName}&f: {TeamGreenStatus}",
+                "{TeamYellowColor}Y &f{TeamYellowName}&f: {TeamYellowStatus}",
+                "{TeamAquaColor}A &f{TeamAquaName}&f: {TeamAquaStatus}",
+                "{TeamWhiteColor}W &f{TeamWhiteName}&f: {TeamWhiteStatus}",
+                "{TeamPinkColor}P &f{TeamPinkName}&f: {TeamPinkStatus}",
+                "{TeamGrayColor}S &f{TeamGrayName}&f: {TeamGrayStatus}",
+                "",
+                "&e{serverIp}")
+        );
+
+        // 3v3v3v3
+        yml.addDefault(Messages.SCOREBOARD_DEFAULT_WAITING.replaceFirst("Default", "3v3v3v3"), Arrays.asList(
+                "&e&lBED WARS",
+                "&7{date} &8{server}",
+                "",
+                "&fMap: &a{map}",
+                "&fPlayers: &a{on}/{max}",
+                "",
+                "&fWaiting...",
+                "",
+                "&fMode: &a{group}",
+                "&fVersion: &7v1.0",
+                "",
+                "&e{serverIp}")
+        );
+
+        yml.addDefault(Messages.SCOREBOARD_DEFAULT_WAITING_SPEC.replaceFirst("Default", "3v3v3v3"), Arrays.asList(
+                "&e&lBED WARS",
+                "&7{date} &8{server}",
+                "",
+                "&fMap: &a{map}",
+                "&fPlayers: &a{on}/{max}",
+                "",
+                "&fWaiting...",
+                "",
+                "&fMode: &a{group}",
+                "&fVersion: &7v1.0",
+                "",
+                "&e{serverIp}")
+        );
+
+        yml.addDefault(Messages.SCOREBOARD_DEFAULT_STARTING.replaceFirst("Default", "3v3v3v3"), Arrays.asList(
+                "&e&lBED WARS",
+                "&7{date} &8{server}",
+                "",
+                "&fMap: &a{map}",
+                "&fPlayers: &a{on}/{max}",
+                "",
+                "&fStarting in &a{time}s",
+                "",
+                "&fMode: &a{group}",
+                "&fVersion: &7v1.0",
+                "",
+                "&e{serverIp}")
+        );
+
+        yml.addDefault(Messages.SCOREBOARD_DEFAULT_STARTING_SPEC.replaceFirst("Default", "3v3v3v3"), Arrays.asList(
+                "&e&lBED WARS",
+                "&7{date} &8{server}",
+                "",
+                "&fMap: &a{map}",
+                "&fPlayers: &a{on}/{max}",
+                "",
+                "&fStarting in &a{time}s",
+                "",
+                "§fMode: &a{group}",
+                "&fVersion: &71.0",
                 "",
                 "&e{serverIp}")
         );
 
         yml.addDefault(Messages.SCOREBOARD_DEFAULT_PLAYING.replaceFirst("Default", "3v3v3v3"), Arrays.asList(
-                "&f&lBED WARS,&f&lBED WARS,&f&lBED WARS,&f&lBED WARS,&f&lBED WARS,&f&lBED WARS,&f&lBED WARS,&f&l{poweredBy},&f&l{poweredBy},&f&l{poweredBy},&e&lBED WARS,&e&lBED WARS,&e&lBED WARS,&e&lBED WARS,&e&lBED WARS,&e&lBED WARS,&e&lBED WARS,&e&l{poweredBy},&e&l{poweredBy},&e&l{poweredBy}",
-                "&7{date}",
+                "&e&lBED WARS",
+                "&7{date} &8{server}",
                 "",
                 "&f{nextEvent} in &a{time}",
                 "",
-                "{team}",
-                "{team}",
-                "{team}",
-                "{team}",
-                "{team}",
-                "{team}",
-                "{team}",
-                "{team}",
+                "{TeamRedColor}R &f{TeamRedName}&f: {TeamRedStatus}",
+                "{TeamBlueColor}B &f{TeamBlueName}&f: {TeamBlueStatus}",
+                "{TeamGreenColor}G &f{TeamGreenName}&f: {TeamGreenStatus}",
+                "{TeamYellowColor}Y &f{TeamYellowName}&f: {TeamYellowStatus}",
                 "",
                 "&fKills: &a{kills}",
                 "&fFinal Kills: &a{finalKills}",
@@ -579,19 +758,15 @@ public class English extends Language {
         );
 
         yml.addDefault(Messages.SCOREBOARD_DEFAULT_PLAYING_SPEC.replaceFirst("Default", "3v3v3v3"), Arrays.asList(
-                "&f&lBED WARS,&f&lBED WARS,&f&lBED WARS,&f&lBED WARS,&f&lBED WARS,&f&lBED WARS,&f&lBED WARS,&f&l{poweredBy},&f&l{poweredBy},&f&l{poweredBy},&e&lBED WARS,&e&lBED WARS,&e&lBED WARS,&e&lBED WARS,&e&lBED WARS,&e&lBED WARS,&e&lBED WARS,&e&l{poweredBy},&e&l{poweredBy},&e&l{poweredBy}",
-                "&7{date}",
-                "&o&7Spectating {spectatorTarget}",
+                "&e&lBED WARS",
+                "&7{date} &8{server}",
+                "",
                 "&f{nextEvent} in &a{time}",
                 "",
-                "{team}",
-                "{team}",
-                "{team}",
-                "{team}",
-                "{team}",
-                "{team}",
-                "{team}",
-                "{team}",
+                "{TeamRedColor}R &f{TeamRedName}&f: {TeamRedStatus}",
+                "{TeamBlueColor}B &f{TeamBlueName}&f: {TeamBlueStatus}",
+                "{TeamGreenColor}G &f{TeamGreenName}&f: {TeamGreenStatus}",
+                "{TeamYellowColor}Y &f{TeamYellowName}&f: {TeamYellowStatus}",
                 "",
                 "&fKills: &a{kills}",
                 "&fFinal Kills: &a{finalKills}",
@@ -600,16 +775,150 @@ public class English extends Language {
                 "&e{serverIp}")
         );
 
+        yml.addDefault(Messages.SCOREBOARD_DEFAULT_RESTARTING_SPEC.replaceFirst("Default", "3v3v3v3"), Arrays.asList(
+                "&e&lBED WARS",
+                "&7{date} &8{server}",
+                "",
+                "&fGame ended!",
+                "",
+                "{TeamRedColor}R &f{TeamRedName}&f: {TeamRedStatus}",
+                "{TeamBlueColor}B &f{TeamBlueName}&f: {TeamBlueStatus}",
+                "{TeamGreenColor}G &f{TeamGreenName}&f: {TeamGreenStatus}",
+                "{TeamYellowColor}Y &f{TeamYellowName}&f: {TeamYellowStatus}",
+                "",
+                "&fKills: &a{kills}",
+                "&fFinal Kills: &a{finalKills}",
+                "&fBeds Broken: &a{beds}",
+                "",
+                "&e{serverIp}")
+        );
+
+        yml.addDefault(Messages.SCOREBOARD_DEFAULT_RESTARTING_WIN1.replaceFirst("Default", "3v3v3v3"), Arrays.asList(
+                "&e&lBED WARS",
+                "&7{date} &8{server}",
+                "",
+                "&fGame ended!",
+                "",
+                "{TeamRedColor}R &f{TeamRedName}&f: {TeamRedStatus}",
+                "{TeamBlueColor}B &f{TeamBlueName}&f: {TeamBlueStatus}",
+                "{TeamGreenColor}G &f{TeamGreenName}&f: {TeamGreenStatus}",
+                "{TeamYellowColor}Y &f{TeamYellowName}&f: {TeamYellowStatus}",
+                "",
+                "&fKills: &a{kills}",
+                "&fFinal Kills: &a{finalKills}",
+                "&fBeds Broken: &a{beds}",
+                "",
+                "&e{serverIp}")
+        );
+
+        yml.addDefault(Messages.SCOREBOARD_DEFAULT_RESTARTING_WIN2.replaceFirst("Default", "3v3v3v3"), Arrays.asList(
+                "&e&lBED WARS",
+                "&7{date} &8{server}",
+                "",
+                "&fGame ended!",
+                "",
+                "{TeamRedColor}R &f{TeamRedName}&f: {TeamRedStatus}",
+                "{TeamBlueColor}B &f{TeamBlueName}&f: {TeamBlueStatus}",
+                "{TeamGreenColor}G &f{TeamGreenName}&f: {TeamGreenStatus}",
+                "{TeamYellowColor}Y &f{TeamYellowName}&f: {TeamYellowStatus}",
+                "",
+                "&fKills: &a{kills}",
+                "&fFinal Kills: &a{finalKills}",
+                "&fBeds Broken: &a{beds}",
+                "",
+                "&e{serverIp}")
+        );
+
+        yml.addDefault(Messages.SCOREBOARD_DEFAULT_RESTARTING_LOSER.replaceFirst("Default", "3v3v3v3"), Arrays.asList(
+                "&e&lBED WARS",
+                "&7{date} &8{server}",
+                "",
+                "&fGame ended!",
+                "",
+                "{TeamRedColor}R &f{TeamRedName}&f: {TeamRedStatus}",
+                "{TeamBlueColor}B &f{TeamBlueName}&f: {TeamBlueStatus}",
+                "{TeamGreenColor}G &f{TeamGreenName}&f: {TeamGreenStatus}",
+                "{TeamYellowColor}Y &f{TeamYellowName}&f: {TeamYellowStatus}",
+                "",
+                "&fKills: &a{kills}",
+                "&fFinal Kills: &a{finalKills}",
+                "&fBeds Broken: &a{beds}",
+                "",
+                "&e{serverIp}")
+        );
+
+        // 4v4v4v4
+
+        yml.addDefault(Messages.SCOREBOARD_DEFAULT_WAITING.replaceFirst("Default", "4v4v4v4"), Arrays.asList(
+                "&e&lBED WARS",
+                "&7{date} &8{server}",
+                "",
+                "&fMap: &a{map}",
+                "&fPlayers: &a{on}/{max}",
+                "",
+                "&fWaiting...",
+                "",
+                "&fMode: &a{group}",
+                "&fVersion: &7v1.0",
+                "",
+                "&e{serverIp}")
+        );
+
+        yml.addDefault(Messages.SCOREBOARD_DEFAULT_WAITING_SPEC.replaceFirst("Default", "4v4v4v4"), Arrays.asList(
+                "&e&lBED WARS",
+                "&7{date} &8{server}",
+                "",
+                "&fMap: &a{map}",
+                "&fPlayers: &a{on}/{max}",
+                "",
+                "&fWaiting...",
+                "",
+                "&fMode: &a{group}",
+                "&fVersion: &7v1.0",
+                "",
+                "&e{serverIp}")
+        );
+
+        yml.addDefault(Messages.SCOREBOARD_DEFAULT_STARTING.replaceFirst("Default", "4v4v4v4"), Arrays.asList(
+                "&e&lBED WARS",
+                "&7{date} &8{server}",
+                "",
+                "&fMap: &a{map}",
+                "&fPlayers: &a{on}/{max}",
+                "",
+                "&fStarting in &a{time}s",
+                "",
+                "&fMode: &a{group}",
+                "&fVersion: &7v1.0",
+                "",
+                "&e{serverIp}")
+        );
+
+        yml.addDefault(Messages.SCOREBOARD_DEFAULT_STARTING_SPEC.replaceFirst("Default", "4v4v4v4"), Arrays.asList(
+                "&e&lBED WARS",
+                "&7{date} &8{server}",
+                "",
+                "&fMap: &a{map}",
+                "&fPlayers: &a{on}/{max}",
+                "",
+                "&fStarting in &a{time}s",
+                "",
+                "§fMode: &a{group}",
+                "&fVersion: &71.0",
+                "",
+                "&e{serverIp}")
+        );
+
         yml.addDefault(Messages.SCOREBOARD_DEFAULT_PLAYING.replaceFirst("Default", "4v4v4v4"), Arrays.asList(
-                "&f&lBED WARS,&f&lBED WARS,&f&lBED WARS,&f&lBED WARS,&f&lBED WARS,&f&lBED WARS,&f&lBED WARS,&f&l{poweredBy},&f&l{poweredBy},&f&l{poweredBy},&e&lBED WARS,&e&lBED WARS,&e&lBED WARS,&e&lBED WARS,&e&lBED WARS,&e&lBED WARS,&e&lBED WARS,&e&l{poweredBy},&e&l{poweredBy},&e&l{poweredBy}",
-                "&7{date}",
+                "&e&lBED WARS",
+                "&7{date} &8{server}",
                 "",
                 "&f{nextEvent} in &a{time}",
                 "",
-                "{team}",
-                "{team}",
-                "{team}",
-                "{team}",
+                "{TeamRedColor}R &f{TeamRedName}&f: {TeamRedStatus}",
+                "{TeamBlueColor}B &f{TeamBlueName}&f: {TeamBlueStatus}",
+                "{TeamGreenColor}G &f{TeamGreenName}&f: {TeamGreenStatus}",
+                "{TeamYellowColor}Y &f{TeamYellowName}&f: {TeamYellowStatus}",
                 "",
                 "&fKills: &a{kills}",
                 "&fFinal Kills: &a{finalKills}",
@@ -619,15 +928,245 @@ public class English extends Language {
         );
 
         yml.addDefault(Messages.SCOREBOARD_DEFAULT_PLAYING_SPEC.replaceFirst("Default", "4v4v4v4"), Arrays.asList(
-                "&f&lBED WARS,&f&lBED WARS,&f&lBED WARS,&f&lBED WARS,&f&lBED WARS,&f&lBED WARS,&f&lBED WARS,&f&l{poweredBy},&f&l{poweredBy},&f&l{poweredBy},&e&lBED WARS,&e&lBED WARS,&e&lBED WARS,&e&lBED WARS,&e&lBED WARS,&e&lBED WARS,&e&lBED WARS,&e&l{poweredBy},&e&l{poweredBy},&e&l{poweredBy}",
-                "&7{date}",
-                "&o&7Spectating {spectatorTarget}",
+                "&e&lBED WARS",
+                "&7{date} &8{server}",
+                "",
                 "&f{nextEvent} in &a{time}",
                 "",
-                "{team}",
-                "{team}",
-                "{team}",
-                "{team}",
+                "{TeamRedColor}R &f{TeamRedName}&f: {TeamRedStatus}",
+                "{TeamBlueColor}B &f{TeamBlueName}&f: {TeamBlueStatus}",
+                "{TeamGreenColor}G &f{TeamGreenName}&f: {TeamGreenStatus}",
+                "{TeamYellowColor}Y &f{TeamYellowName}&f: {TeamYellowStatus}",
+                "",
+                "&fKills: &a{kills}",
+                "&fFinal Kills: &a{finalKills}",
+                "&fBeds Broken: &a{beds}",
+                "",
+                "&e{serverIp}")
+        );
+
+        yml.addDefault(Messages.SCOREBOARD_DEFAULT_RESTARTING_SPEC.replaceFirst("Default", "4v4v4v4"), Arrays.asList(
+                "&e&lBED WARS",
+                "&7{date} &8{server}",
+                "",
+                "&fGame ended!",
+                "",
+                "{TeamRedColor}R &f{TeamRedName}&f: {TeamRedStatus}",
+                "{TeamBlueColor}B &f{TeamBlueName}&f: {TeamBlueStatus}",
+                "{TeamGreenColor}G &f{TeamGreenName}&f: {TeamGreenStatus}",
+                "{TeamYellowColor}Y &f{TeamYellowName}&f: {TeamYellowStatus}",
+                "",
+                "&fKills: &a{kills}",
+                "&fFinal Kills: &a{finalKills}",
+                "&fBeds Broken: &a{beds}",
+                "",
+                "&e{serverIp}")
+        );
+
+        yml.addDefault(Messages.SCOREBOARD_DEFAULT_RESTARTING_WIN1.replaceFirst("Default", "4v4v4v4"), Arrays.asList(
+                "&e&lBED WARS",
+                "&7{date} &8{server}",
+                "",
+                "&fGame ended!",
+                "",
+                "{TeamRedColor}R &f{TeamRedName}&f: {TeamRedStatus}",
+                "{TeamBlueColor}B &f{TeamBlueName}&f: {TeamBlueStatus}",
+                "{TeamGreenColor}G &f{TeamGreenName}&f: {TeamGreenStatus}",
+                "{TeamYellowColor}Y &f{TeamYellowName}&f: {TeamYellowStatus}",
+                "",
+                "&fKills: &a{kills}",
+                "&fFinal Kills: &a{finalKills}",
+                "&fBeds Broken: &a{beds}",
+                "",
+                "&e{serverIp}")
+        );
+
+        yml.addDefault(Messages.SCOREBOARD_DEFAULT_RESTARTING_WIN2.replaceFirst("Default", "4v4v4v4"), Arrays.asList(
+                "&e&lBED WARS",
+                "&7{date} &8{server}",
+                "",
+                "&fGame ended!",
+                "",
+                "{TeamRedColor}R &f{TeamRedName}&f: {TeamRedStatus}",
+                "{TeamBlueColor}B &f{TeamBlueName}&f: {TeamBlueStatus}",
+                "{TeamGreenColor}G &f{TeamGreenName}&f: {TeamGreenStatus}",
+                "{TeamYellowColor}Y &f{TeamYellowName}&f: {TeamYellowStatus}",
+                "",
+                "&fKills: &a{kills}",
+                "&fFinal Kills: &a{finalKills}",
+                "&fBeds Broken: &a{beds}",
+                "",
+                "&e{serverIp}")
+        );
+
+        yml.addDefault(Messages.SCOREBOARD_DEFAULT_RESTARTING_LOSER.replaceFirst("Default", "4v4v4v4"), Arrays.asList(
+                "&e&lBED WARS",
+                "&7{date} &8{server}",
+                "",
+                "&fGame ended!",
+                "",
+                "{TeamRedColor}R &f{TeamRedName}&f: {TeamRedStatus}",
+                "{TeamBlueColor}B &f{TeamBlueName}&f: {TeamBlueStatus}",
+                "{TeamGreenColor}G &f{TeamGreenName}&f: {TeamGreenStatus}",
+                "{TeamYellowColor}Y &f{TeamYellowName}&f: {TeamYellowStatus}",
+                "",
+                "&fKills: &a{kills}",
+                "&fFinal Kills: &a{finalKills}",
+                "&fBeds Broken: &a{beds}",
+                "",
+                "&e{serverIp}")
+        );
+
+        // 4v4
+
+        yml.addDefault(Messages.SCOREBOARD_DEFAULT_WAITING.replaceFirst("Default", "4v4"), Arrays.asList(
+                "&e&lBED WARS",
+                "&7{date} &8{server}",
+                "",
+                "&fMap: &a{map}",
+                "&fPlayers: &a{on}/{max}",
+                "",
+                "&fWaiting...",
+                "",
+                "&fMode: &a{group}",
+                "&fVersion: &7v1.0",
+                "",
+                "&e{serverIp}")
+        );
+
+        yml.addDefault(Messages.SCOREBOARD_DEFAULT_WAITING_SPEC.replaceFirst("Default", "4v4"), Arrays.asList(
+                "&e&lBED WARS",
+                "&7{date} &8{server}",
+                "",
+                "&fMap: &a{map}",
+                "&fPlayers: &a{on}/{max}",
+                "",
+                "&fWaiting...",
+                "",
+                "&fMode: &a{group}",
+                "&fVersion: &7v1.0",
+                "",
+                "&e{serverIp}")
+        );
+
+        yml.addDefault(Messages.SCOREBOARD_DEFAULT_STARTING.replaceFirst("Default", "4v4"), Arrays.asList(
+                "&e&lBED WARS",
+                "&7{date} &8{server}",
+                "",
+                "&fMap: &a{map}",
+                "&fPlayers: &a{on}/{max}",
+                "",
+                "&fStarting in &a{time}s",
+                "",
+                "&fMode: &a{group}",
+                "&fVersion: &7v1.0",
+                "",
+                "&e{serverIp}")
+        );
+
+        yml.addDefault(Messages.SCOREBOARD_DEFAULT_STARTING_SPEC.replaceFirst("Default", "4v4"), Arrays.asList(
+                "&e&lBED WARS",
+                "&7{date} &8{server}",
+                "",
+                "&fMap: &a{map}",
+                "&fPlayers: &a{on}/{max}",
+                "",
+                "&fStarting in &a{time}s",
+                "",
+                "§fMode: &a{group}",
+                "&fVersion: &71.0",
+                "",
+                "&e{serverIp}")
+        );
+
+        yml.addDefault(Messages.SCOREBOARD_DEFAULT_PLAYING.replaceFirst("Default", "4v4"), Arrays.asList(
+                "&e&lBED WARS",
+                "&7{date} &8{server}",
+                "",
+                "&f{nextEvent} in &a{time}",
+                "",
+                "{TeamRedColor}R &f{TeamRedName}&f: {TeamRedStatus}",
+                "{TeamBlueColor}B &f{TeamBlueName}&f: {TeamBlueStatus}",
+                "",
+                "&fKills: &a{kills}",
+                "&fFinal Kills: &a{finalKills}",
+                "&fBeds Broken: &a{beds}",
+                "",
+                "&e{serverIp}")
+        );
+
+        yml.addDefault(Messages.SCOREBOARD_DEFAULT_PLAYING_SPEC.replaceFirst("Default", "4v4"), Arrays.asList(
+                "&e&lBED WARS",
+                "&7{date} &8{server}",
+                "",
+                "&f{nextEvent} in &a{time}",
+                "",
+                "{TeamRedColor}R &f{TeamRedName}&f: {TeamRedStatus}",
+                "{TeamBlueColor}B &f{TeamBlueName}&f: {TeamBlueStatus}",
+                "",
+                "&fKills: &a{kills}",
+                "&fFinal Kills: &a{finalKills}",
+                "&fBeds Broken: &a{beds}",
+                "",
+                "&e{serverIp}")
+        );
+
+        yml.addDefault(Messages.SCOREBOARD_DEFAULT_RESTARTING_SPEC.replaceFirst("Default", "4v4"), Arrays.asList(
+                "&e&lBED WARS",
+                "&7{date} &8{server}",
+                "",
+                "&fGame ended!",
+                "",
+                "{TeamRedColor}R &f{TeamRedName}&f: {TeamRedStatus}",
+                "{TeamBlueColor}B &f{TeamBlueName}&f: {TeamBlueStatus}",
+                "",
+                "&fKills: &a{kills}",
+                "&fFinal Kills: &a{finalKills}",
+                "&fBeds Broken: &a{beds}",
+                "",
+                "&e{serverIp}")
+        );
+
+        yml.addDefault(Messages.SCOREBOARD_DEFAULT_RESTARTING_WIN1.replaceFirst("Default", "4v4"), Arrays.asList(
+                "&e&lBED WARS",
+                "&7{date} &8{server}",
+                "",
+                "&fGame ended!",
+                "",
+                "{TeamRedColor}R &f{TeamRedName}&f: {TeamRedStatus}",
+                "{TeamBlueColor}B &f{TeamBlueName}&f: {TeamBlueStatus}",
+                "",
+                "&fKills: &a{kills}",
+                "&fFinal Kills: &a{finalKills}",
+                "&fBeds Broken: &a{beds}",
+                "",
+                "&e{serverIp}")
+        );
+
+        yml.addDefault(Messages.SCOREBOARD_DEFAULT_RESTARTING_WIN2.replaceFirst("Default", "4v4"), Arrays.asList(
+                "&e&lBED WARS",
+                "&7{date} &8{server}",
+                "",
+                "&fGame ended!",
+                "",
+                "{TeamRedColor}R &f{TeamRedName}&f: {TeamRedStatus}",
+                "{TeamBlueColor}B &f{TeamBlueName}&f: {TeamBlueStatus}",
+                "",
+                "&fKills: &a{kills}",
+                "&fFinal Kills: &a{finalKills}",
+                "&fBeds Broken: &a{beds}",
+                "",
+                "&e{serverIp}")
+        );
+
+        yml.addDefault(Messages.SCOREBOARD_DEFAULT_RESTARTING_LOSER.replaceFirst("Default", "4v4"), Arrays.asList(
+                "&e&lBED WARS",
+                "&7{date} &8{server}",
+                "",
+                "&fGame ended!",
+                "",
+                "{TeamRedColor}R &f{TeamRedName}&f: {TeamRedStatus}",
+                "{TeamBlueColor}B &f{TeamBlueName}&f: {TeamBlueStatus}",
                 "",
                 "&fKills: &a{kills}",
                 "&fFinal Kills: &a{finalKills}",
