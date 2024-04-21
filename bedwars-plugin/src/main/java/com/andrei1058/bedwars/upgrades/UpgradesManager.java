@@ -40,7 +40,6 @@ import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
-import java.io.File;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.UUID;
@@ -65,11 +64,8 @@ public class UpgradesManager {
     }
 
     public static void init() {
-        File oldFile = new File(plugin.getDataFolder(), "/upgrades.yml");
-        //noinspection ResultOfMethodCallIgnored
-        oldFile.delete();
 
-        upgrades = new UpgradesConfig("upgrades2", plugin.getDataFolder().getPath());
+        upgrades = new UpgradesConfig("upgrades", plugin.getDataFolder().getPath());
         String name;
         for (String index : upgrades.getYml().getConfigurationSection("").getKeys(false)) {
             name = index;
@@ -358,7 +354,7 @@ public class UpgradesManager {
      * Used in inventory click.
      *
      * @param item item to be checked.
-     * @retrun {@link MenuContent} NULL if isn't an element.
+     * @return {@link MenuContent} NULL if isn't an element.
      */
     public static MenuContent getMenuContent(ItemStack item) {
         if (item == null) return null;
@@ -375,7 +371,7 @@ public class UpgradesManager {
     /**
      * Get menu content by identifier.
      *
-     * @retrun null if not found.
+     * @return null if not found.
      */
     public static MenuContent getMenuContent(String identifier) {
         return menuContentByName.getOrDefault(identifier.toLowerCase(), null);
