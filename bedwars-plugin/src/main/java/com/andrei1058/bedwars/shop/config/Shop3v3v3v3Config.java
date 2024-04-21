@@ -380,7 +380,7 @@ public class Shop3v3v3v3Config extends ConfigManager implements IShopManager {
             if (s.equalsIgnoreCase(ConfigPath.SHOP_SETTINGS_PATH)) continue;
             if (s.equals(ConfigPath.SHOP_QUICK_DEFAULTS_PATH)) continue;
             if (s.equalsIgnoreCase(ConfigPath.SHOP_SPECIALS_PATH)) continue;
-            ShopCategory sc = new ShopCategory(s, getYml(), "default-" + s); // Identify shop with default name + shop name
+            ShopCategory sc = new ShopCategory(s, getYml(), "3v3v3v3-" + s); // Identify shop with default name + shop name
             if (sc.isLoaded()) shop.addShopCategory(sc);
         }
     }

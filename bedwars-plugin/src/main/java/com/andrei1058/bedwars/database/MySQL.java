@@ -20,12 +20,12 @@
 
 package com.andrei1058.bedwars.database;
 
-import com.andrei1058.bedwars.api.configuration.ConfigPath;
 import com.andrei1058.bedwars.api.database.IDatabase;
 import com.andrei1058.bedwars.api.language.Language;
 import com.andrei1058.bedwars.api.shop.IQuickBuyElement;
 import com.andrei1058.bedwars.api.stats.IPlayerStats;
 import com.andrei1058.bedwars.stats.PlayerStats;
+
 import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;
 
