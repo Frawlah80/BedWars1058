@@ -34,6 +34,7 @@ import org.bukkit.entity.Player;
 import org.jetbrains.annotations.NotNull;
 
 import java.sql.Timestamp;
+import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.time.Duration;
 import java.time.Instant;
@@ -113,6 +114,7 @@ public class PAPISupport extends PlaceholderExpansion {
 
         // stats placeholders
         if(s.startsWith("stats_")) {
+            IArena a = Arena.getArenaByPlayer(player);
             String targetedStat = s.replaceFirst("stats_", "");
             if(targetedStat.isEmpty() || targetedStat.isBlank()) {
                 return null;
@@ -122,6 +124,7 @@ public class PAPISupport extends PlaceholderExpansion {
                 return null;
             }
             switch (targetedStat) {
+                // Overall stats
                 case "firstplay":
                     Instant firstPlay = stats.getFirstPlay();
                     return new SimpleDateFormat(getMsg(player, Messages.FORMATTING_STATS_DATE_FORMAT)).format(firstPlay != null ? Timestamp.from(firstPlay) : null);
@@ -132,6 +135,14 @@ public class PAPISupport extends PlaceholderExpansion {
                     return String.valueOf(stats.getTotalKills());
                 case "kills":
                     return String.valueOf(stats.getKills());
+                case "kdr":
+                    if (stats.getKills() == 0 || stats.getDeaths() == 0) {
+                        return String.valueOf(0);
+                    } else {
+                        double kdr = ((double) stats.getKills()) / ((double) stats.getDeaths());
+                        DecimalFormat kdrDf = new DecimalFormat("#.##");
+                        return String.valueOf(kdrDf.format(kdr));
+                    }
                 case "wins":
                     return String.valueOf(stats.getWins());
                 case "finalkills":
@@ -142,10 +153,50 @@ public class PAPISupport extends PlaceholderExpansion {
                     return String.valueOf(stats.getLosses());
                 case "finaldeaths":
                     return String.valueOf(stats.getFinalDeaths());
+                case "fkdr":
+                    if (stats.getFinalKills() == 0 || stats.getFinalDeaths() == 0) {
+                        return String.valueOf(0);
+                    } else {
+                        double fkdr = ((double) stats.getFinalKills()) / ((double) stats.getFinalDeaths());
+                        DecimalFormat fkdrDf = new DecimalFormat("#.##");
+                        return String.valueOf(fkdrDf.format(fkdr));
+                    }
                 case "bedsdestroyed":
                     return String.valueOf(stats.getBedsDestroyed());
                 case "gamesplayed":
                     return String.valueOf(stats.getGamesPlayed());
+
+                // per game stats
+                case "game_kills":
+                    return String.valueOf(a.getPlayerKills(player, false));
+                case "game_kills_total":
+                    return String.valueOf(a.getPlayerKills(player, true) + a.getPlayerKills(player, false));
+                case "game_finalkills":
+                    return String.valueOf(a.getPlayerKills(player, true));
+                case "game_deaths":
+                    return String.valueOf(a.getPlayerDeaths(player, false));
+                case "game_deaths_total":
+                    return String.valueOf(a.getPlayerDeaths(player, true) + a.getPlayerDeaths(player, false));
+                case "game_finaldeaths":
+                    return String.valueOf(a.getPlayerDeaths(player, true));
+                case "game_bedsdestroyed":
+                    return String.valueOf(a.getPlayerBedsDestroyed(player));
+                case "game_kdr":
+                    if (a.getPlayerKills(player, false) == 0 || a.getPlayerDeaths(player, false) == 0) {
+                        return String.valueOf(0);
+                    } else {
+                        double gamekdr = ((double) a.getPlayerKills(player, false)) / ((double) a.getPlayerDeaths(player, false));
+                        DecimalFormat gameKdrDf = new DecimalFormat("#.##");
+                        return String.valueOf(gameKdrDf.format(gamekdr));
+                    }
+                case "game_fkdr":
+                    if (a.getPlayerKills(player, true) == 0 || a.getPlayerDeaths(player, true) == 0) {
+                        return String.valueOf(0);
+                    } else {
+                        double gamefkdr = ((double) a.getPlayerKills(player, true)) / ((double) a.getPlayerDeaths(player, true));
+                        DecimalFormat gameFkdrDf = new DecimalFormat("#.##");
+                        return String.valueOf(gameFkdrDf.format(gamefkdr));
+                    }
             }
         }
 
@@ -198,6 +249,7 @@ public class PAPISupport extends PlaceholderExpansion {
                         .replaceAll(".*\\[", "")
                         .replaceAll("✫.*", "✫")
                         .replaceAll("✪.*", "✪");
+                // this will 99.9% fix any color code bug in scoreboard, the other 0.1% is when someone uses a different type of star. ugh
                 break;
             case "player_level_raw":
                 response = String.valueOf(BedWars.getLevelSupport().getPlayerLevel(player));
@@ -267,6 +319,19 @@ public class PAPISupport extends PlaceholderExpansion {
             case "arena_name":
                 if (a != null) {
                     response = a.getArenaName();
+                }
+                break;
+            // Some new placeholders yay
+            case "team_colorcode":
+                ITeam bwteam = a.getTeam(player);
+                if (bwteam != null) {
+                    response = bwteam.getColor().chat().toString();
+                }
+                break;
+            case "team_letter":
+                ITeam bedwarsteam = a.getTeam(player);
+                if (bedwarsteam != null) {
+                    response = bedwarsteam.getName().substring(0,1).toUpperCase();
                 }
                 break;
         }

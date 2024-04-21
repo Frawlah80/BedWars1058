@@ -23,8 +23,14 @@ Once your bed is destroyed, you cannot respawn.
   - %bw1058_player_level_no_brackets% (removes brackets in levels. Example: [1⭐] would look like 1⭐, and it will still retain the colors)
   - {levelNoBrackets} placeholder for lobby scoreboard
   - {moneyCommas} placeholder for lobby scoreboard (example: shows vault money as "1,000,000" instead of the default 1000000.0)
+  - %bw1058_stats_kdr% & %bw1058_stats_fkdr%
+  - Added per-game kills placeholder. You can now get placeholders such as the number of kills a player has got in a game.
+    - %bw1058_stats_game_<statName>% <wins, kills, finalKills, finalDeaths, bedsDestroyed, kills_total, deaths_total, kdr, fkdr>
+  - Added essential placeholders (Should be used in TAB)
+    - %bw1058_team_colorcode% & %bw1058_team_letter%
 - Added PerGroupShop:
   - Full Credits: [BedWars2023](https://github.com/tomkeuper/BedWars2023)
+  - Warning: Bugged quick-buy...
 - Added Invisibility Potion Effect:
   - Credits: [BedWars2023](https://github.com/tomkeuper/BedWars2023)
   - Added footstep particles (configurable in config).

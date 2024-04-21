@@ -264,7 +264,6 @@ public interface IArena {
      * @param p          Target player
      * @param finalKills True if you want to get the Final Kills. False for regular kills.
      */
-    @Deprecated
     int getPlayerKills(Player p, boolean finalKills);
 
     /**
@@ -279,7 +278,6 @@ public interface IArena {
      *
      * @param p Target player
      */
-    @Deprecated
     int getPlayerBedsDestroyed(Player p);
 
     /**
@@ -309,7 +307,7 @@ public interface IArena {
     /**
      * Check if target player is in re-spawning screen.
      */
-    @Deprecated
+
     default boolean isRespawning(Player p) {
         return isReSpawning(p);
     }
@@ -327,13 +325,11 @@ public interface IArena {
     /**
      * Add a kill point to the game stats.
      */
-    @Deprecated
     void addPlayerKill(Player p, boolean finalKill, Player victim);
 
     /**
      * Add a destroyed bed point to the player temp stats.
      */
-    @Deprecated
     void addPlayerBedDestroyed(Player p);
 
 
@@ -342,7 +338,6 @@ public interface IArena {
      * Used to get the team for a player that has left the arena.
      * Make sure the player is in this arena first.
      */
-    @Deprecated
     ITeam getPlayerTeam(String playerName);
 
     /**
@@ -354,7 +349,6 @@ public interface IArena {
     /**
      * Add a kill to the player temp stats.
      */
-    @Deprecated
     void addPlayerDeath(Player p);
 
     /**
@@ -404,7 +398,6 @@ public interface IArena {
     /**
      * Get player deaths.
      */
-    @Deprecated
     int getPlayerDeaths(Player p, boolean finalDeaths);
 
     /**
