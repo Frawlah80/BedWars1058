@@ -69,6 +69,7 @@ import com.andrei1058.bedwars.money.internal.MoneyListeners;
 import com.andrei1058.bedwars.shop.OverrideShop;
 import com.andrei1058.bedwars.shop.ShopCache;
 import com.andrei1058.bedwars.shop.ShopManager;
+import com.andrei1058.bedwars.shop.config.Shop3v3v3v3Config;
 import com.andrei1058.bedwars.shop.quickbuy.PlayerQuickBuyCache;
 import com.andrei1058.bedwars.sidebar.*;
 import com.andrei1058.bedwars.stats.StatsManager;
@@ -116,6 +117,8 @@ public class BedWars extends JavaPlugin {
     public static ConfigManager signs, generators, pagConfig;
     public static MainConfig config;
     public static ShopManager shop;
+
+    public static Shop3v3v3v3Config shop2;
     public static PlayerQuickBuyCache playerQuickBuyCache;
     public static ShopCache shopCache;
 
@@ -500,6 +503,9 @@ public class BedWars extends JavaPlugin {
         /* Initialize shop */
         shop = new ShopManager();
         shop.loadShop();
+
+        shop2 = new Shop3v3v3v3Config();
+        shop2.loadShop();
 
         /* Load shop overrides */
         File dir = new File(BedWars.plugin.getDataFolder(), "/Shops");
