@@ -25,7 +25,8 @@ Once your bed is destroyed, you cannot respawn.
   - {moneyCommas} placeholder for lobby scoreboard (example: shows vault money as "1,000,000" instead of the default 1000000.0)
   - %bw1058_stats_kdr% & %bw1058_stats_fkdr%
   - Added per-game kills placeholder. You can now get placeholders such as the number of kills a player has got in a game.
-    - %bw1058_stats_game_<statName>% <wins, kills, finalKills, finalDeaths, bedsDestroyed, kills_total, deaths_total, kdr, fkdr>
+    - %bw1058_stats_game_<>% (You can put any of these value in <>)
+      <wins, kills, finalKills, finalDeaths, bedsDestroyed, kills_total, deaths_total, kdr, fkdr>
   - Added essential placeholders (Should be used in TAB)
     - %bw1058_team_colorcode% & %bw1058_team_letter%
 - Added PerGroupShop:
