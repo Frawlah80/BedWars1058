@@ -339,7 +339,8 @@ public class Messages {
     public static String INTERACT_BED_DESTROY_CHAT_ANNOUNCEMENT_TO_VICTIM = "interact-bed-destroy-team";
     public static String INTERACT_CHEST_CANT_OPEN_TEAM_ELIMINATED = "interact-cant-open-chest";
     public static String INTERACT_INVISIBILITY_REMOVED_DAMGE_TAKEN = "interact-invisibility-removed-damaged";
-
+    public static String INTERACT_MAGIC_MILK_WORE_OFF = "interact-magic-milk-wore-off";
+    public static String INTERACT_WATER_BUCKET_FILL_EVENT = "interact-no-fill-buckets";
     /**
      * PvP related
      */

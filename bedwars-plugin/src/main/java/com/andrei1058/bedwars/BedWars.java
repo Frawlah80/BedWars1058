@@ -315,6 +315,10 @@ public class BedWars extends JavaPlugin {
             registerEvents(new SpongePlaceListener());
         }
 
+        if (config.getBoolean(ConfigPath.GENERAL_CONFIGURATION_BUCKET_REMOVE)) {
+            registerEvents(new WaterBucketPlaceEvent());
+        }
+
         if (getServerType() == ServerType.BUNGEE) {
             if (autoscale) {
                 //registerEvents(new ArenaListeners());

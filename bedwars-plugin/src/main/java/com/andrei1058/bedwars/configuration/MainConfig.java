@@ -223,6 +223,8 @@ public class MainConfig extends ConfigManager {
         yml.addDefault(ConfigPath.GENERAL_CONFIGURATION_ADVENTUREMODE_ON_WAITINGLOBBY_JOIN, true);
 
         yml.addDefault(ConfigPath.GENERAL_CONFIGURATION_ENABLE_SPONGE_EFFECT, true);
+
+        yml.addDefault(ConfigPath.GENERAL_CONFIGURATION_BUCKET_REMOVE, true);
         save();
 
         //remove old config
