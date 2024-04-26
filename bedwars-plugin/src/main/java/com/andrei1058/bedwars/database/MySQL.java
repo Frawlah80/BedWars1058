@@ -38,7 +38,7 @@ import java.util.concurrent.TimeUnit;
 
 import static com.andrei1058.bedwars.BedWars.config;
 
-@SuppressWarnings("WeakerAccess")
+@SuppressWarnings("all")
 public class MySQL implements IDatabase {
 
     private HikariDataSource dataSource;
