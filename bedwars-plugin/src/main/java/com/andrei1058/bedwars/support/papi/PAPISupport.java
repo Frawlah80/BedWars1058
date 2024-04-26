@@ -138,6 +138,10 @@ public class PAPISupport extends PlaceholderExpansion {
                 case "kdr":
                     if (stats.getKills() == 0 || stats.getDeaths() == 0) {
                         return String.valueOf(0);
+                    } else if (stats.getKills() == 0 && stats.getDeaths() != 0) {
+                        return String.valueOf(0);
+                    } else if (stats.getKills() != 0 && stats.getDeaths() == 0) {
+                        return String.valueOf(stats.getKills());
                     } else {
                         double kdr = ((double) stats.getKills()) / ((double) stats.getDeaths());
                         DecimalFormat kdrDf = new DecimalFormat("#.##");
@@ -154,8 +158,12 @@ public class PAPISupport extends PlaceholderExpansion {
                 case "finaldeaths":
                     return String.valueOf(stats.getFinalDeaths());
                 case "fkdr":
-                    if (stats.getFinalKills() == 0 || stats.getFinalDeaths() == 0) {
+                    if (stats.getFinalKills() == 0 && stats.getFinalDeaths() == 0) {
                         return String.valueOf(0);
+                    } else if (stats.getFinalKills() == 0 && stats.getFinalDeaths() != 0) {
+                        return String.valueOf(0);
+                    } else if (stats.getFinalKills() != 0 && stats.getFinalDeaths() == 0) {
+                        return String.valueOf(stats.getFinalKills());
                     } else {
                         double fkdr = ((double) stats.getFinalKills()) / ((double) stats.getFinalDeaths());
                         DecimalFormat fkdrDf = new DecimalFormat("#.##");
@@ -168,10 +176,26 @@ public class PAPISupport extends PlaceholderExpansion {
                 case "bblr":
                     if (stats.getBedsDestroyed() == 0 || stats.getBedsLost() == 0) {
                         return String.valueOf(0);
+                    } else if (stats.getBedsDestroyed() == 0 && stats.getBedsLost() != 0) {
+                        return String.valueOf(0);
+                    } else if (stats.getBedsDestroyed() != 0 && stats.getBedsLost() == 0) {
+                        return String.valueOf(stats.getBedsDestroyed());
                     } else {
                         double bblr = ((double) stats.getBedsDestroyed()) / ((double) stats.getBedsLost());
                         DecimalFormat bblrDf = new DecimalFormat("#.##");
                         return String.valueOf(bblrDf.format(bblr));
+                    }
+                case "wlr":
+                    if (stats.getWins() == 0 || stats.getLosses() == 0) {
+                        return String.valueOf(0);
+                    } else if (stats.getWins() == 0 && stats.getLosses() != 0) {
+                        return String.valueOf(0);
+                    } else if (stats.getWins() != 0 && stats.getLosses() == 0) {
+                        return String.valueOf(stats.getWins());
+                    } else {
+                        double wlr = ((double) stats.getWins()) / ((double) stats.getLosses());
+                        DecimalFormat wlrDf = new DecimalFormat("#.##");
+                        return String.valueOf(wlrDf.format(wlr));
                     }
                 case "gamesplayed":
                     return String.valueOf(stats.getGamesPlayed());
@@ -194,6 +218,10 @@ public class PAPISupport extends PlaceholderExpansion {
                 case "game_kdr":
                     if (a.getPlayerKills(player, false) == 0 || a.getPlayerDeaths(player, false) == 0) {
                         return String.valueOf(0);
+                    } else if (a.getPlayerKills(player, false) == 0 && a.getPlayerDeaths(player, false) != 0) {
+                        return String.valueOf(0);
+                    } else if (a.getPlayerKills(player, false) != 0 && a.getPlayerDeaths(player, false) == 0) {
+                        return String.valueOf(a.getPlayerKills(player, false));
                     } else {
                         double gamekdr = ((double) a.getPlayerKills(player, false)) / ((double) a.getPlayerDeaths(player, false));
                         DecimalFormat gameKdrDf = new DecimalFormat("#.##");
@@ -202,6 +230,10 @@ public class PAPISupport extends PlaceholderExpansion {
                 case "game_fkdr":
                     if (a.getPlayerKills(player, true) == 0 || a.getPlayerDeaths(player, true) == 0) {
                         return String.valueOf(0);
+                    } else if (a.getPlayerKills(player, true) == 0 && a.getPlayerDeaths(player, true) != 0) {
+                        return String.valueOf(0);
+                    } else if (a.getPlayerKills(player, true) != 0 && a.getPlayerDeaths(player, true) == 0) {
+                        return String.valueOf(a.getPlayerKills(player, true));
                     } else {
                         double gamefkdr = ((double) a.getPlayerKills(player, true)) / ((double) a.getPlayerDeaths(player, true));
                         DecimalFormat gameFkdrDf = new DecimalFormat("#.##");
