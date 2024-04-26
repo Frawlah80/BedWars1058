@@ -163,6 +163,8 @@ public class PAPISupport extends PlaceholderExpansion {
                     }
                 case "bedsdestroyed":
                     return String.valueOf(stats.getBedsDestroyed());
+                case "bedslost":
+                    return String.valueOf(stats.getBedsLost());
                 case "gamesplayed":
                     return String.valueOf(stats.getGamesPlayed());
 
