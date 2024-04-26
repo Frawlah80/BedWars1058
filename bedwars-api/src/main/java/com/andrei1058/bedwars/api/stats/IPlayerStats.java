@@ -156,6 +156,20 @@ public interface IPlayerStats {
     void setBedsDestroyed(int bedsDestroyed);
 
     /**
+     * Returns the number of beds lost by the player.
+     *
+     * @return The number of beds lost.
+     */
+    int getBedsLost();
+
+    /**
+     * Sets the number of beds lost by the player.
+     *
+     * @param bedsLost The number of beds lost.
+     */
+    void setBedsLost(int bedsLost);
+
+    /**
      * Returns the number of games played by the player.
      *
      * @return The number of games played.
