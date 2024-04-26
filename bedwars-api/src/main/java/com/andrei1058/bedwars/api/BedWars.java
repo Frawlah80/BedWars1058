@@ -118,6 +118,12 @@ public interface BedWars {
         int getPlayerBedsDestroyed(UUID p);
 
         /**
+         * Get player beds lost.
+         * You get data from the local cache.
+         */
+        int getPlayerBedsLost(UUID p);
+
+        /**
          * Get player games played.
          * You get data from the local cache.
          */

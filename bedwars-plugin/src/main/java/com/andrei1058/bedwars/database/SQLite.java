@@ -35,6 +35,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 
+@SuppressWarnings("all")
 public class SQLite implements IDatabase {
 
     private String url;
@@ -85,7 +86,7 @@ public class SQLite implements IDatabase {
             sql = "CREATE TABLE IF NOT EXISTS global_stats (id INTEGER PRIMARY KEY AUTOINCREMENT, " +
                     "name VARCHAR(200), uuid VARCHAR(36), first_play TIMESTAMP NULL DEFAULT NULL, " +
                     "last_play TIMESTAMP DEFAULT NULL, wins INTEGER(10), kills INTEGER(10), " +
-                    "final_kills INTEGER(10), looses INTEGER(10), deaths INTEGER(10), final_deaths INTEGER(10), beds_destroyed INTEGER(10), games_played INTEGER(10));";
+                    "final_kills INTEGER(10), looses INTEGER(10), deaths INTEGER(10), final_deaths INTEGER(10), beds_destroyed INTEGER(10), beds_lost INTEGER(10), games_played INTEGER(10));";
             try (Statement statement = connection.createStatement()) {
                 statement.executeUpdate(sql);
             }
@@ -136,7 +137,7 @@ public class SQLite implements IDatabase {
             checkConnection();
 
             if (hasStats(stats.getUuid())) {
-                sql = "UPDATE global_stats SET last_play=?, wins=?, kills=?, final_kills=?, looses=?, deaths=?, final_deaths=?, beds_destroyed=?, games_played=?, name=? WHERE uuid = ?;";
+                sql = "UPDATE global_stats SET last_play=?, wins=?, kills=?, final_kills=?, looses=?, deaths=?, final_deaths=?, beds_destroyed=?, beds_lost=?, games_played=?, name=? WHERE uuid = ?;";
                 try (PreparedStatement statement = connection.prepareStatement(sql)) {
                     statement.setTimestamp(1, Timestamp.from(stats.getLastPlay()));
                     statement.setInt(2, stats.getWins());
@@ -146,13 +147,14 @@ public class SQLite implements IDatabase {
                     statement.setInt(6, stats.getDeaths());
                     statement.setInt(7, stats.getFinalDeaths());
                     statement.setInt(8, stats.getBedsDestroyed());
-                    statement.setInt(9, stats.getGamesPlayed());
-                    statement.setString(10, stats.getName());
-                    statement.setString(11, stats.getUuid().toString());
+                    statement.setInt(9, stats.getBedsLost());
+                    statement.setInt(10, stats.getGamesPlayed());
+                    statement.setString(11, stats.getName());
+                    statement.setString(12, stats.getUuid().toString());
                     statement.executeUpdate();
                 }
             } else {
-                sql = "INSERT INTO global_stats (name, uuid, first_play, last_play, wins, kills, final_kills, looses, deaths, final_deaths, beds_destroyed, games_played) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
+                sql = "INSERT INTO global_stats (name, uuid, first_play, last_play, wins, kills, final_kills, looses, deaths, final_deaths, beds_destroyed, beds_lost, games_played) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
                 try (PreparedStatement statement = connection.prepareStatement(sql)) {
                     statement.setString(1, stats.getName());
                     statement.setString(2, stats.getUuid().toString());
@@ -165,7 +167,8 @@ public class SQLite implements IDatabase {
                     statement.setInt(9, stats.getDeaths());
                     statement.setInt(10, stats.getFinalDeaths());
                     statement.setInt(11, stats.getBedsDestroyed());
-                    statement.setInt(12, stats.getGamesPlayed());
+                    statement.setInt(12, stats.getBedsLost());
+                    statement.setInt(13, stats.getGamesPlayed());
                     statement.executeUpdate();
                 }
             }
@@ -194,6 +197,7 @@ public class SQLite implements IDatabase {
                         stats.setDeaths(result.getInt("deaths"));
                         stats.setFinalDeaths(result.getInt("final_deaths"));
                         stats.setBedsDestroyed(result.getInt("beds_destroyed"));
+                        stats.setBedsLost(result.getInt("beds_lost"));
                         stats.setGamesPlayed(result.getInt("games_played"));
                     }
                 }

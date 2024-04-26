@@ -163,6 +163,16 @@ public class PAPISupport extends PlaceholderExpansion {
                     }
                 case "bedsdestroyed":
                     return String.valueOf(stats.getBedsDestroyed());
+                case "bedslost":
+                    return String.valueOf(stats.getBedsLost());
+                case "bblr":
+                    if (stats.getBedsDestroyed() == 0 || stats.getBedsLost() == 0) {
+                        return String.valueOf(0);
+                    } else {
+                        double bblr = ((double) stats.getBedsDestroyed()) / ((double) stats.getBedsLost());
+                        DecimalFormat bblrDf = new DecimalFormat("#.##");
+                        return String.valueOf(bblrDf.format(bblr));
+                    }
                 case "gamesplayed":
                     return String.valueOf(stats.getGamesPlayed());
 

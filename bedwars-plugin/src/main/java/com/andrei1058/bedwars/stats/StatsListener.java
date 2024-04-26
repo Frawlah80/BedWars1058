@@ -41,6 +41,7 @@ import org.bukkit.event.player.PlayerQuitEvent;
 import org.jetbrains.annotations.NotNull;
 
 import java.time.Instant;
+import java.util.List;
 import java.util.UUID;
 
 public class StatsListener implements Listener {
@@ -69,6 +70,18 @@ public class StatsListener implements Listener {
         IPlayerStats stats = BedWars.getStatsManager().get(event.getPlayer().getUniqueId());
         //store beds destroyed
         stats.setBedsDestroyed(stats.getBedsDestroyed() + 1);
+    }
+
+    @EventHandler
+    public void onBedLoss(PlayerBedBreakEvent event) {
+        List<Player> victims = event.getVictimTeam().getMembers();
+        for (Player victim : victims) {
+            UUID victimUUID = victim.getUniqueId();
+            IPlayerStats stats = BedWars.getStatsManager().get(victimUUID);
+            BedWars.debug("PlayerBedBreakEvent event: Update player bed loss stats");
+            //store bed losses
+            stats.setBedsLost(stats.getBedsLost() + 1);
+        }
     }
 
     @EventHandler

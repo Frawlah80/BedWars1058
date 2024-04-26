@@ -40,6 +40,7 @@ public class PlayerStats implements IPlayerStats {
     private int deaths;
     private int finalDeaths;
     private int bedsDestroyed;
+    private int bedsLost;
     private int gamesPlayed;
 
     public PlayerStats(UUID uuid) {
@@ -130,6 +131,14 @@ public class PlayerStats implements IPlayerStats {
 
     public void setBedsDestroyed(int bedsDestroyed) {
         this.bedsDestroyed = bedsDestroyed;
+    }
+
+    public int getBedsLost() {
+        return bedsLost;
+    }
+
+    public void setBedsLost(int bedsLost) {
+        this.bedsLost = bedsLost;
     }
 
     public int getGamesPlayed() {
