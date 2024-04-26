@@ -120,7 +120,7 @@ public class CategoryContent implements ICategoryContent {
 
     }
 
-    public void execute(Player player, IShopCache shopCache, int slot) {
+    public boolean execute(Player player, IShopCache shopCache, int slot) {
 
         IContentTier ct;
 
@@ -128,12 +128,12 @@ public class CategoryContent implements ICategoryContent {
         if (shopCache.getCategoryWeight(father) > weight) {
             player.sendMessage(getMsg(player, Messages.SHOP_ALREADY_HIGHER_TIER));
             Sounds.playSound(ConfigPath.SOUNDS_INSUFF_MONEY, player);
-            return;
+            return false;
         }
 
         if (shopCache.getContentTier(getIdentifier()) > contentTiers.size()) {
             Bukkit.getLogger().severe("Wrong tier order at: " + getIdentifier());
-            return;
+            return false;
         }
 
         //check if can re-buy
@@ -141,7 +141,7 @@ public class CategoryContent implements ICategoryContent {
             if (isPermanent() && shopCache.hasCachedItem(this)) {
                 player.sendMessage(getMsg(player, Messages.SHOP_ALREADY_BOUGHT));
                 Sounds.playSound(ConfigPath.SOUNDS_INSUFF_MONEY, player);
-                return;
+                return false;
             }
             //current tier
             ct = contentTiers.get(shopCache.getContentTier(getIdentifier()) - 1);
@@ -159,7 +159,7 @@ public class CategoryContent implements ICategoryContent {
             player.sendMessage(getMsg(player, Messages.SHOP_INSUFFICIENT_MONEY).replace("{currency}", getMsg(player, getCurrencyMsgPath(ct))).
                     replace("{amount}", String.valueOf(ct.getPrice() - money)));
             Sounds.playSound(ConfigPath.SOUNDS_INSUFF_MONEY, player);
-            return;
+            return false;
         }
 
         ShopBuyEvent event;
@@ -167,7 +167,7 @@ public class CategoryContent implements ICategoryContent {
         Bukkit.getPluginManager().callEvent(event = new ShopBuyEvent(player, Arena.getArenaByPlayer(player), this));
 
         if (event.isCancelled()){
-            return;
+            return false;
         }
 
         //take money
@@ -195,6 +195,7 @@ public class CategoryContent implements ICategoryContent {
 
 
         shopCache.setCategoryWeight(father, weight);
+        return true;
     }
 
     /**
@@ -271,7 +272,11 @@ public class CategoryContent implements ICategoryContent {
             for (String s : Language.getList(player, itemLorePath)) {
                 if (s.contains("{quick_buy}")) {
                     if (hasQuick) {
-                        s = getMsg(player, Messages.SHOP_LORE_QUICK_REMOVE);
+                        if (ShopIndex.getIndexViewers().contains(player.getUniqueId())) {
+                            s = getMsg(player, Messages.SHOP_LORE_QUICK_REMOVE);
+                        } else {
+                            continue;
+                        }
                     } else {
                         s = getMsg(player, Messages.SHOP_LORE_QUICK_ADD);
                     }
