@@ -125,7 +125,11 @@ public class CategoryContent implements ICategoryContent {
         IContentTier ct;
 
         //check weight
-        if (shopCache.getCategoryWeight(father) > weight) return;
+        if (shopCache.getCategoryWeight(father) > weight) {
+            player.sendMessage(getMsg(player, Messages.SHOP_ALREADY_HIGHER_TIER));
+            Sounds.playSound(ConfigPath.SOUNDS_INSUFF_MONEY, player);
+            return;
+        }
 
         if (shopCache.getContentTier(getIdentifier()) > contentTiers.size()) {
             Bukkit.getLogger().severe("Wrong tier order at: " + getIdentifier());
