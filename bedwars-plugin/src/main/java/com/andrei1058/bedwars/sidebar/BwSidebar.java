@@ -297,6 +297,9 @@ public class BwSidebar implements ISidebar {
                 providers.add(new PlaceholderProvider("{beds}", () ->
                         String.valueOf(persistentStats.getBedsDestroyed()))
                 );
+                providers.add(new PlaceholderProvider("{bedsLost}", () ->
+                        String.valueOf(persistentStats.getBedsLost()))
+                );
                 providers.add(new PlaceholderProvider("{deaths}", () ->
                         String.valueOf(persistentStats.getDeaths()))
                 );

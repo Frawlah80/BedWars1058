@@ -337,6 +337,8 @@ public class Misc {
             s = s.replace("{finalDeaths}", String.valueOf(stats.getFinalDeaths()));
         if (s.contains("{bedsDestroyed}"))
             s = s.replace("{bedsDestroyed}", String.valueOf(stats.getBedsDestroyed()));
+        if (s.contains("{bedsLost}"))
+            s = s.replace("{bedsLost}", String.valueOf(stats.getBedsLost()));
         if (s.contains("{gamesPlayed}"))
             s = s.replace("{gamesPlayed}", String.valueOf(stats.getGamesPlayed()));
         if (s.contains("{firstPlay}"))
