@@ -199,6 +199,8 @@ public class PAPISupport extends PlaceholderExpansion {
                     }
                 case "winstreak":
                     return String.valueOf(stats.getWinStreak());
+                case "highest_winstreak":
+                    return String.valueOf(stats.getHighestWinStreak());
                 case "gamesplayed":
                     return String.valueOf(stats.getGamesPlayed());
 

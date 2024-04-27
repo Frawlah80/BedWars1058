@@ -42,6 +42,7 @@ public class PlayerStats implements IPlayerStats {
     private int bedsDestroyed;
     private int bedsLost;
     private int winStreak;
+    private int highestWinStreak;
     private int gamesPlayed;
 
     public PlayerStats(UUID uuid) {
@@ -148,6 +149,14 @@ public class PlayerStats implements IPlayerStats {
 
     public void setWinStreak(int winStreak) {
         this.winStreak = winStreak;
+    }
+
+    public int getHighestWinStreak() {
+        return highestWinStreak;
+    }
+
+    public void setHighestWinStreak(int highestWinStreak) {
+        this.highestWinStreak = highestWinStreak;
     }
 
     public int getGamesPlayed() {

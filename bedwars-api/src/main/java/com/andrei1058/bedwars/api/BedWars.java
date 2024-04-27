@@ -130,6 +130,12 @@ public interface BedWars {
         int getPlayerWinStreak(UUID p);
 
         /**
+         * Get player's highest win streak.
+         * You get data from the local cache.
+         */
+        int getPlayerHighestWinStreak(UUID p);
+
+        /**
          * Get player games played.
          * You get data from the local cache.
          */

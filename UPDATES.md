@@ -14,7 +14,7 @@
     - %bw1058_player_level_no_brackets% (removes brackets in levels. Example: [1⭐] would look like 1⭐, and it will still retain the colors)
     - {levelNoBrackets} placeholder for lobby scoreboard
     - {moneyCommas} placeholder for lobby scoreboard (example: shows vault money as "1,000,000" instead of the default 1000000.0)
-    - %bw1058_stats_kdr%, %bw1058_stats_fkdr%, %bw1058_stats_bblr%, %bw1058_stats_bedslost% & %bw1058_stats_winstreak%
+    - %bw1058_stats_kdr%, %bw1058_stats_fkdr%, %bw1058_stats_bblr%, %bw1058_stats_bedslost%, %bw1058_stats_winstreak% & %bw1058_stats_highestwinstreak%
     - Added per-game kills placeholder. You can now get placeholders such as the number of kills a player has got in a game.
         - %bw1058_stats_game_<>% (You can put any of these value in <>)
           <wins, kills, finalKills, finalDeaths, bedsDestroyed, kills_total, deaths_total, kdr, fkdr>
@@ -42,7 +42,7 @@
     - Configurable in per-arena-gen.yml
 - Better Stats
     - Earlier, statistics (loss) were triggered on final death itself, now it only triggers when you actually lose the game
-    - Added WinStreak and BedsLost stats
+    - Added WinStreak, Highest WinStreak and BedsLost stats
     - Improved statistics (somewhat)
 - Improvements to magic milk and buckets
     - Fixed a bug where magic milk remained even after death

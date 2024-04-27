@@ -184,6 +184,20 @@ public interface IPlayerStats {
     void setWinStreak(int winStreak);
 
     /**
+     * Returns the highest number of win streak by the player.
+     *
+     * @return The highest number of win streak.
+     */
+    int getHighestWinStreak();
+
+    /**
+     * Sets the current number of win streak by the player.
+     *
+     * @param highestWinStreak The current number of win streak.
+     */
+    void setHighestWinStreak(int highestWinStreak);
+
+    /**
      * Returns the number of games played by the player.
      *
      * @return The number of games played.

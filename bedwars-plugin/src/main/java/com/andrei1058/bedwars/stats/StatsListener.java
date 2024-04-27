@@ -144,6 +144,10 @@ public class StatsListener implements Listener {
             stats.setWins(stats.getWins() + 1);
             stats.setWinStreak(stats.getWinStreak() + 1);
 
+            if (stats.getHighestWinStreak() < stats.getWinStreak()) {
+                stats.setHighestWinStreak(stats.getWinStreak());
+            }
+
             // store games played
             // give if he remained in this arena till the end even if was eliminated
             // for those who left games played are updated in arena leave listener

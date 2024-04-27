@@ -138,7 +138,7 @@ public class MySQL implements IDatabase {
             String sql = "CREATE TABLE IF NOT EXISTS global_stats (id INT NOT NULL AUTO_INCREMENT PRIMARY KEY, " +
                     "name VARCHAR(200), uuid VARCHAR(200), first_play TIMESTAMP NULL DEFAULT NULL, " +
                     "last_play TIMESTAMP NULL DEFAULT NULL, wins INT(200), kills INT(200), " +
-                    "final_kills INT(200), looses INT(200), deaths INT(200), final_deaths INT(200), beds_destroyed INT(200), beds_lost INT(200), winstreak INT(200), games_played INT(200));";
+                    "final_kills INT(200), looses INT(200), deaths INT(200), final_deaths INT(200), beds_destroyed INT(200), beds_lost INT(200), winstreak INT(200), highest_winstreak INT(200), games_played INT(200));";
 
             try (Statement statement = connection.createStatement()) {
                 statement.executeUpdate(sql);
@@ -172,7 +172,7 @@ public class MySQL implements IDatabase {
         String sql;
         try (Connection connection = dataSource.getConnection()) {
             if (hasStats(stats.getUuid())) {
-                sql = "UPDATE global_stats SET first_play=?, last_play=?, wins=?, kills=?, final_kills=?, looses=?, deaths=?, final_deaths=?, beds_destroyed=?, beds_lost=?, winstreak=?, games_played=?, name=? WHERE uuid = ?;";
+                sql = "UPDATE global_stats SET first_play=?, last_play=?, wins=?, kills=?, final_kills=?, looses=?, deaths=?, final_deaths=?, beds_destroyed=?, beds_lost=?, winstreak=?, highest_winstreak=?, games_played=?, name=? WHERE uuid = ?;";
                 try (PreparedStatement statement = connection.prepareStatement(sql)) {
                     statement.setTimestamp(1, stats.getFirstPlay() != null ? Timestamp.from(stats.getFirstPlay()) : null);
                     statement.setTimestamp(2, stats.getLastPlay() != null ? Timestamp.from(stats.getLastPlay()) : null);
@@ -186,12 +186,13 @@ public class MySQL implements IDatabase {
                     statement.setInt(10, stats.getBedsLost());
                     statement.setInt(11, stats.getGamesPlayed());
                     statement.setInt(12, stats.getWinStreak());
+                    statement.setInt(13, stats.getHighestWinStreak());
                     statement.setString(13, stats.getName());
                     statement.setString(14, stats.getUuid().toString());
                     statement.executeUpdate();
                 }
             } else {
-                sql = "INSERT INTO global_stats (name, uuid, first_play, last_play, wins, kills, final_kills, looses, deaths, final_deaths, beds_destroyed, beds_lost, winstreak, games_played) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
+                sql = "INSERT INTO global_stats (name, uuid, first_play, last_play, wins, kills, final_kills, looses, deaths, final_deaths, beds_destroyed, beds_lost, winstreak, highest_winstreak, games_played) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
                 try (PreparedStatement statement = connection.prepareStatement(sql)) {
                     statement.setString(1, stats.getName());
                     statement.setString(2, stats.getUuid().toString());
@@ -206,7 +207,8 @@ public class MySQL implements IDatabase {
                     statement.setInt(11, stats.getBedsDestroyed());
                     statement.setInt(12, stats.getBedsLost());
                     statement.setInt(13, stats.getWinStreak());
-                    statement.setInt(14, stats.getGamesPlayed());
+                    statement.setInt(14, stats.getHighestWinStreak());
+                    statement.setInt(15, stats.getGamesPlayed());
                     statement.executeUpdate();
                 }
             }
@@ -219,7 +221,7 @@ public class MySQL implements IDatabase {
     public IPlayerStats fetchStats(UUID uuid) {
         IPlayerStats stats = new PlayerStats(uuid);
         String sql = "SELECT first_play, last_play, wins, kills, final_kills, looses, deaths, final_deaths," +
-                "beds_destroyed, beds_lost, winstreak, games_played FROM global_stats WHERE uuid = ?;";
+                "beds_destroyed, beds_lost, winstreak, highest_winstreak, games_played FROM global_stats WHERE uuid = ?;";
         try (Connection connection = dataSource.getConnection()) {
             try (PreparedStatement statement = connection.prepareStatement(sql)) {
                 statement.setString(1, uuid.toString());
@@ -238,7 +240,8 @@ public class MySQL implements IDatabase {
                         stats.setBedsDestroyed(result.getInt(9));
                         stats.setBedsLost(result.getInt(10));
                         stats.setWinStreak(result.getInt(11));
-                        stats.setGamesPlayed(result.getInt(12));
+                        stats.setHighestWinStreak(result.getInt(12));
+                        stats.setGamesPlayed(result.getInt(13));
                     }
                 }
             }
