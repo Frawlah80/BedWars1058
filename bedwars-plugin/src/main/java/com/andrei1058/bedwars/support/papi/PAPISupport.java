@@ -197,6 +197,8 @@ public class PAPISupport extends PlaceholderExpansion {
                         DecimalFormat wlrDf = new DecimalFormat("#.##");
                         return String.valueOf(wlrDf.format(wlr));
                     }
+                case "winstreak":
+                    return String.valueOf(stats.getWinStreak());
                 case "gamesplayed":
                     return String.valueOf(stats.getGamesPlayed());
 
