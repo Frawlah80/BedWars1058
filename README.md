@@ -10,45 +10,7 @@ BedWars is a mini-game where you have to defend your bed and destroy the others.
 Once your bed is destroyed, you cannot respawn.
 
 ## What's new:
-- Added Build Height Limit messages:
-  - Credits: [BedWars1058-BuildLimit](https://github.com/Frawlah80/BedWars1058-BuildLimit)
-  - You can now configure MAX BUILD HEIGHT and MIN BUILD HEIGHT in the arena's config. Messages (such as "Build height limit reached!" or "You cannot build any further down!" are configurable (in language files)!)
-- Added Map Command:
-  - Credits: [BedWars1058-MapCommand](https://github.com/Frawlah80/BedWars1058-MapCommand)
-  - Added commands: /map & /wtfmap
-  - Messages are configurable in language files (as {arenaDisplayName} to show the arena display name or {arenaName} to show the arena's original name)
-- Added new placeholders:
-  - %bw1058_arena_displayname%
-  - %bw1058_arena_name%
-  - %bw1058_player_level_no_brackets% (removes brackets in levels. Example: [1⭐] would look like 1⭐, and it will still retain the colors)
-  - {levelNoBrackets} placeholder for lobby scoreboard
-  - {moneyCommas} placeholder for lobby scoreboard (example: shows vault money as "1,000,000" instead of the default 1000000.0)
-  - %bw1058_stats_kdr% & %bw1058_stats_fkdr%
-  - Added per-game kills placeholder. You can now get placeholders such as the number of kills a player has got in a game.
-    - %bw1058_stats_game_<>% (You can put any of these value in <>)
-      <wins, kills, finalKills, finalDeaths, bedsDestroyed, kills_total, deaths_total, kdr, fkdr>
-  - Added essential placeholders (Should be used in TAB)
-    - %bw1058_team_colorcode% & %bw1058_team_letter%
-- Added PerGroupShop:
-  - Full Credits: [BedWars2023](https://github.com/tomkeuper/BedWars2023)
-  - Warning: Bugged quick-buy...
-- Added Invisibility Potion Effect:
-  - Credits: [BedWars2023](https://github.com/tomkeuper/BedWars2023)
-  - Added footstep particles (configurable in config).
-- Added Anti-Drop:
-  - Credit: [BedWars1058-AntiDrop](https://polymart.org/resource/bedwars1058-antidrop-addon.1661?__cf_chl_tk=54SoQcQ1KkWUBrb6kAO301OFl5.q3rosFaEUJz.nHkk-1712989639-0.0.1.1-1578)
-  - Configurable in config (You can disable this feature).
-- Added Adventure Mode feature in waiting-lobby:
-  - Configurable in config (You can disable this feature). 
-- New default levels:
-  - Added "popular server" prestiges (1 star - 2000 star)
-- Added Sponge Effect:
-  - Despawn Sponge after 2 seconds
-  - Play Cloud effect on place (not the best atm but there is room for improvement)
-  - You can disable this feature in config if you do not like it and continue to use a separate addon for this...
-- Added Per Arena Generator:
-  - Iron/Gold Amount, Delay, Max Spawn are configurable per arena. 
-  - Configurable in per-arena-gen.yml 
+[Click here](https://github.com/Frawlah80/BedWars1058/blob/master/UPDATES.md)
 
 ## Main features
 
