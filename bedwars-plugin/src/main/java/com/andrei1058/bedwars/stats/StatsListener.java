@@ -94,8 +94,16 @@ public class StatsListener implements Listener {
         if (event.getCause().isFinalKill()) {
             //store final deaths
             victimStats.setFinalDeaths(victimStats.getFinalDeaths() + 1);
-            //store losses
-            victimStats.setLosses(victimStats.getLosses() + 1);
+
+            /* store losses
+            *
+            * victimStats.setLosses(victimStats.getLosses() + 1);
+            *
+            * This should not be here because, if a player is final killed,
+            * he may have a teammate who can clutch up and win the game.
+            * But even after that, he will be given the loss and that sucks.
+            */
+
             //store games played
             victimStats.setGamesPlayed(victimStats.getGamesPlayed() + 1);
             //store final kills
@@ -110,6 +118,19 @@ public class StatsListener implements Listener {
 
     @EventHandler
     public void onGameEnd(GameEndEvent event) {
+        for (UUID uuid : event.getLosers()) {
+            Player player = Bukkit.getPlayer(uuid);
+            if (player == null) continue;
+            if (!player.isOnline()) continue;
+
+            IPlayerStats stats = BedWars.getStatsManager().getUnsafe(uuid);
+
+            // store the loss even if is in another game
+            if (stats != null) {
+                stats.setLosses(stats.getLosses() + 1);
+            }
+        }
+
         for (UUID uuid : event.getWinners()) {
             Player player = Bukkit.getPlayer(uuid);
             if (player == null) continue;
