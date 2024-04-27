@@ -290,7 +290,8 @@ public class PAPISupport extends PlaceholderExpansion {
                 response = BedWars.getLevelSupport().getLevel(player)
                         .replaceAll(".*\\[", "")
                         .replaceAll("✫.*", "✫")
-                        .replaceAll("✪.*", "✪");
+                        .replaceAll("✪.*", "✪")
+                        .replaceAll("].*", "");
                 // this will 99.9% fix any color code bug in scoreboard, the other 0.1% is when someone uses a different type of star. ugh
                 break;
             case "player_level_raw":

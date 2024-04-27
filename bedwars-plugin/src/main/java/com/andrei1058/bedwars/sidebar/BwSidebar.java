@@ -275,6 +275,7 @@ public class BwSidebar implements ISidebar {
                     .replaceAll(".*\\[", "")
                     .replaceAll("✫.*", "✫")
                     .replaceAll("✪.*", "✪")
+                    .replaceAll("].*", "")
             ));
             providers.add(new PlaceholderProvider("{levelUnformatted}", () -> String.valueOf(level.getLevel())));
             providers.add(new PlaceholderProvider("{currentXp}", level::getFormattedCurrentXp));
