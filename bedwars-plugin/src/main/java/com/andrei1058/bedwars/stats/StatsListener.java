@@ -128,6 +128,7 @@ public class StatsListener implements Listener {
             // store the loss even if is in another game
             if (stats != null) {
                 stats.setLosses(stats.getLosses() + 1);
+                stats.setWinStreak(stats.getWinStreak() - stats.getWinStreak());
             }
         }
 
@@ -141,6 +142,7 @@ public class StatsListener implements Listener {
             // store wins even if is in another game because he assisted this team
             // the ones who abandoned are already removed from the winners list
             stats.setWins(stats.getWins() + 1);
+            stats.setWinStreak(stats.getWinStreak() + 1);
 
             // store games played
             // give if he remained in this arena till the end even if was eliminated

@@ -170,6 +170,20 @@ public interface IPlayerStats {
     void setBedsLost(int bedsLost);
 
     /**
+     * Returns the current number of win streak by the player.
+     *
+     * @return The current number of win streak.
+     */
+    int getWinStreak();
+
+    /**
+     * Sets the current number of win streak by the player.
+     *
+     * @param winStreak The current number of win streak.
+     */
+    void setWinStreak(int winStreak);
+
+    /**
      * Returns the number of games played by the player.
      *
      * @return The number of games played.

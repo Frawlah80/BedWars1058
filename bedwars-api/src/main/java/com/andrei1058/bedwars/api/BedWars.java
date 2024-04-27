@@ -124,6 +124,12 @@ public interface BedWars {
         int getPlayerBedsLost(UUID p);
 
         /**
+         * Get player's current win streak.
+         * You get data from the local cache.
+         */
+        int getPlayerWinStreak(UUID p);
+
+        /**
          * Get player games played.
          * You get data from the local cache.
          */
