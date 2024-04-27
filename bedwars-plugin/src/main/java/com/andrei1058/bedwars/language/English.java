@@ -411,18 +411,168 @@ public class English extends Language {
                 "",
                 "&f{nextEvent} in &a{time}",
                 "",
-                "{TeamRedColor}R &f{TeamRedName}&f: {TeamRedStatus}",
-                "{TeamBlueColor}B &f{TeamBlueName}&f: {TeamBlueStatus}",
-                "{TeamGreenColor}G &f{TeamGreenName}&f: {TeamGreenStatus}",
-                "{TeamYellowColor}Y &f{TeamYellowName}&f: {TeamYellowStatus}",
-                "{TeamAquaColor}A &f{TeamAquaName}&f: {TeamAquaStatus}",
-                "{TeamWhiteColor}W &f{TeamWhiteName}&f: {TeamWhiteStatus}",
-                "{TeamPinkColor}P &f{TeamPinkName}&f: {TeamPinkStatus}",
-                "{TeamGrayColor}S &f{TeamGrayName}&f: {TeamGrayStatus}",
+                "{team}",
+                "{team}",
+                "{team}",
+                "{team}",
+                "{team}",
+                "{team}",
+                "{team}",
+                "{team}",
                 "",
                 "&e{serverIp}")
         );
         yml.addDefault(Messages.SCOREBOARD_DEFAULT_PLAYING_SPEC, Arrays.asList(
+                "&e&lBED WARS",
+                "&7{date} &8{server}",
+                "",
+                "&f{nextEvent} in &a{time}",
+                "",
+                "{team}",
+                "{team}",
+                "{team}",
+                "{team}",
+                "{team}",
+                "{team}",
+                "{team}",
+                "{team}",
+                "",
+                "&e{serverIp}")
+        );
+        yml.addDefault(Messages.SCOREBOARD_DEFAULT_RESTARTING_SPEC, Arrays.asList(
+                "&e&lBED WARS",
+                "&7{date} &8{server}",
+                "",
+                "&fGame ended!",
+                "",
+                "{team}",
+                "{team}",
+                "{team}",
+                "{team}",
+                "{team}",
+                "{team}",
+                "{team}",
+                "{team}",
+                "",
+                "&e{serverIp}")
+        );
+
+        yml.addDefault(Messages.SCOREBOARD_DEFAULT_RESTARTING_WIN1, Arrays.asList(
+                "&e&lBED WARS",
+                "&7{date} &8{server}",
+                "",
+                "&fGame ended!",
+                "",
+                "{team}",
+                "{team}",
+                "{team}",
+                "{team}",
+                "{team}",
+                "{team}",
+                "{team}",
+                "{team}",
+                "",
+                "&e{serverIp}")
+        );
+
+        yml.addDefault(Messages.SCOREBOARD_DEFAULT_RESTARTING_WIN2, Arrays.asList(
+                "&e&lBED WARS",
+                "&7{date} &8{server}",
+                "",
+                "&fGame ended!",
+                "",
+                "{team}",
+                "{team}",
+                "{team}",
+                "{team}",
+                "{team}",
+                "{team}",
+                "{team}",
+                "{team}",
+                "",
+                "&e{serverIp}")
+        );
+
+        yml.addDefault(Messages.SCOREBOARD_DEFAULT_RESTARTING_LOSER, Arrays.asList(
+                "&e&lBED WARS",
+                "&7{date} &8{server}",
+                "",
+                "&fGame ended!",
+                "",
+                "{team}",
+                "{team}",
+                "{team}",
+                "{team}",
+                "{team}",
+                "{team}",
+                "{team}",
+                "{team}",
+                "",
+                "&e{serverIp}")
+        );
+
+        // Solo
+        yml.addDefault(Messages.SCOREBOARD_DEFAULT_WAITING.replaceFirst("Default", "Solo"), Arrays.asList(
+                "&e&lBED WARS",
+                "&7{date} &8{server}",
+                "",
+                "&fMap: &a{map}",
+                "&fPlayers: &a{on}/{max}",
+                "",
+                "&fWaiting...",
+                "",
+                "&fMode: &a{group}",
+                "&fVersion: &7v1.0",
+                "",
+                "&e{serverIp}")
+        );
+
+        yml.addDefault(Messages.SCOREBOARD_DEFAULT_WAITING_SPEC.replaceFirst("Default", "Solo"), Arrays.asList(
+                "&e&lBED WARS",
+                "&7{date} &8{server}",
+                "",
+                "&fMap: &a{map}",
+                "&fPlayers: &a{on}/{max}",
+                "",
+                "&fWaiting...",
+                "",
+                "&fMode: &a{group}",
+                "&fVersion: &7v1.0",
+                "",
+                "&e{serverIp}")
+        );
+
+        yml.addDefault(Messages.SCOREBOARD_DEFAULT_STARTING.replaceFirst("Default", "Solo"), Arrays.asList(
+                "&e&lBED WARS",
+                "&7{date} &8{server}",
+                "",
+                "&fMap: &a{map}",
+                "&fPlayers: &a{on}/{max}",
+                "",
+                "&fStarting in &a{time}s",
+                "",
+                "&fMode: &a{group}",
+                "&fVersion: &7v1.0",
+                "",
+                "&e{serverIp}")
+        );
+
+        yml.addDefault(Messages.SCOREBOARD_DEFAULT_STARTING_SPEC.replaceFirst("Default", "Solo"), Arrays.asList(
+                "&e&lBED WARS",
+                "&7{date} &8{server}",
+                "",
+                "&fMap: &a{map}",
+                "&fPlayers: &a{on}/{max}",
+                "",
+                "&fStarting in &a{time}s",
+                "",
+                "§fMode: &a{group}",
+                "&fVersion: &71.0",
+                "",
+                "&e{serverIp}")
+        );
+
+        yml.addDefault(Messages.SCOREBOARD_DEFAULT_PLAYING.replaceFirst("Default", "Solo"), Arrays.asList(
                 "&e&lBED WARS",
                 "&7{date} &8{server}",
                 "",
@@ -439,7 +589,26 @@ public class English extends Language {
                 "",
                 "&e{serverIp}")
         );
-        yml.addDefault(Messages.SCOREBOARD_DEFAULT_RESTARTING_SPEC, Arrays.asList(
+
+        yml.addDefault(Messages.SCOREBOARD_DEFAULT_PLAYING_SPEC.replaceFirst("Default", "Solo"), Arrays.asList(
+                "&e&lBED WARS",
+                "&7{date} &8{server}",
+                "",
+                "&f{nextEvent} in &a{time}",
+                "",
+                "{TeamRedColor}R &f{TeamRedName}&f: {TeamRedStatus}",
+                "{TeamBlueColor}B &f{TeamBlueName}&f: {TeamBlueStatus}",
+                "{TeamGreenColor}G &f{TeamGreenName}&f: {TeamGreenStatus}",
+                "{TeamYellowColor}Y &f{TeamYellowName}&f: {TeamYellowStatus}",
+                "{TeamAquaColor}A &f{TeamAquaName}&f: {TeamAquaStatus}",
+                "{TeamWhiteColor}W &f{TeamWhiteName}&f: {TeamWhiteStatus}",
+                "{TeamPinkColor}P &f{TeamPinkName}&f: {TeamPinkStatus}",
+                "{TeamGrayColor}S &f{TeamGrayName}&f: {TeamGrayStatus}",
+                "",
+                "&e{serverIp}")
+        );
+
+        yml.addDefault(Messages.SCOREBOARD_DEFAULT_RESTARTING_SPEC.replaceFirst("Default", "Solo"), Arrays.asList(
                 "&e&lBED WARS",
                 "&7{date} &8{server}",
                 "",
@@ -457,7 +626,7 @@ public class English extends Language {
                 "&e{serverIp}")
         );
 
-        yml.addDefault(Messages.SCOREBOARD_DEFAULT_RESTARTING_WIN1, Arrays.asList(
+        yml.addDefault(Messages.SCOREBOARD_DEFAULT_RESTARTING_WIN1.replaceFirst("Default", "Solo"), Arrays.asList(
                 "&e&lBED WARS",
                 "&7{date} &8{server}",
                 "",
@@ -475,7 +644,7 @@ public class English extends Language {
                 "&e{serverIp}")
         );
 
-        yml.addDefault(Messages.SCOREBOARD_DEFAULT_RESTARTING_WIN2, Arrays.asList(
+        yml.addDefault(Messages.SCOREBOARD_DEFAULT_RESTARTING_WIN2.replaceFirst("Default", "Solo"), Arrays.asList(
                 "&e&lBED WARS",
                 "&7{date} &8{server}",
                 "",
@@ -493,7 +662,7 @@ public class English extends Language {
                 "&e{serverIp}")
         );
 
-        yml.addDefault(Messages.SCOREBOARD_DEFAULT_RESTARTING_LOSER, Arrays.asList(
+        yml.addDefault(Messages.SCOREBOARD_DEFAULT_RESTARTING_LOSER.replaceFirst("Default", "Solo"), Arrays.asList(
                 "&e&lBED WARS",
                 "&7{date} &8{server}",
                 "",
