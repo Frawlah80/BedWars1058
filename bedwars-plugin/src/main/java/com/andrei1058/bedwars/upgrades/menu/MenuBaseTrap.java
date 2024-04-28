@@ -266,7 +266,7 @@ public class MenuBaseTrap implements MenuContent, EnemyBaseEnterTrap, TeamUpgrad
             player.sendMessage(Language.getMsg(player, Messages.SHOP_INSUFFICIENT_MONEY)
                     .replace("{currency}", UpgradesManager.getCurrencyMsg(player, cost, currency))
                     .replace("{amount}", String.valueOf(cost - money)));
-            player.closeInventory();
+            //player.closeInventory();
             return;
         }
 

@@ -142,7 +142,7 @@ public class MenuUpgrade implements MenuContent, TeamUpgrade {
                 player.sendMessage(Language.getMsg(player, Messages.SHOP_INSUFFICIENT_MONEY)
                         .replace("{currency}", UpgradesManager.getCurrencyMsg(player, ut))
                         .replace("{amount}", String.valueOf(ut.getCost() - money)));
-                player.closeInventory();
+                //player.closeInventory();
                 return;
             }
 
