@@ -96,7 +96,8 @@ public class InventoryListener implements Listener {
                 if (element.getSlot() == e.getSlot()) {
                     if (e.getAction() == InventoryAction.MOVE_TO_OTHER_INVENTORY) {
                         cache.setElement(element.getSlot(), (ICategoryContent) null);
-                        p.closeInventory();
+                        //p.closeInventory(); Let us try this...
+                        ShopManager.shop.open(p, cache, false);
                         return;
                     }
                     if (element.getCategoryContent().execute(p, shopCache, element.getSlot())) {
