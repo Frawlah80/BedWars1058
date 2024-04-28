@@ -20,6 +20,7 @@
 
 package com.andrei1058.bedwars.shop.quickbuy;
 
+import com.andrei1058.bedwars.BedWars;
 import com.andrei1058.bedwars.api.arena.shop.ICategoryContent;
 import com.andrei1058.bedwars.api.language.Language;
 import com.andrei1058.bedwars.api.language.Messages;
@@ -49,7 +50,12 @@ public class QuickBuyAdd {
         IPlayerQuickBuyCache cache = PlayerQuickBuyCache.getInstance().getQuickBuyCache(player.getUniqueId());
         ShopCache sc = ShopCache.getInstance().getShopCache(player.getUniqueId());
         if (sc == null || cache == null){
-            player.closeInventory();
+            /*
+             * player.closeInventory();
+             * Should it really need to close shop? let us find out...
+             */
+            BedWars.debug("PlayerQuickBuyAdd Debug");
+            player.openInventory(inv);
         }
         inv.setItem(4, cc.getItemStack(player, Objects.requireNonNull(sc)));
 
