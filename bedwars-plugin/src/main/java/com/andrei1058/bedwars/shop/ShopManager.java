@@ -290,7 +290,7 @@ public class ShopManager extends ConfigManager implements IShopManager {
             addCategoryContentTier(ConfigPath.SHOP_PATH_CATEGORY_POTIONS, "speed-potion", 19, "tier1",
                     BedWars.getForCurrentVersion("POTION", "POTION", "POTION"), 8195, 1, false, 1, "emerald", false, false);
             addBuyPotion(ConfigPath.SHOP_PATH_CATEGORY_POTIONS, "speed-potion", "tier1", "speed", BedWars.getForCurrentVersion("POTION", "POTION", "POTION"),
-                    8195, 1, "", "SPEED 45 2", "Speed Potion");
+                    8195, 1, "", "SPEED 45 1", "Speed Potion");
 
             addCategoryContentTier(ConfigPath.SHOP_PATH_CATEGORY_POTIONS, "invisibility", 21, "tier1",
                     BedWars.getForCurrentVersion("POTION", "POTION", "POTION"), 8206, 1, false, 2, "emerald", false, false);
