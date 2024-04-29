@@ -62,8 +62,6 @@ import org.bukkit.block.Sign;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.entity.ArmorStand;
 import org.bukkit.entity.Entity;
-import com.andrei1058.bedwars.shop.main.CategoryContent;
-import com.andrei1058.bedwars.shop.main.ShopCategory;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Player;
 import org.bukkit.event.player.PlayerTeleportEvent;
@@ -868,17 +866,44 @@ public class Arena implements IArena {
             }
         }
         for (Player on : getPlayers()) {
-            on.sendMessage(
-                    getMsg(on, Messages.COMMAND_LEAVE_MSG)
-                            .replace("{vPrefix}", getChatSupport().getPrefix(p))
-                            .replace("{vSuffix}", getChatSupport().getSuffix(p))
-                            .replace("{playername}", p.getName())
-                            .replace("{player}", p.getDisplayName()
-                            )
-            );
+            IArena arena = Arena.getArenaByPlayer(on);
+            if (arena.getStatus() != GameState.playing) {
+                on.sendMessage(getMsg(on, Messages.COMMAND_LEAVE_MSG)
+                        .replace("{vPrefix}", getChatSupport().getPrefix(p))
+                        .replace("{vSuffix}", getChatSupport().getSuffix(p))
+                        .replace("{playername}", p.getName())
+                        .replace("{player}", p.getDisplayName()
+                        )
+                );
+            } else {
+                on.sendMessage(getMsg(on, Messages.COMMAND_LEAVE_PLAYING_MSG)
+                        .replace("{vPrefix}", getChatSupport().getPrefix(p))
+                        .replace("{vSuffix}", getChatSupport().getSuffix(p))
+                        .replace("{playername}", p.getName())
+                        .replace("{player}", p.getDisplayName()
+                        .replace("{TeamColor}", team.getColor().chat().toString())
+                        )
+                );
+            }
         }
         for (Player on : getSpectators()) {
-            on.sendMessage(getMsg(on, Messages.COMMAND_LEAVE_MSG).replace("{vPrefix}", getChatSupport().getPrefix(p)).replace("{playername}", p.getName()).replace("{player}", p.getDisplayName()));
+            IArena arena = Arena.getArenaByPlayer(on);
+            if (arena.getStatus() != GameState.playing) {
+                on.sendMessage(getMsg(on, Messages.COMMAND_LEAVE_MSG)
+                        .replace("{vPrefix}", getChatSupport().getPrefix(p))
+                        .replace("{vSuffix}", getChatSupport().getSuffix(p))
+                        .replace("{playername}", p.getName())
+                        .replace("{player}", p.getDisplayName()));
+            } else {
+                on.sendMessage(getMsg(on, Messages.COMMAND_LEAVE_PLAYING_MSG)
+                        .replace("{vPrefix}", getChatSupport().getPrefix(p))
+                        .replace("{vSuffix}", getChatSupport().getSuffix(p))
+                        .replace("{playername}", p.getName())
+                        .replace("{player}", p.getDisplayName()
+                        .replace("{TeamColor}", team.getColor().chat().toString())
+                        )
+                );
+            }
         }
 
         if (getServerType() == ServerType.SHARED) {
