@@ -867,6 +867,8 @@ public class Arena implements IArena {
         }
         for (Player on : getPlayers()) {
             IArena arena = Arena.getArenaByPlayer(on);
+            UUID exPlayer = p.getUniqueId();
+            ITeam exTeam = arena.getExTeam(exPlayer);
             if (arena.getStatus() != GameState.playing) {
                 on.sendMessage(getMsg(on, Messages.COMMAND_LEAVE_MSG)
                         .replace("{vPrefix}", getChatSupport().getPrefix(p))
@@ -881,7 +883,7 @@ public class Arena implements IArena {
                         .replace("{vSuffix}", getChatSupport().getSuffix(p))
                         .replace("{playername}", p.getName())
                         .replace("{player}", p.getDisplayName()
-                        .replace("{TeamColor}", team.getColor().chat().toString())
+                        .replace("{TeamColor}", exTeam.getColor().chat().toString())
                         )
                 );
             }
