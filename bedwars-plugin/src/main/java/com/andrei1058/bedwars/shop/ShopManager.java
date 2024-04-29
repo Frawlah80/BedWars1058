@@ -244,12 +244,16 @@ public class ShopManager extends ConfigManager implements IShopManager {
             addBuyItem(ConfigPath.SHOP_PATH_CATEGORY_TOOLS, "axe", "tier1", "wooden-axe", BedWars.getForCurrentVersion("WOOD_AXE", "WOOD_AXE", "WOODEN_AXE"),
                     0, 1, "DIG_SPEED 1", "", "", false);
             addCategoryContentTier(ConfigPath.SHOP_PATH_CATEGORY_TOOLS, "axe", 21, "tier2",
-                    BedWars.getForCurrentVersion("IRON_AXE", "IRON_AXE", "IRON_AXE"), 0, 1, true, 3, "gold", true, true);
-            addBuyItem(ConfigPath.SHOP_PATH_CATEGORY_TOOLS, "axe", "tier2", "iron-axe", BedWars.getForCurrentVersion("IRON_AXE", "IRON_AXE", "IRON_AXE"),
-                    0, 1, "DIG_SPEED 2", "", "", false);
+                    BedWars.getForCurrentVersion("STONE_AXE", "STONE_AXE", "STONE_AXE"), 0, 1, false, 10, "iron", true, true);
+            addBuyItem(ConfigPath.SHOP_PATH_CATEGORY_TOOLS, "axe", "tier2", "stone-axe", BedWars.getForCurrentVersion("STONE_AXE", "STONE_AXE", "STONE_AXE"),
+                    0, 1, "DIG_SPEED 1", "", "", false);
             addCategoryContentTier(ConfigPath.SHOP_PATH_CATEGORY_TOOLS, "axe", 21, "tier3",
+                    BedWars.getForCurrentVersion("IRON_AXE", "IRON_AXE", "IRON_AXE"), 0, 1, true, 3, "gold", true, true);
+            addBuyItem(ConfigPath.SHOP_PATH_CATEGORY_TOOLS, "axe", "tier3", "iron-axe", BedWars.getForCurrentVersion("IRON_AXE", "IRON_AXE", "IRON_AXE"),
+                    0, 1, "DIG_SPEED 2", "", "", false);
+            addCategoryContentTier(ConfigPath.SHOP_PATH_CATEGORY_TOOLS, "axe", 21, "tier4",
                     BedWars.getForCurrentVersion("DIAMOND_AXE", "DIAMOND_AXE", "DIAMOND_AXE"), 0, 1, true, 6, "gold", true, true);
-            addBuyItem(ConfigPath.SHOP_PATH_CATEGORY_TOOLS, "axe", "tier3", "diamond-axe", BedWars.getForCurrentVersion("DIAMOND_AXE", "DIAMOND_AXE", "DIAMOND_AXE"),
+            addBuyItem(ConfigPath.SHOP_PATH_CATEGORY_TOOLS, "axe", "tier4", "diamond-axe", BedWars.getForCurrentVersion("DIAMOND_AXE", "DIAMOND_AXE", "DIAMOND_AXE"),
                     0, 1, "DIG_SPEED 3", "", "", false);
 
             //RANGED CATEGORY
@@ -281,12 +285,12 @@ public class ShopManager extends ConfigManager implements IShopManager {
             addCategoryContentTier(ConfigPath.SHOP_PATH_CATEGORY_POTIONS, "jump-potion", 20, "tier1",
                     BedWars.getForCurrentVersion("POTION", "POTION", "POTION"), 8267, 1, false, 1, "emerald", false, false);
             addBuyPotion(ConfigPath.SHOP_PATH_CATEGORY_POTIONS, "jump-potion", "tier1", "jump", BedWars.getForCurrentVersion("POTION", "POTION", "POTION"),
-                    8267, 1, "", "JUMP 45 5", "Jump Potion");
+                    8267, 1, "", "JUMP 45 4", "Jump Potion");
 
             addCategoryContentTier(ConfigPath.SHOP_PATH_CATEGORY_POTIONS, "speed-potion", 19, "tier1",
-                    BedWars.getForCurrentVersion("POTION", "POTION", "POTION"), 8258, 1, false, 1, "emerald", false, false);
+                    BedWars.getForCurrentVersion("POTION", "POTION", "POTION"), 8195, 1, false, 1, "emerald", false, false);
             addBuyPotion(ConfigPath.SHOP_PATH_CATEGORY_POTIONS, "speed-potion", "tier1", "speed", BedWars.getForCurrentVersion("POTION", "POTION", "POTION"),
-                    8258, 1, "", "SPEED 45 2", "Speed Potion");
+                    8195, 1, "", "SPEED 45 2", "Speed Potion");
 
             addCategoryContentTier(ConfigPath.SHOP_PATH_CATEGORY_POTIONS, "invisibility", 21, "tier1",
                     BedWars.getForCurrentVersion("POTION", "POTION", "POTION"), 8206, 1, false, 2, "emerald", false, false);
