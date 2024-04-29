@@ -49,3 +49,8 @@
     - Now buckets are removed after placing water (can be disabled in config)
 - Improvements to Rejoin
     - Added a separate respawn countdown for players that rejoin like on a popular network
+- Improvements to shops
+    - Earlier shops used to close on setting quick buy and on removing quickbuy, this no longer happens.
+    - Earlier upgrade shops used to close if the player didn't have enough diamonds, this no longer happens.
+    - (Reason: Popular server).
+    - Added shop reloads on purchase
