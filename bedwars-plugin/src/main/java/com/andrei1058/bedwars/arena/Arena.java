@@ -1161,21 +1161,21 @@ public class Arena implements IArena {
         players.add(p);
         for (Player on : players) {
             IArena arena = Arena.getArenaByPlayer(on);
-            ITeam currentTeam = arena.getTeam(p);
+            ITeam team = arena.getExTeam(p.getUniqueId());
             on.sendMessage(getMsg(on, Messages.COMMAND_REJOIN_PLAYER_RECONNECTED)
                     .replace("{playername}", p.getName())
                     .replace("{player}", p.getDisplayName())
-                    .replace("{TeamColor}", currentTeam.getColor().chat().toString())
+                    .replace("{TeamColor}", team.getColor().chat().toString())
                     .replace("{on}", String.valueOf(getPlayers().size()))
                     .replace("{max}", String.valueOf(getMaxPlayers())));
         }
         for (Player on : spectators) {
             IArena arena = Arena.getArenaByPlayer(on);
-            ITeam currentTeam = arena.getTeam(p);
+            ITeam team = arena.getExTeam(p.getUniqueId());
             on.sendMessage(getMsg(on, Messages.COMMAND_REJOIN_PLAYER_RECONNECTED)
                     .replace("{playername}", p.getName())
                     .replace("{player}", p.getDisplayName())
-                    .replace("{TeamColor}", currentTeam.getColor().chat().toString())
+                    .replace("{TeamColor}", team.getColor().chat().toString())
                     .replace("{on}", String.valueOf(getPlayers().size()))
                     .replace("{max}", String.valueOf(getMaxPlayers())));
         }
