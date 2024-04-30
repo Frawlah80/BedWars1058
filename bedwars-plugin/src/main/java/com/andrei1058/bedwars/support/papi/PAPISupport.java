@@ -374,6 +374,10 @@ public class PAPISupport extends PlaceholderExpansion {
                     response = bedwarsteam.getName().substring(0,1).toUpperCase();
                 }
                 break;
+            case "exteam_color":
+                ITeam xTeam = a.getExTeam(player.getUniqueId());
+                response = xTeam.getColor().chat().toString();
+                break;
         }
         return response;
     }
