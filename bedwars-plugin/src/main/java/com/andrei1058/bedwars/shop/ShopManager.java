@@ -186,7 +186,7 @@ public class ShopManager extends ConfigManager implements IShopManager {
             addCategoryContentTier(ConfigPath.SHOP_PATH_CATEGORY_MELEE, "stick", 22, "tier1",
                     BedWars.getForCurrentVersion("STICK", "STICK", "STICK"), 0, 1, true, 5, "gold", false, false, true);
             addBuyItem(ConfigPath.SHOP_PATH_CATEGORY_MELEE, "stick", "tier1", "stick", BedWars.getForCurrentVersion("STICK", "STICK", "STICK"),
-                    0, 1, "KNOCKBACK 1", "", "", false);
+                    0, 1, "KNOCKBACK 1", "", "Knockback Stick", false);
 
             //ARMOR CATEGORY
             addDefaultShopCategory(ConfigPath.SHOP_PATH_CATEGORY_ARMOR, 3, BedWars.getForCurrentVersion("CHAINMAIL_BOOTS", "CHAINMAIL_BOOTS", "CHAINMAIL_BOOTS"), 0, 1, false);
@@ -267,17 +267,17 @@ public class ShopManager extends ConfigManager implements IShopManager {
             addCategoryContentTier(ConfigPath.SHOP_PATH_CATEGORY_RANGED, "bow1", 20, "tier1",
                     BedWars.getForCurrentVersion("BOW", "BOW", "BOW"), 0, 1, false, 12, "gold", false, false);
             addBuyItem(ConfigPath.SHOP_PATH_CATEGORY_RANGED, "bow1", "tier1", "bow", BedWars.getForCurrentVersion("BOW", "BOW", "BOW"),
-                    0, 1, "", "", "", false);
+                    0, 1, "", "", "Bow", false);
 
             addCategoryContentTier(ConfigPath.SHOP_PATH_CATEGORY_RANGED, "bow2", 21, "tier1",
                     BedWars.getForCurrentVersion("BOW", "BOW", "BOW"), 0, 1, true, 24, "gold", false, false);
             addBuyItem(ConfigPath.SHOP_PATH_CATEGORY_RANGED, "bow2", "tier1", "bow", BedWars.getForCurrentVersion("BOW", "BOW", "BOW"),
-                    0, 1, "ARROW_DAMAGE 1", "", "", false);
+                    0, 1, "ARROW_DAMAGE 1", "", "Power Bow", false);
 
             addCategoryContentTier(ConfigPath.SHOP_PATH_CATEGORY_RANGED, "bow3", 22, "tier1",
                     BedWars.getForCurrentVersion("BOW", "BOW", "BOW"), 0, 1, true, 6, "emerald", false, false);
             addBuyItem(ConfigPath.SHOP_PATH_CATEGORY_RANGED, "bow3", "tier1", "bow", BedWars.getForCurrentVersion("BOW", "BOW", "BOW"),
-                    0, 1, "ARROW_DAMAGE 1,ARROW_KNOCKBACK 1", "", "", false);
+                    0, 1, "ARROW_DAMAGE 1,ARROW_KNOCKBACK 1", "", "Punch Bow", false);
 
             //POTIONS CATEGORY
             addDefaultShopCategory(ConfigPath.SHOP_PATH_CATEGORY_POTIONS, 6, BedWars.getForCurrentVersion("BREWING_STAND_ITEM", "BREWING_STAND_ITEM", "BREWING_STAND"), 0, 1, false);
@@ -285,17 +285,17 @@ public class ShopManager extends ConfigManager implements IShopManager {
             addCategoryContentTier(ConfigPath.SHOP_PATH_CATEGORY_POTIONS, "jump-potion", 20, "tier1",
                     BedWars.getForCurrentVersion("POTION", "POTION", "POTION"), 8267, 1, false, 1, "emerald", false, false);
             addBuyPotion(ConfigPath.SHOP_PATH_CATEGORY_POTIONS, "jump-potion", "tier1", "jump", BedWars.getForCurrentVersion("POTION", "POTION", "POTION"),
-                    8267, 1, "", "JUMP 45 4", "Jump Potion");
+                    8267, 1, "", "JUMP 45 4", "Jump V Potion (45 seconds)");
 
             addCategoryContentTier(ConfigPath.SHOP_PATH_CATEGORY_POTIONS, "speed-potion", 19, "tier1",
                     BedWars.getForCurrentVersion("POTION", "POTION", "POTION"), 8195, 1, false, 1, "emerald", false, false);
             addBuyPotion(ConfigPath.SHOP_PATH_CATEGORY_POTIONS, "speed-potion", "tier1", "speed", BedWars.getForCurrentVersion("POTION", "POTION", "POTION"),
-                    8195, 1, "", "SPEED 45 1", "Speed Potion");
+                    8195, 1, "", "SPEED 45 1", "Speed II Potion (45 seconds)");
 
             addCategoryContentTier(ConfigPath.SHOP_PATH_CATEGORY_POTIONS, "invisibility", 21, "tier1",
                     BedWars.getForCurrentVersion("POTION", "POTION", "POTION"), 8206, 1, false, 2, "emerald", false, false);
             addBuyPotion(ConfigPath.SHOP_PATH_CATEGORY_POTIONS, "invisibility", "tier1", "invisibility", BedWars.getForCurrentVersion("POTION", "POTION", "POTION"),
-                    8206, 1, "", "INVISIBILITY 30 1", "Invisibility Potion");
+                    8206, 1, "", "INVISIBILITY 30 1", "Invisibility Potion (30 seconds)");
 
             //UTILITY CATEGORY
             addDefaultShopCategory(ConfigPath.SHOP_PATH_CATEGORY_UTILITY, 7, BedWars.getForCurrentVersion("TNT", "TNT", "TNT"), 0, 1, false);
@@ -308,12 +308,12 @@ public class ShopManager extends ConfigManager implements IShopManager {
             addCategoryContentTier(ConfigPath.SHOP_PATH_CATEGORY_UTILITY, "bedbug", 20, "tier1",
                     BedWars.getForCurrentVersion("SNOW_BALL", "SNOW_BALL", "SNOWBALL"), 0, 1, false, 30, "iron", false, false);
             addBuyItem(ConfigPath.SHOP_PATH_CATEGORY_UTILITY, "bedbug", "tier1", "bedbug", BedWars.getForCurrentVersion("SNOW_BALL", "SNOW_BALL", "SNOWBALL"),
-                    0, 1, "", "", "", false);
+                    0, 1, "", "", "Bed Bug", false);
 
             addCategoryContentTier(ConfigPath.SHOP_PATH_CATEGORY_UTILITY, "dream-defender", 21, "tier1",
                     BedWars.getForCurrentVersion("MONSTER_EGG", "MONSTER_EGG", "HORSE_SPAWN_EGG"), 0, 1, false, 120, "iron", false, false);
             addBuyItem(ConfigPath.SHOP_PATH_CATEGORY_UTILITY, "dream-defender", "tier1", "defender", BedWars.getForCurrentVersion("MONSTER_EGG", "MONSTER_EGG", "HORSE_SPAWN_EGG"),
-                    0, 1, "", "", "", false);
+                    0, 1, "", "", "Dream Defender)", false);
 
             addCategoryContentTier(ConfigPath.SHOP_PATH_CATEGORY_UTILITY, "fireball", 22, "tier1",
                     BedWars.getForCurrentVersion("FIREBALL", "FIREBALL", "FIRE_CHARGE"), 0, 1, false, 40, "iron", false, false);
@@ -338,12 +338,12 @@ public class ShopManager extends ConfigManager implements IShopManager {
             addCategoryContentTier(ConfigPath.SHOP_PATH_CATEGORY_UTILITY, "bridge-egg", 28, "tier1",
                     BedWars.getForCurrentVersion("EGG", "EGG", "EGG"), 0, 1, false, 1, "emerald", false, false);
             addBuyItem(ConfigPath.SHOP_PATH_CATEGORY_UTILITY, "bridge-egg", "tier1", "egg", BedWars.getForCurrentVersion("EGG", "EGG", "EGG"),
-                    0, 1, "", "", "", false);
+                    0, 1, "", "", "Bridge Egg", false);
 
             addCategoryContentTier(ConfigPath.SHOP_PATH_CATEGORY_UTILITY, "magic-milk", 29, "tier1",
                     BedWars.getForCurrentVersion("MILK_BUCKET", "MILK_BUCKET", "MILK_BUCKET"), 0, 1, false, 4, "gold", false, false);
             addBuyItem(ConfigPath.SHOP_PATH_CATEGORY_UTILITY, "magic-milk", "tier1", "milk", BedWars.getForCurrentVersion("MILK_BUCKET", "MILK_BUCKET", "MILK_BUCKET"),
-                    0, 1, "", "", "", false);
+                    0, 1, "", "", "Magic Milk", false);
 
             addCategoryContentTier(ConfigPath.SHOP_PATH_CATEGORY_UTILITY, "sponge", 30, "tier1",
                     BedWars.getForCurrentVersion("SPONGE", "SPONGE", "SPONGE"), 0, 4, false, 3, "gold", false, false);
