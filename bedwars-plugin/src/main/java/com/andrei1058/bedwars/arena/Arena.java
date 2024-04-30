@@ -954,12 +954,14 @@ public class Arena implements IArena {
         if (getParty().hasParty(p)) {
             if (getParty().isOwner(p)) {
                 if (status != GameState.restarting) {
-                    if (getParty().isInternal()) {
-                        for (Player mem : new ArrayList<>(getParty().getMembers(p))) {
-                            mem.sendMessage(getMsg(mem, Messages.ARENA_LEAVE_PARTY_DISBANDED));
+                    if (!p.isOnline()) {
+                        if (getParty().isInternal()) {
+                            for (Player mem : new ArrayList<>(getParty().getMembers(p))) {
+                                mem.sendMessage(getMsg(mem, Messages.ARENA_LEAVE_PARTY_DISBANDED));
+                            }
                         }
+                        getParty().disband(p);
                     }
-                    getParty().disband(p);
 
                     // prevent arena from staring with a single player
                     teamuri = false;
@@ -1142,7 +1144,7 @@ public class Arena implements IArena {
             reJoin.getTask().destroy();
         }
 
-        PlayerReJoinEvent ev = new PlayerReJoinEvent(p, this, BedWars.config.getInt(ConfigPath.GENERAL_CONFIGURATION_RE_SPAWN_COUNTDOWN));
+        PlayerReJoinEvent ev = new PlayerReJoinEvent(p, this, BedWars.config.getInt(ConfigPath.GENERAL_CONFIGURATION_REJOIN_RE_SPAWN_COUNTDOWN));
         Bukkit.getPluginManager().callEvent(ev);
         if (ev.isCancelled()) return false;
 
