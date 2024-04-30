@@ -62,7 +62,7 @@ public class PlayerReJoinEvent extends Event {
      * Sets the amount of time until the player respawns
      * @param rejoinRespawnTime time in seconds
      */
-    public void setRespawnTime(int rejoinRespawnTime) {
+    public void setRejoinRespawnTime(int rejoinRespawnTime) {
         this.rejoinRespawnTime = rejoinRespawnTime;
     }
 

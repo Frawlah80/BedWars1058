@@ -1160,7 +1160,7 @@ public class Arena implements IArena {
         p.closeInventory();
         players.add(p);
         for (Player on : players) {
-            IArena arena = Arena.getArenaByPlayer(on);
+            IArena arena = Arena.getArenaByPlayer(p);
             ITeam team = arena.getExTeam(p.getUniqueId());
             on.sendMessage(getMsg(on, Messages.COMMAND_REJOIN_PLAYER_RECONNECTED)
                     .replace("{playername}", p.getName())
@@ -1170,7 +1170,7 @@ public class Arena implements IArena {
                     .replace("{max}", String.valueOf(getMaxPlayers())));
         }
         for (Player on : spectators) {
-            IArena arena = Arena.getArenaByPlayer(on);
+            IArena arena = Arena.getArenaByPlayer(p);
             ITeam team = arena.getExTeam(p.getUniqueId());
             on.sendMessage(getMsg(on, Messages.COMMAND_REJOIN_PLAYER_RECONNECTED)
                     .replace("{playername}", p.getName())
