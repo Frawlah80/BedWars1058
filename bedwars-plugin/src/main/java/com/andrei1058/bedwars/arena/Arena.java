@@ -868,7 +868,7 @@ public class Arena implements IArena {
         for (Player on : getPlayers()) {
             IArena arena = Arena.getArenaByPlayer(on);
             ITeam exTeam = arena.getExTeam(p.getUniqueId());
-            if (arena.getStatus() != GameState.playing) {
+            if (arena.getStatus() == GameState.starting || arena.getStatus() == GameState.waiting) {
                 on.sendMessage(getMsg(on, Messages.COMMAND_LEAVE_MSG)
                         .replace("{vPrefix}", getChatSupport().getPrefix(p))
                         .replace("{vSuffix}", getChatSupport().getSuffix(p))
@@ -876,7 +876,7 @@ public class Arena implements IArena {
                         .replace("{player}", p.getDisplayName()
                         )
                 );
-            } else {
+            } else if (arena.getStatus() == GameState.playing) {
                 on.sendMessage(getMsg(on, Messages.COMMAND_LEAVE_PLAYING_MSG)
                         .replace("{vPrefix}", getChatSupport().getPrefix(p))
                         .replace("{vSuffix}", getChatSupport().getSuffix(p))
@@ -888,20 +888,20 @@ public class Arena implements IArena {
         }
         for (Player on : getSpectators()) {
             IArena arena = Arena.getArenaByPlayer(on);
-            if (arena.getStatus() != GameState.playing) {
+            ITeam exTeam = arena.getExTeam(p.getUniqueId());
+            if (arena.getStatus() == GameState.starting || arena.getStatus() == GameState.waiting) {
                 on.sendMessage(getMsg(on, Messages.COMMAND_LEAVE_MSG)
                         .replace("{vPrefix}", getChatSupport().getPrefix(p))
                         .replace("{vSuffix}", getChatSupport().getSuffix(p))
                         .replace("{playername}", p.getName())
                         .replace("{player}", p.getDisplayName()));
-            } else {
+            } else if (arena.getStatus() == GameState.playing) {
                 on.sendMessage(getMsg(on, Messages.COMMAND_LEAVE_PLAYING_MSG)
                         .replace("{vPrefix}", getChatSupport().getPrefix(p))
                         .replace("{vSuffix}", getChatSupport().getSuffix(p))
                         .replace("{playername}", p.getName())
-                        .replace("{player}", p.getDisplayName()
-                        .replace("{TeamColor}", team.getColor().chat().toString())
-                        )
+                        .replace("{player}", p.getDisplayName())
+                        .replace("{TeamColor}", exTeam.getColor().chat().toString())
                 );
             }
         }
@@ -1096,12 +1096,14 @@ public class Arena implements IArena {
         if (getParty().hasParty(p)) {
             if (getParty().isOwner(p)) {
                 if (status != GameState.restarting) {
-                    if (getParty().isInternal()) {
-                        for (Player mem : new ArrayList<>(getParty().getMembers(p))) {
-                            mem.sendMessage(getMsg(mem, Messages.ARENA_LEAVE_PARTY_DISBANDED));
+                    if (!p.isOnline()) {
+                        if (getParty().isInternal()) {
+                            for (Player mem : new ArrayList<>(getParty().getMembers(p))) {
+                                mem.sendMessage(getMsg(mem, Messages.ARENA_LEAVE_PARTY_DISBANDED));
+                            }
                         }
+                        getParty().disband(p);
                     }
-                    getParty().disband(p);
                 }
             }
         }
@@ -1158,10 +1160,24 @@ public class Arena implements IArena {
         p.closeInventory();
         players.add(p);
         for (Player on : players) {
-            on.sendMessage(getMsg(on, Messages.COMMAND_REJOIN_PLAYER_RECONNECTED).replace("{playername}", p.getName()).replace("{player}", p.getDisplayName()).replace("{on}", String.valueOf(getPlayers().size())).replace("{max}", String.valueOf(getMaxPlayers())));
+            IArena arena = Arena.getArenaByPlayer(on);
+            ITeam currentTeam = arena.getTeam(p);
+            on.sendMessage(getMsg(on, Messages.COMMAND_REJOIN_PLAYER_RECONNECTED)
+                    .replace("{playername}", p.getName())
+                    .replace("{player}", p.getDisplayName())
+                    .replace("{TeamColor}", currentTeam.getColor().chat().toString())
+                    .replace("{on}", String.valueOf(getPlayers().size()))
+                    .replace("{max}", String.valueOf(getMaxPlayers())));
         }
         for (Player on : spectators) {
-            on.sendMessage(getMsg(on, Messages.COMMAND_REJOIN_PLAYER_RECONNECTED).replace("{playername}", p.getName()).replace("{player}", p.getDisplayName()).replace("{on}", String.valueOf(getPlayers().size())).replace("{max}", String.valueOf(getMaxPlayers())));
+            IArena arena = Arena.getArenaByPlayer(on);
+            ITeam currentTeam = arena.getTeam(p);
+            on.sendMessage(getMsg(on, Messages.COMMAND_REJOIN_PLAYER_RECONNECTED)
+                    .replace("{playername}", p.getName())
+                    .replace("{player}", p.getDisplayName())
+                    .replace("{TeamColor}", currentTeam.getColor().chat().toString())
+                    .replace("{on}", String.valueOf(getPlayers().size()))
+                    .replace("{max}", String.valueOf(getMaxPlayers())));
         }
         setArenaByPlayer(p, this);
         /* save player inventory etc */
