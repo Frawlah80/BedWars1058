@@ -881,9 +881,8 @@ public class Arena implements IArena {
                         .replace("{vPrefix}", getChatSupport().getPrefix(p))
                         .replace("{vSuffix}", getChatSupport().getSuffix(p))
                         .replace("{playername}", p.getName())
-                        .replace("{player}", p.getDisplayName()
+                        .replace("{player}", p.getDisplayName())
                         .replace("{TeamColor}", exTeam.getColor().chat().toString())
-                        )
                 );
             }
         }
