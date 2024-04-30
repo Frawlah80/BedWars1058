@@ -867,8 +867,7 @@ public class Arena implements IArena {
         }
         for (Player on : getPlayers()) {
             IArena arena = Arena.getArenaByPlayer(on);
-            UUID exPlayer = p.getUniqueId();
-            ITeam exTeam = arena.getExTeam(exPlayer);
+            ITeam exTeam = arena.getExTeam(p.getUniqueId());
             if (arena.getStatus() != GameState.playing) {
                 on.sendMessage(getMsg(on, Messages.COMMAND_LEAVE_MSG)
                         .replace("{vPrefix}", getChatSupport().getPrefix(p))
@@ -1181,7 +1180,7 @@ public class Arena implements IArena {
             sc.getCachedItems().add(ci);
         }
 
-        reJoin.getBwt().reJoin(p, ev.getRespawnTime());
+        reJoin.getBwt().reJoin(p, ev.getRejoinRespawnTime());
         reJoin.destroy(false);
 
         SidebarService.getInstance().giveSidebar(p, this, true);

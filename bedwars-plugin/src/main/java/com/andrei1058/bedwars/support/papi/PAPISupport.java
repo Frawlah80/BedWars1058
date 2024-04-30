@@ -368,13 +368,6 @@ public class PAPISupport extends PlaceholderExpansion {
                     response = a.getArenaName();
                 }
                 break;
-            // Some new placeholders yay
-            case "team_colorcode":
-                ITeam bwteam = a.getTeam(player);
-                if (bwteam != null) {
-                    response = bwteam.getColor().chat().toString();
-                }
-                break;
             case "team_letter":
                 ITeam bedwarsteam = a.getTeam(player);
                 if (bedwarsteam != null) {

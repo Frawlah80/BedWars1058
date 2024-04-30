@@ -31,17 +31,17 @@ public class PlayerReJoinEvent extends Event {
 
     private Player player;
     private IArena arena;
-    private int respawnTime;
+    private int rejoinRespawnTime;
     private boolean cancelled = false;
 
     /**
      * Called when a player re-joins the arena.
      * PlayerJoinArenaEvent won't be called
      */
-    public PlayerReJoinEvent(Player player, IArena arena, int respawnTime) {
+    public PlayerReJoinEvent(Player player, IArena arena, int rejoinRespawnTime) {
         this.player = player;
         this.arena = arena;
-        this.respawnTime = respawnTime;
+        this.rejoinRespawnTime = rejoinRespawnTime;
     }
 
     /**
@@ -60,18 +60,18 @@ public class PlayerReJoinEvent extends Event {
 
     /**
      * Sets the amount of time until the player respawns
-     * @param respawnTime time in seconds
+     * @param rejoinRespawnTime time in seconds
      */
-    public void setRespawnTime(int respawnTime) {
-        this.respawnTime = respawnTime;
+    public void setRespawnTime(int rejoinRespawnTime) {
+        this.rejoinRespawnTime = rejoinRespawnTime;
     }
 
     /**
      * Gets the amount of time until the player respawns
      * @return time in seconds
      */
-    public int getRespawnTime() {
-        return respawnTime;
+    public int getRejoinRespawnTime() {
+        return rejoinRespawnTime;
     }
 
     public boolean isCancelled() {
