@@ -40,6 +40,7 @@ import com.andrei1058.bedwars.arena.SetupSession;
 import com.andrei1058.bedwars.arena.team.BedWarsTeam;
 import com.andrei1058.bedwars.configuration.Sounds;
 import com.andrei1058.bedwars.listeners.dropshandler.PlayerDrops;
+import com.andrei1058.bedwars.support.nickapi.NameOrNick;
 import com.andrei1058.bedwars.support.paper.TeleportManager;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
@@ -453,7 +454,8 @@ public class DamageDeathMove implements Listener {
                     Language lang = Language.getPlayerLanguage(on);
                     on.sendMessage(playerKillEvent.getMessage().apply(on).
                             replace("{PlayerColor}", victimsTeam.getColor().chat().toString())
-                            .replace("{PlayerName}", victim.getDisplayName())
+                            //.replace("{PlayerName}", victim.getDisplayName())
+                            .replace("{PlayerName}", NameOrNick.getNickName(victim))
                             .replace("{PlayerNameUnformatted}", victim.getName())
                             .replace("{PlayerTeamName}", victimsTeam.getDisplayName(lang))
                             .replace("{KillerColor}", killersTeam == null ? "" : killersTeam.getColor().chat().toString())

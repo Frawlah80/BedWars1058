@@ -474,7 +474,11 @@ public class BedWarsTeam implements ITeam {
      * Equip a player with default armor
      */
     public void sendArmor(Player p) {
-        if (p.getInventory().getHelmet() == null) p.getInventory().setHelmet(createArmor(Material.LEATHER_HELMET));
+        if (p.getInventory().getHelmet() == null) {
+            ItemStack helmet = createArmor(Material.LEATHER_HELMET);
+            helmet.addEnchantment(Enchantment.WATER_WORKER, 1); // Aqua Affinity with level 1
+            p.getInventory().setHelmet(helmet);
+        }
         if (p.getInventory().getChestplate() == null)
             p.getInventory().setChestplate(createArmor(Material.LEATHER_CHESTPLATE));
         if (p.getInventory().getLeggings() == null)

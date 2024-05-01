@@ -70,6 +70,11 @@
             <id>papermc</id>
             <url>https://papermc.io/repo/repository/maven-public/</url>
         </repository>
+        <repository>
+            <id>Intelligence Repository-haoshoku</id>
+            <name>Intelligence Repository</name>
+            <url>https://mvn.intelligence-modding.de/haoshoku</url>
+        </repository>
     </repositories>
 
     <dependencies>
@@ -345,6 +350,13 @@
             <groupId>net.md-5</groupId>
             <artifactId>bungeecord-chat</artifactId>
             <version>1.18-R0.1-SNAPSHOT</version>
+            <scope>provided</scope>
+        </dependency>
+        <!-- HaoNick -->
+        <dependency>
+            <groupId>xyz.haoshoku.nick</groupId>
+            <artifactId>NickAPI</artifactId>
+            <version>v6.5.3</version>
             <scope>provided</scope>
         </dependency>
     </dependencies>
