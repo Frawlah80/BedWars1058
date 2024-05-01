@@ -640,8 +640,10 @@ public class BedWars extends JavaPlugin {
             nms.registerCommand("leave", new LeaveCommand("leave"));
         }
         if (getServerType() != ServerType.BUNGEE && config.getBoolean(ConfigPath.GENERAL_ENABLE_PARTY_CMD)) {
-            Bukkit.getLogger().info("Registering /party command..");
+            Bukkit.getLogger().info("Registering /party command...");
             nms.registerCommand("party", new PartyCommand("party"));
+            Bukkit.getLogger().info("Registering /p command...");
+            nms.registerCommand("p", new PartyCommand("p"));
         }
     }
 
