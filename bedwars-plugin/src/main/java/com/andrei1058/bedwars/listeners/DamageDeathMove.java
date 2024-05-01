@@ -459,7 +459,8 @@ public class DamageDeathMove implements Listener {
                             .replace("{PlayerNameUnformatted}", victim.getName())
                             .replace("{PlayerTeamName}", victimsTeam.getDisplayName(lang))
                             .replace("{KillerColor}", killersTeam == null ? "" : killersTeam.getColor().chat().toString())
-                            .replace("{KillerName}", killer == null ? "" : killer.getDisplayName())
+                            //.replace("{KillerName}", killer == null ? "" : killer.getDisplayName())
+                            .replace("{KillerName}", killer == null ? "" : NameOrNick.getNickName(killer))
                             .replace("{KillerNameUnformatted}", killer == null ? "" : killer.getName())
                             .replace("{KillerTeamName}", killersTeam == null ? "" : killersTeam.getDisplayName(lang)));
                 }
