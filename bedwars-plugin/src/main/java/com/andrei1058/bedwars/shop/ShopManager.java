@@ -313,7 +313,7 @@ public class ShopManager extends ConfigManager implements IShopManager {
             addCategoryContentTier(ConfigPath.SHOP_PATH_CATEGORY_UTILITY, "dream-defender", 21, "tier1",
                     BedWars.getForCurrentVersion("MONSTER_EGG", "MONSTER_EGG", "HORSE_SPAWN_EGG"), 0, 1, false, 120, "iron", false, false);
             addBuyItem(ConfigPath.SHOP_PATH_CATEGORY_UTILITY, "dream-defender", "tier1", "defender", BedWars.getForCurrentVersion("MONSTER_EGG", "MONSTER_EGG", "HORSE_SPAWN_EGG"),
-                    0, 1, "", "", "Dream Defender)", false);
+                    0, 1, "", "", "Dream Defender", false);
 
             addCategoryContentTier(ConfigPath.SHOP_PATH_CATEGORY_UTILITY, "fireball", 22, "tier1",
                     BedWars.getForCurrentVersion("FIREBALL", "FIREBALL", "FIRE_CHARGE"), 0, 1, false, 40, "iron", false, false);
@@ -353,7 +353,7 @@ public class ShopManager extends ConfigManager implements IShopManager {
             addCategoryContentTier(ConfigPath.SHOP_PATH_CATEGORY_UTILITY, "tower", 31, "tier1",
                     BedWars.getForCurrentVersion("CHEST", "CHEST", "CHEST"), 0, 1, false, 24, "iron", false, false);
             addBuyItem(ConfigPath.SHOP_PATH_CATEGORY_UTILITY, "tower", "tier1", "tower", BedWars.getForCurrentVersion("CHEST", "CHEST", "CHEST"),
-                    0, 1, "", "", "Combat Pop-up Tower", false);
+                    0, 1, "", "", "Combat Pop-Up Tower", false);
 
         }
 
