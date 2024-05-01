@@ -125,7 +125,9 @@ public class English extends Language {
         yml.addDefault(Messages.COMMAND_COOLDOWN, "&cYou can't do that yet! Wait {seconds} more seconds!");
         yml.addDefault(Messages.COMMAND_MAP_NOT_IN_ARENA, "&cYou are not in a Bed Wars game!");
         yml.addDefault(Messages.COMMAND_MAP_ARENA_NAME, "&aYou are currently playing on &e{arenaDisplayName}");
-        yml.addDefault(Messages.COMMAND_SHOUT_IN_SOLO, "&cYou cannot shout in this gamemode");
+        yml.addDefault(Messages.COMMAND_SHOUT_IN_SOLO, "&cYou can only use /shout in a team game.");
+        yml.addDefault(Messages.COMMAND_SHOUT_IN_WAITING_STARTING, "&cYou can't use /shout before the game has started.");
+        yml.addDefault(Messages.COMMAND_SHOUT_IN_RESTARTING, "&cYou can't use /shout after the game has ended");
         yml.addDefault(Messages.ARENA_JOIN_VIP_KICK, "{prefix}&cSorry, but you were kicked out because a donor joined the arena.\n&aPlease consider donating for more features. &7&o(click)");
         yml.addDefault(Messages.ARENA_START_COUNTDOWN_STOPPED_INSUFF_PLAYERS_CHAT, "{prefix}§cThere aren't enough players! Countdown stopped!");
         yml.addDefault(Messages.ARENA_RESTART_PLAYER_KICK, "{prefix}&eThe arena you were in is restarting.");

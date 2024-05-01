@@ -108,6 +108,8 @@ public class Messages {
     public static String COMMAND_MAP_NOT_IN_ARENA = "cmd-map-not-in-arena";
     public static String COMMAND_MAP_ARENA_NAME = "cmd-map-arena-name";
     public static String COMMAND_SHOUT_IN_SOLO = "cmd-shout-in-solo";
+    public static String COMMAND_SHOUT_IN_WAITING_STARTING = "cmd-shout-in-waiting-starting";
+    public static String COMMAND_SHOUT_IN_RESTARTING = "cmd-shout-in-restarting";
 
     /**
      * Arena join/ leave related

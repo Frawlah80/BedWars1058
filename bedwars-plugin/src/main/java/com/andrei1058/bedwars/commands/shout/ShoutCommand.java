@@ -21,6 +21,7 @@
 package com.andrei1058.bedwars.commands.shout;
 
 import com.andrei1058.bedwars.BedWars;
+import com.andrei1058.bedwars.api.arena.GameState;
 import com.andrei1058.bedwars.api.arena.IArena;
 import com.andrei1058.bedwars.api.configuration.ConfigPath;
 import com.andrei1058.bedwars.api.language.Language;
@@ -55,12 +56,14 @@ public class ShoutCommand extends BukkitCommand {
             p.sendMessage(Language.getMsg(p, Messages.COMMAND_NOT_FOUND_OR_INSUFF_PERMS));
             return true;
         }
-        StringBuilder sb = new StringBuilder();
-        for (String ar : args) {
-            sb.append(ar).append(" ");
+        if (a.getStatus() == GameState.starting || a.getStatus() == GameState.waiting) {
+            p.sendMessage(Language.getMsg(p, Messages.COMMAND_SHOUT_IN_WAITING_STARTING));
+            return true;
         }
-
-        p.chat("!" + sb.toString());
+        if (a.getStatus() == GameState.restarting) {
+            p.sendMessage(Language.getMsg(p, Messages.COMMAND_SHOUT_IN_RESTARTING));
+            return true;
+        }
         return false;
     }
 
