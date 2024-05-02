@@ -68,7 +68,7 @@ public class English extends Language {
         yml.addDefault(Messages.COMMAND_JOIN_DENIED_IS_FULL_OF_VIPS, "{prefix}&cWe apologise but this arena is full.\n&cWe know you're a donor but actually this arena is full of staff or/and donors.");
         yml.addDefault(Messages.COMMAND_JOIN_DENIED_PARTY_TOO_BIG, "{prefix}&cYour party is too big for joining this arena as a team :(");
         yml.addDefault(Messages.COMMAND_JOIN_DENIED_NOT_PARTY_LEADER, "{prefix}&cOnly the leader can choose the arena.");
-        yml.addDefault(Messages.COMMAND_JOIN_PLAYER_JOIN_MSG, "{prefix}&7{player} &ehas joined (&b{on}&e/&b{max}&e)!");
+        yml.addDefault(Messages.COMMAND_JOIN_PLAYER_JOIN_MSG, "{vSuffix}{player} &ehas joined (&b{on}&e/&b{max}&e)!");
         yml.addDefault(Messages.COMMAND_JOIN_SPECTATOR_MSG, "{prefix}§6You are now spectating §9{arena}§6.\n{prefix}§eYou can leave the arena at any time doing §c/leave§e.");
         yml.addDefault(Messages.COMMAND_JOIN_SPECTATOR_DENIED_MSG, "&cSpectators are not allowed in this arena!");
         yml.addDefault(Messages.COMMAND_TP_PLAYER_NOT_FOUND, "{prefix}&cPlayer not found!");
@@ -77,10 +77,10 @@ public class English extends Language {
         yml.addDefault(Messages.COMMAND_TP_USAGE, "{prefix}&cUsage: /bw tp <username>");
         yml.addDefault(Messages.REJOIN_NO_ARENA, "{prefix}&cThere is no arena to rejoin!");
         yml.addDefault(Messages.REJOIN_DENIED, "{prefix}&cYou can't rejoin the arena anymore. Game ended or bed destroyed.");
-        yml.addDefault(Messages.REJOIN_ALLOWED, "{prefix}&eJoining arena &a{arena}&e!");
+        yml.addDefault(Messages.REJOIN_ALLOWED, "{prefix}&e&lTo leave Bed Wars, type /lobby\n&eYou will respawn because you still have a bed!");
         yml.addDefault(Messages.COMMAND_REJOIN_PLAYER_RECONNECTED, "{TeamColor}{player} &7reconnected.");
         yml.addDefault(Messages.COMMAND_LEAVE_DENIED_NOT_IN_ARENA, "{prefix}&cYou're not in arena!");
-        yml.addDefault(Messages.COMMAND_LEAVE_MSG, "{prefix}&7{player} &ehas quit!");
+        yml.addDefault(Messages.COMMAND_LEAVE_MSG, "{vSuffix}{player} &ehas quit!");
         yml.addDefault(Messages.COMMAND_LEAVE_PLAYING_MSG, "{TeamColor}{player} &7disconnected.");
         yml.addDefault(Messages.COMMAND_NOT_ALLOWED_IN_GAME, "{prefix}&cYou can't do this during the game.");
         yml.addDefault(Messages.COMMAND_NOT_FOUND_OR_INSUFF_PERMS, "{prefix}&cCommand not found or you don't have permission!");
@@ -105,7 +105,7 @@ public class English extends Language {
         yml.addDefault(Messages.COMMAND_PARTY_ACCEPT_DENIED_ALREADY_IN_PARTY, "{prefix}&eYou're already in a party!");
         yml.addDefault(Messages.COMMAND_PARTY_INSUFFICIENT_PERMISSIONS, "{prefix}&cOnly the party owner can do this!");
         yml.addDefault(Messages.COMMAND_PARTY_ACCEPT_USAGE, "{prefix}&eUsage: &7/party accept <player>");
-        yml.addDefault(Messages.COMMAND_PARTY_ACCEPT_SUCCESS, "{prefix}&7{player} &ehas joined the party!");
+        yml.addDefault(Messages.COMMAND_PARTY_ACCEPT_SUCCESS, "{vPrefix}{player} &ehas joined the party!");
         yml.addDefault(Messages.COMMAND_PARTY_GENERAL_DENIED_NOT_IN_PARTY, "{prefix}&cYou're not in a party!");
         yml.addDefault(Messages.COMMAND_PARTY_LEAVE_DENIED_IS_OWNER_NEEDS_DISBAND, "{prefix}&cYou can't leave your own party!\n&eTry using: &b/party disband");
         yml.addDefault(Messages.COMMAND_PARTY_LEAVE_SUCCESS, "{prefix}&7{player} &ehas left the party!");
@@ -178,12 +178,12 @@ public class English extends Language {
         yml.addDefault(Messages.GENERATOR_HOLOGRAM_TYPE_EMERALD, "&a&lEmerald");
         yml.addDefault(Messages.GENERATOR_HOLOGRAM_TIMER, "&eSpawns in &c{seconds} &eseconds");
         yml.addDefault(Messages.GENERATOR_UPGRADE_CHAT_ANNOUNCEMENT, "{prefix}{generatorType} Generators &ehave been upgraded to Tier &c{tier}");
-        yml.addDefault(Messages.FORMATTING_CHAT_LOBBY, "{level}{vPrefix}{player}{vSuffix}&f: {message}");
-        yml.addDefault(Messages.FORMATTING_CHAT_WAITING, "{level}{vPrefix}{player}{vSuffix}&f: {message}");
-        yml.addDefault(Messages.FORMATTING_CHAT_SHOUT, "{level} &6[SHOUT] {team} {vPrefix}{player}{vSuffix}&f: {message}");
-        yml.addDefault(Messages.FORMATTING_CHAT_TEAM, "{level} {team} {vPrefix}{player}{vSuffix}&f: {message}");
-        yml.addDefault(Messages.FORMATTING_CHAT_SPECTATOR, "{level} &7[SPECTATOR] {vPrefix}{player}{vSuffix}&f: {message}");
-        yml.addDefault(Messages.FORMATTING_CHAT_GAME_END, "{vPrefix}{player}{vSuffix}&f: {message}");
+        yml.addDefault(Messages.FORMATTING_CHAT_LOBBY, "{level}{vPrefix}{player}&f: {message}");
+        yml.addDefault(Messages.FORMATTING_CHAT_WAITING, "{vPrefix}{player}&f: {message}");
+        yml.addDefault(Messages.FORMATTING_CHAT_SHOUT, "&6[SHOUT] {team} {vPrefix}{player}&f: {message}");
+        yml.addDefault(Messages.FORMATTING_CHAT_TEAM, "{level}{team} {vPrefix}{player}&f: {message}");
+        yml.addDefault(Messages.FORMATTING_CHAT_SPECTATOR, "&7[SPECTATOR] {vPrefix}{player}&f: {message}");
+        yml.addDefault(Messages.FORMATTING_CHAT_GAME_END, "{vPrefix}{player}&f: {message}");
         yml.addDefault(Messages.FORMATTING_SCOREBOARD_HEALTH, Arrays.asList("&c❤", "&aHealth"));
 
         yml.addDefault(Messages.FORMATTING_SCOREBOARD_DATE, "dd/MM/yy");
