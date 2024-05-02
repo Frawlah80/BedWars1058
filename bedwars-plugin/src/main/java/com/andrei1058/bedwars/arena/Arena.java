@@ -484,7 +484,8 @@ public class Arena implements IArena {
                                 .replace("{vPrefix}", getChatSupport().getPrefix(p))
                                 .replace("{vSuffix}", getChatSupport().getSuffix(p))
                                 .replace("{playername}", p.getName())
-                                .replace("{player}", p.getDisplayName())
+                                //.replace("{player}", p.getDisplayName())
+                                .replace("{player}", NameOrNick.getNickName(p))
                                 .replace("{on}", String.valueOf(getPlayers().size()))
                                 .replace("{max}", String.valueOf(getMaxPlayers()))
                 );

@@ -266,7 +266,7 @@ public class English extends Language {
         yml.addDefault(Messages.GAME_END_TOP_PLAYER_CHAT, Arrays.asList("",
                 "&a▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬",
                 "&f                                   &lBedWars", "", "{winnerFormat}", "", "",
-                "&6                       &6⭐ &l1st Killer &7- {topTeamColor}{topPlayerDisplayName} &7- &l{topValue}",
+                "&6                          &l1st Killer &7- {topTeamColor}{topPlayerDisplayName} &7- &l{topValue}",
                 "&e                          &l2nd Killer &7- {topTeamColor}{topPlayerDisplayName} &7- &l{topValue}",
                 "&c                          &l3rd Killer &7- {topTeamColor}{topPlayerDisplayName} &7- &l{topValue}",
                 "",
