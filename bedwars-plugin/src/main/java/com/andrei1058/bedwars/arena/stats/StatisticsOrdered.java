@@ -6,6 +6,7 @@ import com.andrei1058.bedwars.api.arena.stats.PlayerGameStats;
 import com.andrei1058.bedwars.api.arena.stats.GameStatistic;
 import com.andrei1058.bedwars.api.arena.team.ITeam;
 import com.andrei1058.bedwars.api.language.Language;
+import com.andrei1058.bedwars.support.nickapi.NameOrNick;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.jetbrains.annotations.NotNull;
@@ -117,7 +118,8 @@ public class StatisticsOrdered {
             }
 
             string = string.replace("{topPlayerName}", stats.getUsername())
-                    .replace("{topPlayerDisplayName}", stats.getDisplayPlayer())
+                    //.replace("{topPlayerDisplayName}", stats.getDisplayPlayer())
+                    .replace("{topPlayerDisplayName}", NameOrNick.getNickName(Bukkit.getPlayer(stats.getPlayer())))
                     .replace("{topTeamColor}", null == team ? "" : team.getColor().chat().toString())
                     .replace("{topTeamName}", null == team ? "" : team.getDisplayName(lang))
                     .replace("{topValue}", "{topValue-"+orderBy+"}");
