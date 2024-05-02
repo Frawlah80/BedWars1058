@@ -14,6 +14,7 @@ import com.andrei1058.bedwars.api.stats.IPlayerStats;
 import com.andrei1058.bedwars.arena.Arena;
 import com.andrei1058.bedwars.arena.stats.StatisticsOrdered;
 import com.andrei1058.bedwars.levels.internal.PlayerLevel;
+import com.andrei1058.bedwars.support.nickapi.NameOrNick;
 import com.andrei1058.spigot.sidebar.*;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
@@ -337,7 +338,8 @@ public class BwSidebar implements ISidebar {
                         return "";
                     }
                     return targetFormat.replace("{targetTeamColor}", targetTeam.getColor().chat().toString())
-                            .replace("{targetDisplayName}", target.getDisplayName())
+                            //.replace("{targetDisplayName}", target.getDisplayName())
+                            .replace("{targetDisplayName}", NameOrNick.getNickName(target))
                             .replace("{targetName}", target.getDisplayName())
                             .replace("{targetTeamName}", targetTeam.getDisplayName(lang));
                 }));

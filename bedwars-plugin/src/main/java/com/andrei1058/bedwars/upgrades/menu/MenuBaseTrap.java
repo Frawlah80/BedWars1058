@@ -31,6 +31,7 @@ import com.andrei1058.bedwars.api.upgrades.MenuContent;
 import com.andrei1058.bedwars.api.upgrades.TeamUpgrade;
 import com.andrei1058.bedwars.api.upgrades.TrapAction;
 import com.andrei1058.bedwars.configuration.Sounds;
+import com.andrei1058.bedwars.support.nickapi.NameOrNick;
 import com.andrei1058.bedwars.upgrades.UpgradesManager;
 import com.andrei1058.bedwars.upgrades.trapaction.DisenchantAction;
 import com.andrei1058.bedwars.upgrades.trapaction.PlayerEffectAction;
@@ -347,7 +348,7 @@ public class MenuBaseTrap implements MenuContent, EnemyBaseEnterTrap, TeamUpgrad
                 String trapName = ChatColor.stripColor(Language.getMsg(p, getNameMsgPath())).replace("{color}", "");
                 String enemy = trapTeam.getArena().getTeam(player) == null ? "NULL" : trapTeam.getArena().getTeam(player).getDisplayName(Language.getPlayerLanguage(p));
                 p.sendMessage(Language.getMsg(p, Messages.UPGRADES_TRAP_CUSTOM_MSG + name2).replace("{trap}", trapName)
-                        .replace("{player}", player.getName()).replace("{team}", enemy).replace("{color}", color));
+                        .replace("{player}", NameOrNick.getNickName(player)).replace("{team}", enemy).replace("{color}", color));
                 BedWars.nms.sendTitle(p, Language.getMsg(p, Messages.UPGRADES_TRAP_CUSTOM_TITLE + name2)
                                 .replace("{trap}", trapName).replace("{player}", player.getName()).replace("{team}", enemy).replace("{color}", color),
                         Language.getMsg(p, Messages.UPGRADES_TRAP_CUSTOM_SUBTITLE + name2).replace("{trap}", trapName).replace("{player}", player.getName())
