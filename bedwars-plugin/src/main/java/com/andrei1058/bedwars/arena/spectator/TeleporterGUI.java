@@ -26,6 +26,7 @@ import com.andrei1058.bedwars.api.arena.team.ITeam;
 import com.andrei1058.bedwars.api.language.Language;
 import com.andrei1058.bedwars.api.language.Messages;
 import com.andrei1058.bedwars.arena.Arena;
+import com.andrei1058.bedwars.support.nickapi.NameOrNick;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
@@ -121,7 +122,8 @@ public class TeleporterGUI {
                 .replace("{vSuffix}", BedWars.getChatSupport().getSuffix(targetPlayer))
                 .replace("{team}", targetPlayerTeam.getDisplayName(Language.getPlayerLanguage(GUIholder)))
                 .replace("{teamColor}", String.valueOf(targetPlayerTeam.getColor().chat()))
-                .replace("{player}", targetPlayer.getDisplayName())
+                //.replace("{player}", targetPlayer.getDisplayName())
+                .replace("{player}", NameOrNick.getNickName(targetPlayer))
                 .replace("{playername}", targetPlayer.getName()));
         List<String> lore = new ArrayList<>();
         String health = String.valueOf((int)targetPlayer.getHealth() * 100 / targetPlayer.getHealthScale());
@@ -130,7 +132,8 @@ public class TeleporterGUI {
         }
         im.setLore(lore);
         i.setItemMeta(im);
-        return nms.addCustomData(i, NBT_SPECTATOR_TELEPORTER_GUI_HEAD + targetPlayer.getName());
+        //return nms.addCustomData(i, NBT_SPECTATOR_TELEPORTER_GUI_HEAD + targetPlayer.getName());
+        return nms.addCustomData(i, NBT_SPECTATOR_TELEPORTER_GUI_HEAD + NameOrNick.getNickName(targetPlayer));
     }
 
     /**

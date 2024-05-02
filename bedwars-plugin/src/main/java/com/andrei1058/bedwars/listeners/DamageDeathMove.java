@@ -148,7 +148,10 @@ public class DamageDeathMove implements Listener {
                 .replace("{amount}", new DecimalFormat("00.#").format(((Player) e.getEntity()).getHealth() - e.getFinalDamage()))
                 .replace("{TeamColor}", team.getColor().chat().toString())
                 .replace("{TeamName}", team.getDisplayName(lang))
-                .replace("{PlayerName}", ChatColor.stripColor(p.getDisplayName()));
+                .replace("{vPrefix}", BedWars.getChatSupport().getPrefix(p))
+                .replace("{vSuffix}", BedWars.getChatSupport().getSuffix(p))
+                //.replace("{PlayerName}", ChatColor.stripColor(p.getDisplayName()));
+                .replace("{PlayerName}", NameOrNick.getNickName(p));
         damager.sendMessage(message);
     }
 
@@ -471,11 +474,13 @@ public class DamageDeathMove implements Listener {
                     Language lang = Language.getPlayerLanguage(on);
                     on.sendMessage(playerKillEvent.getMessage().apply(on).
                             replace("{PlayerColor}", victimsTeam.getColor().chat().toString())
-                            .replace("{PlayerName}", victim.getDisplayName())
+                            //.replace("{PlayerName}", victim.getDisplayName())
+                            .replace("{PlayerName}", NameOrNick.getNickName(victim))
                             .replace("{PlayerNameUnformatted}", victim.getName())
                             .replace("{KillerColor}", killersTeam == null ? "" : killersTeam.getColor().chat().toString())
                             .replace("{PlayerTeamName}", victimsTeam.getDisplayName(lang))
-                            .replace("{KillerName}", killer == null ? "" : killer.getDisplayName())
+                            //.replace("{KillerName}", killer == null ? "" : killer.getDisplayName())
+                            .replace("{KillerName}", killer == null ? "" : NameOrNick.getNickName(killer))
                             .replace("{KillerNameUnformatted}", killer == null ? "" : killer.getName())
                             .replace("{KillerTeamName}", killersTeam == null ? "" : killersTeam.getDisplayName(lang)));
                 }

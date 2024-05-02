@@ -51,6 +51,7 @@ import com.andrei1058.bedwars.shop.ShopCache;
 import com.andrei1058.bedwars.sidebar.BwSidebar;
 import com.andrei1058.bedwars.sidebar.SidebarService;
 import com.andrei1058.bedwars.support.citizens.JoinNPC;
+import com.andrei1058.bedwars.support.nickapi.NameOrNick;
 import com.andrei1058.bedwars.support.paper.TeleportManager;
 import com.andrei1058.bedwars.support.papi.SupportPAPI;
 import com.andrei1058.bedwars.support.vault.WithEconomy;
@@ -873,15 +874,16 @@ public class Arena implements IArena {
                         .replace("{vPrefix}", getChatSupport().getPrefix(p))
                         .replace("{vSuffix}", getChatSupport().getSuffix(p))
                         .replace("{playername}", p.getName())
-                        .replace("{player}", p.getDisplayName()
-                        )
+                        //.replace("{player}", p.getDisplayName()
+                        .replace("{player}", NameOrNick.getNickName(p))
                 );
             } else if (arena.getStatus() == GameState.playing) {
                 on.sendMessage(getMsg(on, Messages.COMMAND_LEAVE_PLAYING_MSG)
                         .replace("{vPrefix}", getChatSupport().getPrefix(p))
                         .replace("{vSuffix}", getChatSupport().getSuffix(p))
                         .replace("{playername}", p.getName())
-                        .replace("{player}", p.getDisplayName())
+                        //.replace("{player}", p.getDisplayName())
+                        .replace("{player}", NameOrNick.getNickName(p))
                         .replace("{TeamColor}", exTeam.getColor().chat().toString())
                 );
             }
@@ -894,14 +896,16 @@ public class Arena implements IArena {
                         .replace("{vPrefix}", getChatSupport().getPrefix(p))
                         .replace("{vSuffix}", getChatSupport().getSuffix(p))
                         .replace("{playername}", p.getName())
-                        .replace("{player}", p.getDisplayName()));
+                        //.replace("{player}", p.getDisplayName()));
+                        .replace("{player}", NameOrNick.getNickName(p)));
             } else if (arena.getStatus() == GameState.playing) {
                 on.sendMessage(getMsg(on, Messages.COMMAND_LEAVE_PLAYING_MSG)
                         .replace("{vPrefix}", getChatSupport().getPrefix(p))
                         .replace("{vSuffix}", getChatSupport().getSuffix(p))
                         .replace("{playername}", p.getName())
-                        .replace("{player}", p.getDisplayName())
+                        //.replace("{player}", p.getDisplayName())
                         .replace("{TeamColor}", exTeam.getColor().chat().toString())
+                        .replace("{player}", NameOrNick.getNickName(p))
                 );
             }
         }
@@ -1163,7 +1167,8 @@ public class Arena implements IArena {
             ITeam team = reJoin.getBwt();
             on.sendMessage(getMsg(on, Messages.COMMAND_REJOIN_PLAYER_RECONNECTED)
                     .replace("{playername}", p.getName())
-                    .replace("{player}", p.getDisplayName())
+                    //.replace("{player}", p.getDisplayName())
+                    .replace("{player}", NameOrNick.getNickName(p))
                     .replace("{TeamColor}", team.getColor().chat().toString())
                     .replace("{on}", String.valueOf(getPlayers().size()))
                     .replace("{max}", String.valueOf(getMaxPlayers())));
@@ -1172,7 +1177,8 @@ public class Arena implements IArena {
             ITeam team = reJoin.getBwt();
             on.sendMessage(getMsg(on, Messages.COMMAND_REJOIN_PLAYER_RECONNECTED)
                     .replace("{playername}", p.getName())
-                    .replace("{player}", p.getDisplayName())
+                    //.replace("{player}", p.getDisplayName())
+                    .replace("{player}", NameOrNick.getNickName(p))
                     .replace("{TeamColor}", team.getColor().chat().toString())
                     .replace("{on}", String.valueOf(getPlayers().size()))
                     .replace("{max}", String.valueOf(getMaxPlayers())));
@@ -1902,8 +1908,13 @@ public class Arena implements IArena {
                     StringBuilder winners = new StringBuilder();
                     //noinspection deprecation
                     for (Player p : winner.getMembersCache()) {
-                        if (!winners.toString().contains(p.getDisplayName())) {
-                            winners.append(p.getDisplayName()).append(" ");
+                        /*
+                         * if (!winners.toString().contains(p.getDisplayName())) {
+                         *    winners.append(p.getDisplayName()).append(" ");
+                         * }
+                         */
+                        if (!winners.toString().contains(NameOrNick.getNickName(p))) {
+                         winners.append(NameOrNick.getNickName(p)).append(" ");
                         }
                     }
                     if (winners.toString().endsWith(" ")) {

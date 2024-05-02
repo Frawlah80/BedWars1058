@@ -36,6 +36,7 @@ import com.andrei1058.bedwars.api.server.ServerType;
 import com.andrei1058.bedwars.api.util.BlastProtectionUtil;
 import com.andrei1058.bedwars.arena.Arena;
 import com.andrei1058.bedwars.configuration.Sounds;
+import com.andrei1058.bedwars.support.nickapi.NameOrNick;
 import com.andrei1058.bedwars.support.paper.TeleportManager;
 import com.andrei1058.bedwars.popuptower.TowerEast;
 import com.andrei1058.bedwars.popuptower.TowerNorth;
@@ -342,7 +343,8 @@ public class BreakPlace implements Listener {
                                                             .replace("{TeamColor}", t.getColor().chat().toString())
                                                             .replace("{TeamName}", t.getDisplayName(Language.getPlayerLanguage(on)))
                                                             .replace("{PlayerColor}", a.getTeam(p).getColor().chat().toString())
-                                                            .replace("{PlayerName}", p.getDisplayName())
+                                                            //.replace("{PlayerName}", p.getDisplayName())
+                                                            .replace("{PlayerName}", NameOrNick.getNickName(p))
                                                             .replace("{PlayerNameUnformatted}", p.getName()));
                                                 }
                                                 if (breakEvent.getTitle() != null && breakEvent.getSubTitle() != null) {

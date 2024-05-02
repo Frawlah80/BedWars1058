@@ -31,6 +31,7 @@ import com.andrei1058.bedwars.api.server.ServerType;
 import com.andrei1058.bedwars.arena.Arena;
 import com.andrei1058.bedwars.commands.shout.ShoutCommand;
 import com.andrei1058.bedwars.configuration.Permissions;
+import com.andrei1058.bedwars.support.nickapi.NameOrNick;
 import com.andrei1058.bedwars.support.papi.SupportPAPI;
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
@@ -137,7 +138,8 @@ public class ChatFormatting implements Listener {
                 .replace("{vSuffix}", getChatSupport().getSuffix(player))
                 .replace("{playername}", player.getName())
                 .replace("{level}", getLevelSupport().getLevel(player))
-                .replace("{player}", player.getDisplayName());
+                //.replace("{player}", player.getDisplayName());
+                .replace("{player}", NameOrNick.getNickName(player));
         if (team != null) {
             String teamFormat = getMsg(player, Messages.FORMAT_PAPI_PLAYER_TEAM_TEAM)
                     .replace("{TeamColor}", team.getColor().chat() + "")
