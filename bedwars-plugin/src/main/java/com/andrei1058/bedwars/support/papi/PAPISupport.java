@@ -29,7 +29,7 @@ import com.andrei1058.bedwars.api.language.Messages;
 import com.andrei1058.bedwars.api.stats.IPlayerStats;
 import com.andrei1058.bedwars.arena.Arena;
 import com.andrei1058.bedwars.commands.shout.ShoutCommand;
-//import com.andrei1058.bedwars.support.nickapi.NameOrNick;
+import com.andrei1058.bedwars.support.nickapi.NameOrNick;
 import me.clip.placeholderapi.expansion.PlaceholderExpansion;
 import org.bukkit.entity.Player;
 import org.jetbrains.annotations.NotNull;
@@ -380,6 +380,43 @@ public class PAPISupport extends PlaceholderExpansion {
                 ITeam xTeam = a.getExTeam(player.getUniqueId());
                 response = xTeam.getColor().chat().toString();
                 break;
+            case "nick_format":
+                response = NameOrNick.getNickName(player);
+                break;
+            case "tab_format_prefix":
+                if (a.getStatus() == GameState.waiting || a.getStatus() == GameState.starting) {
+                    response = Language.getMsg(player, Messages.FORMATTING_TAB_PREFIX_WAITING)
+                            .replace("{vPrefix}", BedWars.getChatSupport().getPrefix(player))
+                            .replace("{vSuffix}", BedWars.getChatSupport().getSuffix(player));
+                } else if (a.getStatus() == GameState.playing || a.getStatus() == GameState.restarting) {
+                    ITeam playerTeam = a.getTeam(player);
+                    if (a.isPlayer(player)) {
+                        response = Language.getMsg(player, Messages.FORMATTING_TAB_PREFIX_PLAYING_PLAYER)
+                                .replace("{TeamColor}", playerTeam.getColor().chat().toString())
+                                .replace("{TeamLetter}", playerTeam.getName().substring(0,1).toUpperCase());
+                    } else if (a.isSpectator(player)) {
+                        response = Language.getMsg(player, Messages.FORMATTING_TAB_PREFIX_PLAYING_SPEC);
+                    }
+                } else {
+                    response = Language.getMsg(player, Messages.FORMATTING_TAB_PREFIX_LOBBY)
+                            .replace("{vPrefix}", BedWars.getChatSupport().getPrefix(player))
+                            .replace("{vSuffix}", BedWars.getChatSupport().getSuffix(player));
+                }
+                break;
+            case "tab_format_header":
+                response = Language.getMsg(player, Messages.FORMATTING_TAB_HEADER);
+                break;
+            case "tab_format_footer":
+                if (a.getStatus() == GameState.playing || a.getStatus() == GameState.restarting) {
+                    response = Language.getMsg(player, Messages.FORMATTING_TAB_FOOTER_PLAYING)
+                            .replace("{kills}", String.valueOf(a.getPlayerKills(player,false)))
+                            .replace("{finals}", String.valueOf(a.getPlayerKills(player, true)))
+                            .replace("{beds}", String.valueOf(a.getPlayerBedsDestroyed(player)));
+                } else {
+                    response = Language.getMsg(player, Messages.FORMATTING_TAB_FOOTER);
+                }
+                break;
+
             /*case "tab_name_formatting":
                 if (player.getWorld().getName().equals(BedWars.getLobbyWorld())) {
                     response = Language.getMsg(player, Messages.FORMATTING_TAB_NAME_LOBBY)
