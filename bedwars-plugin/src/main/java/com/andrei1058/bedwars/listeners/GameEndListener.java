@@ -1,5 +1,7 @@
 package com.andrei1058.bedwars.listeners;
 
+import com.andrei1058.bedwars.BedWars;
+import com.andrei1058.bedwars.api.configuration.ConfigPath;
 import com.andrei1058.bedwars.api.events.gameplay.GameEndEvent;
 import org.bukkit.Bukkit;
 import org.bukkit.World;
@@ -21,8 +23,10 @@ public class GameEndListener implements Listener {
         }
 
         // clear inventories
-        for (UUID p : event.getAliveWinners()) {
-            Bukkit.getPlayer(p).getInventory().clear();
+        if (BedWars.config.getBoolean(ConfigPath.GENERAL_CONFIGURATION_CLEAR_INVENTORY_ON_WIN)) {
+            for (UUID p : event.getAliveWinners()) {
+                Bukkit.getPlayer(p).getInventory().clear();
+            }
         }
 
         // clear dropped items

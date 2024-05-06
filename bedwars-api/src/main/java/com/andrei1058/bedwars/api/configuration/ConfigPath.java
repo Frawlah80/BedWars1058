@@ -279,6 +279,8 @@ public class ConfigPath {
 
     public static final String GENERAL_CONFIGURATION_BUCKET_REMOVE = "enable-bucket-removal";
 
+    public static final String GENERAL_CONFIGURATION_CLEAR_INVENTORY_ON_WIN = "clear-inventory-after-game";
+
     public static final String SHOP_SETTINGS_PATH = "shop-settings";
     public static final String SHOP_SPECIALS_PATH = "shop-specials";
     public static final String SHOP_QUICK_DEFAULTS_PATH = "quick-buy-defaults";
