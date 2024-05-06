@@ -64,6 +64,12 @@ public class ShoutCommand extends BukkitCommand {
             p.sendMessage(Language.getMsg(p, Messages.COMMAND_SHOUT_IN_RESTARTING));
             return true;
         }
+        StringBuilder sb = new StringBuilder();
+        for (String ar : args) {
+            sb.append(ar).append(" ");
+        }
+
+        p.chat("!" + sb.toString());
         return false;
     }
 

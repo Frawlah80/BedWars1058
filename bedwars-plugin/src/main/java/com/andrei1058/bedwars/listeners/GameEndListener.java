@@ -23,11 +23,12 @@ public class GameEndListener implements Listener {
         }
 
         // clear inventories
+        /*
         if (BedWars.config.getBoolean(ConfigPath.GENERAL_CONFIGURATION_CLEAR_INVENTORY_ON_WIN)) {
             for (UUID p : event.getAliveWinners()) {
                 Bukkit.getPlayer(p).getInventory().clear();
             }
-        }
+        }*/
 
         // clear dropped items
         World game = event.getArena().getWorld();
