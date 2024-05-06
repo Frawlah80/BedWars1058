@@ -29,6 +29,7 @@ import com.andrei1058.bedwars.api.language.Messages;
 import com.andrei1058.bedwars.api.stats.IPlayerStats;
 import com.andrei1058.bedwars.arena.Arena;
 import com.andrei1058.bedwars.commands.shout.ShoutCommand;
+import com.andrei1058.bedwars.support.nickapi.NameOrNick;
 import me.clip.placeholderapi.expansion.PlaceholderExpansion;
 import org.bukkit.entity.Player;
 import org.jetbrains.annotations.NotNull;
@@ -378,6 +379,30 @@ public class PAPISupport extends PlaceholderExpansion {
                 ITeam xTeam = a.getExTeam(player.getUniqueId());
                 response = xTeam.getColor().chat().toString();
                 break;
+            case "tab_formatting":
+                if (player.getWorld().getName().equals(BedWars.getLobbyWorld())) {
+                    response = Language.getMsg(player, Messages.FORMATTING_TAB_NAME_LOBBY)
+                            .replace("{vPrefix}", BedWars.getChatSupport().getPrefix(player))
+                            .replace("{vSuffix}", BedWars.getChatSupport().getSuffix(player))
+                            .replace("{player}", NameOrNick.getNickName(player));
+                } else if (a.getStatus() == GameState.waiting || a.getStatus() == GameState.starting) {
+                    response = Language.getMsg(player, Messages.FORMATTING_TAB_NAME_WAITING)
+                            .replace("{vPrefix}", BedWars.getChatSupport().getPrefix(player))
+                            .replace("{vSuffix}", BedWars.getChatSupport().getSuffix(player))
+                            .replace("{player}", NameOrNick.getNickName(player));
+                } else if (a.getStatus() == GameState.playing) {
+                    ITeam playerTeam = a.getTeam(player);
+                    if (a.isPlayer(player)) {
+                        response = Language.getMsg(player, Messages.FORMATTING_TAB_NAME_PLAYING_PLAYER)
+                                .replace("{TeamColor}", playerTeam.getColor().chat().toString())
+                                .replace("{TeamLetter}", playerTeam.getName().substring(0,1).toUpperCase())
+                                .replace("{player}", NameOrNick.getNickName(player));
+                    } else if (a.isSpectator(player)) {
+                        response = Language.getMsg(player, Messages.FORMATTING_TAB_NAME_PLAYING_SPEC)
+                                .replace("{player}", NameOrNick.getNickName(player));
+                    }
+
+                }
         }
         return response;
     }

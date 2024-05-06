@@ -101,11 +101,13 @@ public class ChatFormatting implements Listener {
 
             // shout format
             if (isShouting(msg, language)) {
+                /*
+                Does not sound good with the fact that shout command requires permission??
                 if (!(p.hasPermission(Permissions.PERMISSION_SHOUT_COMMAND) || p.hasPermission(Permissions.PERMISSION_ALL))) {
                     e.setCancelled(true);
                     p.sendMessage(Language.getMsg(p, Messages.COMMAND_NOT_FOUND_OR_INSUFF_PERMS));
                     return;
-                }
+                }*/
                 if (ShoutCommand.isShoutCooldown(p)) {
                     e.setCancelled(true);
                     p.sendMessage(language.m(Messages.COMMAND_COOLDOWN)
