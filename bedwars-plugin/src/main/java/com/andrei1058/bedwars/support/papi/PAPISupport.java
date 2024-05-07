@@ -397,7 +397,7 @@ public class PAPISupport extends PlaceholderExpansion {
                     } else if (a.isSpectator(player)) {
                         response = Language.getMsg(player, Messages.FORMATTING_TAB_PREFIX_PLAYING_SPEC);
                     }
-                } else {
+                } else if (player.getWorld().getName().equals(BedWars.getLobbyWorld())) {
                     response = Language.getMsg(player, Messages.FORMATTING_TAB_PREFIX_LOBBY)
                             .replace("{vPrefix}", BedWars.getChatSupport().getPrefix(player))
                             .replace("{vSuffix}", BedWars.getChatSupport().getSuffix(player));
@@ -412,35 +412,10 @@ public class PAPISupport extends PlaceholderExpansion {
                             .replace("{kills}", String.valueOf(a.getPlayerKills(player,false)))
                             .replace("{finals}", String.valueOf(a.getPlayerKills(player, true)))
                             .replace("{beds}", String.valueOf(a.getPlayerBedsDestroyed(player)));
-                } else {
+                } else if (player.getWorld().getName().equals(BedWars.getLobbyWorld())) {
                     response = Language.getMsg(player, Messages.FORMATTING_TAB_FOOTER);
                 }
                 break;
-
-            /*case "tab_name_formatting":
-                if (player.getWorld().getName().equals(BedWars.getLobbyWorld())) {
-                    response = Language.getMsg(player, Messages.FORMATTING_TAB_NAME_LOBBY)
-                            .replace("{vPrefix}", BedWars.getChatSupport().getPrefix(player))
-                            .replace("{vSuffix}", BedWars.getChatSupport().getSuffix(player))
-                            .replace("{player}", NameOrNick.getNickName(player));
-                } else if (a.getStatus() == GameState.waiting || a.getStatus() == GameState.starting) {
-                    response = Language.getMsg(player, Messages.FORMATTING_TAB_NAME_WAITING)
-                            .replace("{vPrefix}", BedWars.getChatSupport().getPrefix(player))
-                            .replace("{vSuffix}", BedWars.getChatSupport().getSuffix(player))
-                            .replace("{player}", NameOrNick.getNickName(player));
-                } else if (a.getStatus() == GameState.playing) {
-                    ITeam playerTeam = a.getTeam(player);
-                    if (a.isPlayer(player)) {
-                        response = Language.getMsg(player, Messages.FORMATTING_TAB_NAME_PLAYING_PLAYER)
-                                .replace("{TeamColor}", playerTeam.getColor().chat().toString())
-                                .replace("{TeamLetter}", playerTeam.getName().substring(0,1).toUpperCase())
-                                .replace("{player}", NameOrNick.getNickName(player));
-                    } else if (a.isSpectator(player)) {
-                        response = Language.getMsg(player, Messages.FORMATTING_TAB_NAME_PLAYING_SPEC)
-                                .replace("{player}", NameOrNick.getNickName(player));
-                    }
-                } break;
-             */
         }
         return response;
     }
