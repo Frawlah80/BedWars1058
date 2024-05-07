@@ -159,18 +159,26 @@ public class ChatFormatting implements Listener {
     }
 
     private static boolean isShouting(String msg, Language lang) {
-        return msg.startsWith("!") || msg.startsWith("shout") ||
-                msg.startsWith("SHOUT") || msg.startsWith(lang.m(Messages.MEANING_SHOUT));
+        if (config.getBoolean(ConfigPath.GENERAL_CONFIGURATION_SHOUT_SHORTCUT)) {
+            return msg.startsWith("!") || msg.startsWith("shout") ||
+                    msg.startsWith("SHOUT") || msg.startsWith(lang.m(Messages.MEANING_SHOUT));
+        } else {
+            return false;
+        }
     }
 
     private static String clearShout(String msg, Language lang) {
-        if (msg.startsWith("!")) msg = msg.replaceFirst("!", "");
-        if (msg.startsWith("SHOUT")) msg = msg.replaceFirst("SHOUT", "");
-        if (msg.startsWith("shout")) msg = msg.replaceFirst("shout", "");
-        if (msg.startsWith(lang.m(Messages.MEANING_SHOUT))) {
-            msg = msg.replaceFirst(lang.m(Messages.MEANING_SHOUT), "");
+        if (config.getBoolean(ConfigPath.GENERAL_CONFIGURATION_SHOUT_SHORTCUT)) {
+            if (msg.startsWith("!")) msg = msg.replaceFirst("!", "");
+            if (msg.startsWith("SHOUT")) msg = msg.replaceFirst("SHOUT", "");
+            if (msg.startsWith("shout")) msg = msg.replaceFirst("shout", "");
+            if (msg.startsWith(lang.m(Messages.MEANING_SHOUT))) {
+                msg = msg.replaceFirst(lang.m(Messages.MEANING_SHOUT), "");
+            }
+            return msg.trim();
+        } else {
+            return msg;
         }
-        return msg.trim();
     }
 
     @SafeVarargs
