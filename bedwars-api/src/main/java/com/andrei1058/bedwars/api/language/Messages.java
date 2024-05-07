@@ -208,15 +208,6 @@ public class Messages {
     public static String FORMATTING_SB_TAB_LOBBY_PREFIX = FORMATTING_SB_TAB_BASE + ".lobby.prefix";
     public static String FORMATTING_SB_TAB_LOBBY_SUFFIX = FORMATTING_SB_TAB_BASE + ".lobby.suffix";
 
-    // More Tab stuffs
-    public static String FORMATTING_TAB_PREFIX_LOBBY = "tab-by-neznamy.lobby-prefix";
-    public static String FORMATTING_TAB_PREFIX_WAITING = "tab-by-neznamy.waiting-prefix";
-    public static String FORMATTING_TAB_PREFIX_PLAYING_PLAYER = "tab-by-neznamy.playing-player-prefix";
-    public static String FORMATTING_TAB_PREFIX_PLAYING_SPEC = "tab-by-neznamy.playing-spec-prefix";
-    public static String FORMATTING_TAB_HEADER = "tab-by-neznamy.header";
-    public static String FORMATTING_TAB_FOOTER = "tab-by-neznamy.footer";
-    public static String FORMATTING_TAB_FOOTER_PLAYING = "tab-by-neznamy.footer-playing";
-
     // TAB WAITING
     public static String FORMATTING_SB_TAB_WAITING_HEADER = FORMATTING_SB_TAB_BASE+".waiting.player.header";
     public static String FORMATTING_SB_TAB_WAITING_FOOTER = FORMATTING_SB_TAB_BASE+".waiting.player.footer";

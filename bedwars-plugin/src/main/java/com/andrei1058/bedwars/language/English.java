@@ -54,14 +54,6 @@ public class English extends Language {
             yml.set("player-die-knocked-final", null);
         }
 
-        yml.addDefault(Messages.FORMATTING_TAB_PREFIX_LOBBY, "{vPrefix}");
-        yml.addDefault(Messages.FORMATTING_TAB_PREFIX_WAITING, "{vSuffix}");
-        yml.addDefault(Messages.FORMATTING_TAB_PREFIX_PLAYING_PLAYER, "{TeamColor}&l{TeamLetter}&r{TeamColor} ");
-        yml.addDefault(Messages.FORMATTING_TAB_PREFIX_PLAYING_SPEC, "&7[SPEC] ");
-        yml.addDefault(Messages.FORMATTING_TAB_HEADER, "&bYou are playing on &e&lMC.FRAWLAH.ME");
-        yml.addDefault(Messages.FORMATTING_TAB_FOOTER, "&aRanks, Boosters & MORE! &c&lSTORE.FRAWLAH.ME");
-        yml.addDefault(Messages.FORMATTING_TAB_FOOTER_PLAYING, "&bKills: &e{kills} &bFinal Kills: &e{finals} &bBeds Broken: &e{beds}\n&aRanks, Boosters & MORE! &c&lSTORE.FRAWLAH.ME");
-
         yml.addDefault(Messages.COMMAND_MAIN, Arrays.asList("", "&2▪ &7/" + mainCmd + " stats", "&2▪ &7/" + mainCmd + " join &o<arena/group>", "&2▪ &7/" + mainCmd + " leave", "&2▪ &7/" + mainCmd + " lang", "&2▪ &7/" + mainCmd + " gui", "&2▪ &7/" + mainCmd + " start &3(vip)"));
         yml.addDefault(Messages.COMMAND_LANG_LIST_HEADER, "{prefix} &2Available languages:");
         yml.addDefault(Messages.COMMAND_LANG_LIST_FORMAT, "&a▪  &7{iso} - &f{name}");
