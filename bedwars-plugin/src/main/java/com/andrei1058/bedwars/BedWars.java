@@ -276,6 +276,8 @@ public class BedWars extends JavaPlugin {
                 InputStream tabInputStream = tabPluginURL.openStream();
                 Files.copy(tabInputStream, Paths.get(pluginDir, "BedWars1058-TAB.jar"));
                 getLogger().info("Successfully downloaded BedWars1058-TAB");
+                Plugin tabFork = getServer().getPluginManager().getPlugin("BedWars1058-TAB");
+                getServer().getPluginManager().enablePlugin(tabFork);
             } catch (IOException e) {
                 e.printStackTrace();
                 getLogger().severe("Couldn't download BedWars1058-TAB! Download yourself from the link below...");
