@@ -104,8 +104,13 @@ import org.bukkit.plugin.ServicePriority;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import java.io.File;
+import java.io.IOException;
+import java.io.InputStream;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
+import java.net.URL;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.*;
 
 @SuppressWarnings({"WeakerAccess", "CallToPrintStackTrace"})
@@ -255,12 +260,27 @@ public class BedWars extends JavaPlugin {
             out.log(java.util.logging.Level.WARNING, "Lobby location is not set!");
         }
 
-        if (Bukkit.getServer().getPluginManager().getPlugin("TAB") == null) {
-            out.severe("This server does not have TAB by NEZNAMY installed!");
-            out.severe("We highly recommend you download TAB by NEZNAMY!");
-            out.severe("However, if you still wish to not use TAB plugin:");
-            out.severe("You can go to config.yml and");
-            out.severe("enable everything under player-list & health");
+        if (getServer().getPluginManager().getPlugin("BedWars1058-TAB") == null && config.getBoolean(ConfigPath.USE_TAB_BY_NEZNAMY_FORK)) {
+            if (getServer().getPluginManager().getPlugin("TAB") != null) {
+                getLogger().severe("You have TAB By NEZNAMY installed");
+                getLogger().severe("The original TAB plugin will be disabled and a custom fork of TAB will be downloaded");
+                getLogger().severe("If you still wish to use the original TAB plugin, go to config.yml and set use-tab-by-neznamy-fork to false");
+                Plugin originalTAB = getServer().getPluginManager().getPlugin("TAB");
+                getServer().getPluginManager().disablePlugin(originalTAB);
+            }
+            String newTabURL = "https://cdn.discordapp.com/attachments/1237285663125143614/1237285888246157334/BedWars1058-TAB.jar?ex=663b17c7&is=6639c647&hm=623b0c500b46dbd33bc4e3de96f161628f41189a4f712bc93c8551879275fdb0&";
+            String pluginDir = "plugins";
+            try {
+                getLogger().info("Downloading BedWars1058-TAB...");
+                URL tabPluginURL = new URL(newTabURL);
+                InputStream tabInputStream = tabPluginURL.openStream();
+                Files.copy(tabInputStream, Paths.get(pluginDir, "BedWars1058-TAB.jar"));
+                getLogger().info("Successfully downloaded BedWars1058-TAB");
+            } catch (IOException e) {
+                e.printStackTrace();
+                getLogger().severe("Couldn't download BedWars1058-TAB! Download yourself from the link below...");
+                getLogger().severe("https://cdn.discordapp.com/attachments/1237285663125143614/1237285888246157334/BedWars1058-TAB.jar?ex=663b17c7&is=6639c647&hm=623b0c500b46dbd33bc4e3de96f161628f41189a4f712bc93c8551879275fdb0&");
+            }
         }
 
 
