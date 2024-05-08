@@ -105,7 +105,7 @@ class PlayerGoods {
             p.setHealthScale(20);
             p.setHealth(20);
             p.setFoodLevel(20);
-            p.getInventory().clear();
+            //p.getInventory().clear();
             p.getInventory().setArmorContents(null);
             if (!rejoin) {
                 p.getEnderChest().clear();
