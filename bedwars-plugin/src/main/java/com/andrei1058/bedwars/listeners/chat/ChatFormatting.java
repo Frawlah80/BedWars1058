@@ -163,7 +163,7 @@ public class ChatFormatting implements Listener {
             return msg.startsWith("!") || msg.startsWith("shout") ||
                     msg.startsWith("SHOUT") || msg.startsWith(lang.m(Messages.MEANING_SHOUT));
         } else {
-            return false;
+            return msg.startsWith("📢");
         }
     }
 
@@ -175,10 +175,11 @@ public class ChatFormatting implements Listener {
             if (msg.startsWith(lang.m(Messages.MEANING_SHOUT))) {
                 msg = msg.replaceFirst(lang.m(Messages.MEANING_SHOUT), "");
             }
-            return msg.trim();
+            //return msg.trim();
         } else {
-            return msg;
+            if (msg.startsWith("📢")) msg = msg.replaceFirst("📢", "");
         }
+        return msg.trim();
     }
 
     @SafeVarargs

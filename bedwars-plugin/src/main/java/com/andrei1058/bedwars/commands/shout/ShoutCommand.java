@@ -35,6 +35,8 @@ import org.bukkit.entity.Player;
 import java.util.HashMap;
 import java.util.UUID;
 
+import static com.andrei1058.bedwars.BedWars.config;
+
 public class ShoutCommand extends BukkitCommand {
 
     private static HashMap<UUID, Long> shoutCooldown = new HashMap<>();
@@ -48,11 +50,15 @@ public class ShoutCommand extends BukkitCommand {
         if (s instanceof ConsoleCommandSender) return true;
         Player p = (Player) s;
         IArena a = Arena.getArenaByPlayer(p);
+        if (a == null) {
+            p.sendMessage(Language.getMsg(p, Messages.COMMAND_NOT_FOUND_OR_INSUFF_PERMS));
+            return true;
+        }
         if (a.getMaxInTeam() == 1) {
             p.sendMessage(Language.getMsg(p, Messages.COMMAND_SHOUT_IN_SOLO));
             return true;
         }
-        if (a == null || a.isSpectator(p)) {
+        if (a.isSpectator(p)) {
             p.sendMessage(Language.getMsg(p, Messages.COMMAND_NOT_FOUND_OR_INSUFF_PERMS));
             return true;
         }
@@ -68,8 +74,11 @@ public class ShoutCommand extends BukkitCommand {
         for (String ar : args) {
             sb.append(ar).append(" ");
         }
-
-        p.chat("!" + sb.toString());
+        if (config.getBoolean(ConfigPath.GENERAL_CONFIGURATION_SHOUT_SHORTCUT)) {
+            p.chat("!" + sb.toString());
+        } else {
+            p.chat("📢" + sb.toString());
+        }
         return false;
     }
 
