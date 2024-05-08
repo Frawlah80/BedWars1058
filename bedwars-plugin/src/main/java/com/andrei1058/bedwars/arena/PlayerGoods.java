@@ -144,10 +144,10 @@ class PlayerGoods {
         playerGoods.remove(player.getUniqueId());
 
 
-        for (PotionEffect pf : player.getActivePotionEffects()) {
-            player.removePotionEffect(pf.getType());
-        }
-        player.getInventory().clear();
+        //for (PotionEffect pf : player.getActivePotionEffects()) {
+        //    player.removePotionEffect(pf.getType());
+        //}
+        //player.getInventory().clear();
         player.getInventory().setArmorContents(null);
         player.setLevel(level);
         player.setExp(exp);
