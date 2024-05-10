@@ -165,13 +165,13 @@ class PlayerGoods {
                 player.getInventory().setItem(entry.getValue(), entry.getKey());
             }
             player.updateInventory();
-            items.clear();
+            //items.clear();
         }
         if (!potions.isEmpty()) {
             for (PotionEffect pe : potions) {
                 player.addPotionEffect(pe);
             }
-            potions.clear();
+            //potions.clear();
         }
         player.getEnderChest().clear();
         if (!enderchest.isEmpty()) {
