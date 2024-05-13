@@ -104,6 +104,9 @@ public class InvisibilityPotionListener implements Listener {
         if (invisFootstepsNotOnGroundDisable && !p.isOnGround()) return;
         Location from = e.getFrom();
         Location to = e.getTo();
+        if (from.getBlock() == to.getBlock()) {
+            p.getWorld().playEffect(p.getLocation().add(0.0D, 0.01D, 0.0D), Effect.FOOTSTEP, 1);
+        }
         if (from.getBlock() != to.getBlock()) {
             if (this.invisFootstepsInterval == 3) {
                 p.getWorld().playEffect(p.getLocation().add(0.0D, 0.01D, 0.4D), Effect.FOOTSTEP, 1);
