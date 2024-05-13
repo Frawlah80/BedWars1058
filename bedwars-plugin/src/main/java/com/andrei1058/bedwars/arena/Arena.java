@@ -1050,6 +1050,7 @@ public class Arena implements IArena {
 
         Bukkit.getPluginManager().callEvent(new PlayerLeaveArenaEvent(p, this, null));
         spectators.remove(p);
+        GhostPlayerFeature.removePlayerAsGhost(p);
         removeArenaByPlayer(p, this);
         p.getInventory().clear();
         p.getInventory().setArmorContents(null);
