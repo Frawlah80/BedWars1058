@@ -690,8 +690,8 @@ public class Arena implements IArena {
                 /* Spectator items */
                 sendSpectatorCommandItems(p);
 
-                GhostPlayerFeature.addPlayerAsGhost(p);
                 p.addPotionEffect(new PotionEffect(PotionEffectType.INVISIBILITY, Integer.MAX_VALUE, 1, false));
+                GhostPlayerFeature.addPlayerAsGhost(p);
 
                 p.getInventory().setArmorContents(null);
             });
