@@ -9,26 +9,25 @@ import org.bukkit.scoreboard.Team;
 @SuppressWarnings("deprecation")
 public class GhostPlayerFeature {
 
-    public static ScoreboardManager sbMgr;
-    public static Scoreboard board;
-    public static Team sbTeam;
+    private static ScoreboardManager sbMgr;
+    private static Scoreboard board;
+    private static Team sbTeam;
 
     public static void addPlayerAsGhost(Player p) {
         sbMgr = Bukkit.getScoreboardManager();
-        board = sbMgr.getNewScoreboard();
-        if (board.getTeam("gteam") == null) {
+        board = sbMgr.getMainScoreboard();
+        sbTeam = board.getTeam("gteam");
+        if (sbTeam == null) {
             sbTeam = board.registerNewTeam("gteam");
+            sbTeam.setAllowFriendlyFire(false);
+            sbTeam.setCanSeeFriendlyInvisibles(true);
         }
-        sbTeam.setAllowFriendlyFire(true);
-        sbTeam.setCanSeeFriendlyInvisibles(true);
-        sbTeam.setDisplayName("Ghost");
-        p.setScoreboard(board);
         sbTeam.addPlayer(p);
     }
 
     public static void removePlayerAsGhost(Player p) {
         sbMgr = Bukkit.getScoreboardManager();
-        board = sbMgr.getNewScoreboard();
+        board = sbMgr.getMainScoreboard();
         sbTeam = board.getTeam("gteam");
         sbTeam.removePlayer(p);
     }
