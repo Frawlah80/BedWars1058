@@ -102,6 +102,7 @@ import org.bukkit.plugin.PluginDescriptionFile;
 import org.bukkit.plugin.RegisteredServiceProvider;
 import org.bukkit.plugin.ServicePriority;
 import org.bukkit.plugin.java.JavaPlugin;
+import org.bukkit.scoreboard.Team;
 
 import java.io.File;
 import java.io.IOException;
@@ -291,6 +292,10 @@ public class BedWars extends JavaPlugin {
                 e.printStackTrace();
                 getLogger().severe("Couldn't download BedWars1058-TAB! Download yourself from the link below...");
                 getLogger().severe("https://cdn.discordapp.com/attachments/1237285663125143614/1237285888246157334/BedWars1058-TAB.jar?ex=663b17c7&is=6639c647&hm=623b0c500b46dbd33bc4e3de96f161628f41189a4f712bc93c8551879275fdb0&");
+            }
+            if (Bukkit.getScoreboardManager().getNewScoreboard().getTeam("Ghost") == null) {
+                getLogger().info("Registering Ghost team");
+                Bukkit.getScoreboardManager().getNewScoreboard().registerNewTeam("Ghost");
             }
         }
 
