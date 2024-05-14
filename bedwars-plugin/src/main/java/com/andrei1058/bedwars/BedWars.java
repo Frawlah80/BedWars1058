@@ -296,6 +296,11 @@ public class BedWars extends JavaPlugin {
             if (Bukkit.getScoreboardManager().getNewScoreboard().getTeam("Ghost") == null) {
                 getLogger().info("Registering Ghost team");
                 Bukkit.getScoreboardManager().getNewScoreboard().registerNewTeam("Ghost");
+                Bukkit.getScoreboardManager().getNewScoreboard().registerNewTeam("Ghost").setDisplayName("Spectating Ghosts");
+                Bukkit.getScoreboardManager().getNewScoreboard().registerNewTeam("Ghost").setCanSeeFriendlyInvisibles(true);
+                Bukkit.getScoreboardManager().getNewScoreboard().registerNewTeam("Ghost").setAllowFriendlyFire(false);
+            } else {
+                getLogger().info("Ghost team already registered!");
             }
         }
 

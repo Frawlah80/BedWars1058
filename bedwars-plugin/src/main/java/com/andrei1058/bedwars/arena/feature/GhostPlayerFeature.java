@@ -14,9 +14,6 @@ public class GhostPlayerFeature {
         ScoreboardManager manager = Bukkit.getScoreboardManager();
         Scoreboard board = manager.getNewScoreboard();
         Team ghosts = board.getTeam("Ghost");
-        ghosts.setDisplayName("Spectating Ghosts");
-        ghosts.setCanSeeFriendlyInvisibles(true);
-        ghosts.setAllowFriendlyFire(false);
         ghosts.addEntry(p.getName());
         BedWars.debug("Added " + p.getDisplayName() + " is now added to team " + board.getEntryTeam(p.getName()));
     }
