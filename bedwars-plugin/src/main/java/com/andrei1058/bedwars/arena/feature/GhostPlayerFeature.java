@@ -22,7 +22,7 @@ public class GhostPlayerFeature {
         }
         sbTeam.setAllowFriendlyFire(false);
         sbTeam.setCanSeeFriendlyInvisibles(true);
-        sbTeam.addPlayer(p);
+        p.setScoreboard(board);
     }
 
     public static void removePlayerAsGhost(Player p) {
