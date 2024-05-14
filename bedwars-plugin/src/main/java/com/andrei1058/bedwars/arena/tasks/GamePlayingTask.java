@@ -31,7 +31,6 @@ import com.andrei1058.bedwars.api.language.Language;
 import com.andrei1058.bedwars.api.language.Messages;
 import com.andrei1058.bedwars.api.tasks.PlayingTask;
 import com.andrei1058.bedwars.arena.Arena;
-import com.andrei1058.bedwars.ghostfactory.GhostFactory;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.Material;
@@ -225,7 +224,6 @@ public class GamePlayingTask implements Runnable, PlayingTask {
                     }
                 } else {
                     e.getKey().addPotionEffect(new PotionEffect(PotionEffectType.INVISIBILITY, Integer.MAX_VALUE, 1, false));
-                    GhostFactory.addPlayerAsGhost(e.getKey());
                     nms.sendTitle(e.getKey(), getMsg(e.getKey(), Messages.PLAYER_DIE_RESPAWN_TITLE).replace("{time}",
                             String.valueOf(e.getValue())), getMsg(e.getKey(), Messages.PLAYER_DIE_RESPAWN_SUBTITLE).replace("{time}",
                             String.valueOf(e.getValue())), 0, 30, 10);

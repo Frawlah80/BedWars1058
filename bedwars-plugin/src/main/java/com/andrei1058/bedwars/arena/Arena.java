@@ -42,7 +42,6 @@ import com.andrei1058.bedwars.arena.team.BedWarsTeam;
 import com.andrei1058.bedwars.arena.team.TeamAssigner;
 import com.andrei1058.bedwars.configuration.ArenaConfig;
 import com.andrei1058.bedwars.configuration.Sounds;
-import com.andrei1058.bedwars.ghostfactory.GhostFactory;
 import com.andrei1058.bedwars.levels.internal.InternalLevel;
 import com.andrei1058.bedwars.levels.internal.PerMinuteTask;
 import com.andrei1058.bedwars.listeners.blockstatus.BlockStatusListener;
@@ -1049,7 +1048,6 @@ public class Arena implements IArena {
 
         Bukkit.getPluginManager().callEvent(new PlayerLeaveArenaEvent(p, this, null));
         spectators.remove(p);
-        GhostFactory.addPlayerAsGhost(p);
         removeArenaByPlayer(p, this);
         p.getInventory().clear();
         p.getInventory().setArmorContents(null);
