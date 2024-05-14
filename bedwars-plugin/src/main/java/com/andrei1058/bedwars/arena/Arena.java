@@ -32,7 +32,6 @@ import com.andrei1058.bedwars.api.sidebar.ISidebar;
 import com.andrei1058.bedwars.api.tasks.PlayingTask;
 import com.andrei1058.bedwars.api.tasks.RestartingTask;
 import com.andrei1058.bedwars.api.tasks.StartingTask;
-import com.andrei1058.bedwars.arena.feature.GhostPlayerFeature;
 import com.andrei1058.bedwars.arena.stats.GameStatsManager;
 import com.andrei1058.bedwars.arena.stats.StatisticsOrdered;
 import com.andrei1058.bedwars.arena.tasks.GamePlayingTask;
@@ -43,6 +42,7 @@ import com.andrei1058.bedwars.arena.team.BedWarsTeam;
 import com.andrei1058.bedwars.arena.team.TeamAssigner;
 import com.andrei1058.bedwars.configuration.ArenaConfig;
 import com.andrei1058.bedwars.configuration.Sounds;
+import com.andrei1058.bedwars.ghostfactory.GhostFactory;
 import com.andrei1058.bedwars.levels.internal.InternalLevel;
 import com.andrei1058.bedwars.levels.internal.PerMinuteTask;
 import com.andrei1058.bedwars.listeners.blockstatus.BlockStatusListener;
@@ -117,6 +117,7 @@ public class Arena implements IArena {
     private List<String> shopOverrideCategories = new ArrayList<>();
     private List<Region> regionsList = new ArrayList<>();
     private int renderDistance;
+    private GhostFactory ghostFactory;
 
     private final List<Player> leaving = new ArrayList<>();
 
@@ -691,7 +692,7 @@ public class Arena implements IArena {
                 sendSpectatorCommandItems(p);
 
                 p.addPotionEffect(new PotionEffect(PotionEffectType.INVISIBILITY, Integer.MAX_VALUE, 1, false));
-                GhostPlayerFeature.addPlayerAsGhost(p);
+                ghostFactory.addPlayer(p);
 
                 p.getInventory().setArmorContents(null);
             });
@@ -1050,7 +1051,7 @@ public class Arena implements IArena {
 
         Bukkit.getPluginManager().callEvent(new PlayerLeaveArenaEvent(p, this, null));
         spectators.remove(p);
-        GhostPlayerFeature.removePlayerAsGhost(p);
+        ghostFactory.removePlayer(p);
         removeArenaByPlayer(p, this);
         p.getInventory().clear();
         p.getInventory().setArmorContents(null);
