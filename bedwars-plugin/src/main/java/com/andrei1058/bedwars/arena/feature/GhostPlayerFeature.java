@@ -19,9 +19,9 @@ public class GhostPlayerFeature {
         sbTeam = board.getTeam("gteam");
         if (sbTeam == null) {
             sbTeam = board.registerNewTeam("gteam");
-            sbTeam.setAllowFriendlyFire(false);
-            sbTeam.setCanSeeFriendlyInvisibles(true);
         }
+        sbTeam.setAllowFriendlyFire(false);
+        sbTeam.setCanSeeFriendlyInvisibles(true);
         sbTeam.addPlayer(p);
     }
 
