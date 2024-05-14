@@ -63,8 +63,6 @@ import static com.andrei1058.bedwars.api.language.Language.getMsg;
 @SuppressWarnings("WeakerAccess")
 public class BedWarsTeam implements ITeam {
 
-    private GhostFactory ghostFactory;
-
     private List<Player> members = new ArrayList<>();
     private TeamColor color;
     private Location spawn, bed, shop, teamUpgrades;
@@ -355,7 +353,7 @@ public class BedWarsTeam implements ITeam {
 
         Bukkit.getScheduler().runTaskLater(plugin, () -> {
             getArena().getRespawnSessions().remove(p); //Fixes https://github.com/andrei1058/BedWars1058/issues/669
-            ghostFactory.removePlayer(p);
+            GhostFactory.removePlayerAsGhost(p);
             for (Player inGame : arena.getPlayers()) {
                 if (inGame.equals(p)) continue;
                 BedWars.nms.spigotShowPlayer(p, inGame);

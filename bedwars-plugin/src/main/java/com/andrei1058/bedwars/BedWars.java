@@ -50,7 +50,6 @@ import com.andrei1058.bedwars.commands.rejoin.RejoinCommand;
 import com.andrei1058.bedwars.commands.shout.ShoutCommand;
 import com.andrei1058.bedwars.configuration.*;
 import com.andrei1058.bedwars.database.SQLite;
-import com.andrei1058.bedwars.ghostfactory.GhostFactory;
 import com.andrei1058.bedwars.language.*;
 import com.andrei1058.bedwars.levels.internal.InternalLevel;
 import com.andrei1058.bedwars.levels.internal.LevelListeners;
@@ -148,8 +147,6 @@ public class BedWars extends JavaPlugin {
     private boolean serverSoftwareSupport = true;
 
     private static com.andrei1058.bedwars.api.BedWars api;
-
-    public GhostFactory ghostFactory;
 
     @Override
     public void onLoad() {
@@ -295,7 +292,6 @@ public class BedWars extends JavaPlugin {
                 getLogger().severe("Couldn't download BedWars1058-TAB! Download yourself from the link below...");
                 getLogger().severe("https://cdn.discordapp.com/attachments/1237285663125143614/1237285888246157334/BedWars1058-TAB.jar?ex=663b17c7&is=6639c647&hm=623b0c500b46dbd33bc4e3de96f161628f41189a4f712bc93c8551879275fdb0&");
             }
-            this.ghostFactory = new GhostFactory(this);
         }
 
 
@@ -695,7 +691,6 @@ public class BedWars extends JavaPlugin {
                 ex.printStackTrace();
             }
         }
-        ghostFactory.close();
     }
 
     private void loadArenasAndSigns() {

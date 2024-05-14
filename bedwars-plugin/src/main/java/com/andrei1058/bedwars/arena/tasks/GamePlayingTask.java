@@ -47,9 +47,8 @@ import static com.andrei1058.bedwars.api.language.Language.getMsg;
 
 public class GamePlayingTask implements Runnable, PlayingTask {
 
-    private Arena arena;
-    private GhostFactory ghostFactory;
-    private BukkitTask task;
+    private final Arena arena;
+    private final BukkitTask task;
     private int beds_destroy_countdown, dragon_spawn_countdown, game_end_countdown;
 
     public GamePlayingTask(Arena arena) {
@@ -226,7 +225,7 @@ public class GamePlayingTask implements Runnable, PlayingTask {
                     }
                 } else {
                     e.getKey().addPotionEffect(new PotionEffect(PotionEffectType.INVISIBILITY, Integer.MAX_VALUE, 1, false));
-                    ghostFactory.addPlayer(e.getKey());
+                    GhostFactory.addPlayerAsGhost(e.getKey());
                     nms.sendTitle(e.getKey(), getMsg(e.getKey(), Messages.PLAYER_DIE_RESPAWN_TITLE).replace("{time}",
                             String.valueOf(e.getValue())), getMsg(e.getKey(), Messages.PLAYER_DIE_RESPAWN_SUBTITLE).replace("{time}",
                             String.valueOf(e.getValue())), 0, 30, 10);

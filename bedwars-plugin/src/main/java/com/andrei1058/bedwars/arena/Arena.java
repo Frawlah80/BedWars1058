@@ -117,7 +117,6 @@ public class Arena implements IArena {
     private List<String> shopOverrideCategories = new ArrayList<>();
     private List<Region> regionsList = new ArrayList<>();
     private int renderDistance;
-    private GhostFactory ghostFactory;
 
     private final List<Player> leaving = new ArrayList<>();
 
@@ -692,7 +691,6 @@ public class Arena implements IArena {
                 sendSpectatorCommandItems(p);
 
                 p.addPotionEffect(new PotionEffect(PotionEffectType.INVISIBILITY, Integer.MAX_VALUE, 1, false));
-                ghostFactory.addPlayer(p);
 
                 p.getInventory().setArmorContents(null);
             });
@@ -1051,7 +1049,7 @@ public class Arena implements IArena {
 
         Bukkit.getPluginManager().callEvent(new PlayerLeaveArenaEvent(p, this, null));
         spectators.remove(p);
-        ghostFactory.removePlayer(p);
+        GhostFactory.addPlayerAsGhost(p);
         removeArenaByPlayer(p, this);
         p.getInventory().clear();
         p.getInventory().setArmorContents(null);
