@@ -311,10 +311,10 @@ public class PAPISupport extends PlaceholderExpansion {
             case "player_xp":
                 response = String.valueOf(BedWars.getLevelSupport().getCurrentXp(player));
                 break;
-            case "player_rerq_xp_formatted":
+            case "player_req_xp_formatted":
                 response = BedWars.getLevelSupport().getRequiredXpFormatted(player);
                 break;
-            case "player_rerq_xp":
+            case "player_req_xp":
                 response = String.valueOf(BedWars.getLevelSupport().getRequiredXp(player));
                 break;
             // player status required for tab condition
