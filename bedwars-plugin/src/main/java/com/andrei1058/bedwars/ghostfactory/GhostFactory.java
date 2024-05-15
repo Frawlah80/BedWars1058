@@ -13,15 +13,14 @@ public class GhostFactory {
         Team team = board.registerNewTeam("Ghost");
         team.setAllowFriendlyFire(false);
         team.setCanSeeFriendlyInvisibles(true);
-        team.setDisplayName("Ghost");
         p.setScoreboard(board);
-        team.addEntry(p.getDisplayName());
+        team.addPlayer(p);
     }
 
     public static void removePlayerAsGhost(Player p) {
         ScoreboardManager manager = Bukkit.getScoreboardManager();
         Scoreboard board = manager.getNewScoreboard();
         Team team = board.getTeam("Ghost");
-        team.removeEntry(p.getDisplayName());
+        team.removePlayer(p);
     }
 }
