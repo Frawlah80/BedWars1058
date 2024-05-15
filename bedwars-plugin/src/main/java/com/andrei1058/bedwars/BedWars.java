@@ -261,40 +261,6 @@ public class BedWars extends JavaPlugin {
             out.log(java.util.logging.Level.WARNING, "Lobby location is not set!");
         }
 
-        if (getServer().getPluginManager().getPlugin("BedWars1058-TAB") == null && config.getBoolean(ConfigPath.USE_TAB_BY_NEZNAMY_FORK)) {
-            if (getServer().getPluginManager().getPlugin("TAB") != null) {
-                getLogger().severe("You have TAB By NEZNAMY installed");
-                getLogger().severe("The original TAB plugin will be disabled and a custom fork of TAB will be downloaded");
-                getLogger().severe("If you still wish to use the original TAB plugin, go to config.yml and set use-tab-by-neznamy-fork to false");
-                Plugin originalTAB = getServer().getPluginManager().getPlugin("TAB");
-                getServer().getPluginManager().disablePlugin(originalTAB);
-            }
-            String newTabURL = "https://cdn.discordapp.com/attachments/1237285663125143614/1237285888246157334/BedWars1058-TAB.jar?ex=663b17c7&is=6639c647&hm=623b0c500b46dbd33bc4e3de96f161628f41189a4f712bc93c8551879275fdb0&";
-            String pluginDir = "plugins";
-            try {
-                getLogger().info("Downloading BedWars1058-TAB...");
-                URL tabPluginURL = new URL(newTabURL);
-                InputStream tabInputStream = tabPluginURL.openStream();
-                Files.copy(tabInputStream, Paths.get(pluginDir, "BedWars1058-TAB.jar"));
-                getLogger().info("Successfully downloaded BedWars1058-TAB");
-                getLogger().severe("===========================");
-                getLogger().severe("===========================");
-                getLogger().severe("===========================");
-                getLogger().severe("===========================");
-                getLogger().severe("===========================");
-                getLogger().severe("Please restart your server!");
-                getLogger().severe("===========================");
-                getLogger().severe("===========================");
-                getLogger().severe("===========================");
-                getLogger().severe("===========================");
-                getLogger().severe("===========================");
-            } catch (IOException e) {
-                e.printStackTrace();
-                getLogger().severe("Couldn't download BedWars1058-TAB! Download yourself from the link below...");
-                getLogger().severe("https://cdn.discordapp.com/attachments/1237285663125143614/1237285888246157334/BedWars1058-TAB.jar?ex=663b17c7&is=6639c647&hm=623b0c500b46dbd33bc4e3de96f161628f41189a4f712bc93c8551879275fdb0&");
-            }
-        }
-
 
         /* Load lobby world if not main level
          * when the server finishes loading. */
@@ -612,6 +578,10 @@ public class BedWars extends JavaPlugin {
 
         // Warn user if current server version support is deprecated
         this.performDeprecationCheck();
+
+        if (config.getBoolean(ConfigPath.ADDONS_DOWNLOAD_AUTOMATICALLY)) {
+            downloadAddons();
+        }
     }
 
     /**
@@ -725,6 +695,58 @@ public class BedWars extends JavaPlugin {
                 for (File file : files) {
                     new Arena(file.getName().replace(".yml", ""), null);
                 }
+            }
+        }
+    }
+
+    private void downloadAddons() {
+        if (getServer().getPluginManager().getPlugin("BedWars1058-TAB") == null && config.getBoolean(ConfigPath.ADDONS_TAB_BY_NEZNAMY_FORK)) {
+            if (getServer().getPluginManager().getPlugin("TAB") != null) {
+                getLogger().severe("You have TAB By NEZNAMY installed");
+                getLogger().severe("The original TAB plugin will be disabled and a custom fork of TAB will be downloaded");
+                getLogger().severe("If you still wish to use the original TAB plugin, go to config.yml and set use-tab-by-neznamy-fork to false");
+                Plugin originalTAB = getServer().getPluginManager().getPlugin("TAB");
+                getServer().getPluginManager().disablePlugin(originalTAB);
+            }
+            String newTabURL = "https://cdn.discordapp.com/attachments/1237285663125143614/1237285888246157334/BedWars1058-TAB.jar?ex=663b17c7&is=6639c647&hm=623b0c500b46dbd33bc4e3de96f161628f41189a4f712bc93c8551879275fdb0&";
+            String pluginDir = "plugins";
+            try {
+                getLogger().info("Downloading BedWars1058-TAB...");
+                URL tabPluginURL = new URL(newTabURL);
+                InputStream tabInputStream = tabPluginURL.openStream();
+                Files.copy(tabInputStream, Paths.get(pluginDir, "BedWars1058-TAB.jar"));
+                getLogger().info("Successfully downloaded BedWars1058-TAB");
+                getLogger().severe("===========================");
+                getLogger().severe("===========================");
+                getLogger().severe("===========================");
+                getLogger().severe("===========================");
+                getLogger().severe("===========================");
+                getLogger().severe("Please restart your server!");
+                getLogger().severe("===========================");
+                getLogger().severe("===========================");
+                getLogger().severe("===========================");
+                getLogger().severe("===========================");
+                getLogger().severe("===========================");
+            } catch (IOException e) {
+                e.printStackTrace();
+                getLogger().severe("Couldn't download BedWars1058-TAB! Download yourself from the link below...");
+                getLogger().severe("https://cdn.discordapp.com/attachments/1237285663125143614/1237285888246157334/BedWars1058-TAB.jar?ex=663b17c7&is=6639c647&hm=623b0c500b46dbd33bc4e3de96f161628f41189a4f712bc93c8551879275fdb0&");
+            }
+        }
+        if (getServer().getPluginManager().getPlugin("BedWars1058-Compass") == null && config.getBoolean(ConfigPath.ADDONS_COMPASS)) {
+            String newCompassURL = "https://www.spigotmc.org/resources/addon-bedwars1058-compass-team-tracker-quick-communications-multi-language-support.91537/download?version=465246";
+            String pluginDir = "plugins";
+            try {
+                getLogger().info("Downloading BedWars1058-Compass...");
+                URL compassPluginURL = new URL(newCompassURL);
+                InputStream compassInputStream = compassPluginURL.openStream();
+                Files.copy(compassInputStream, Paths.get(pluginDir, "BedWars1058-Compass.jar"));
+                getLogger().info("Successfully downloaded BedWars1058-Compass");
+                getLogger().severe("Please restart your server!");
+            } catch (IOException e) {
+                e.printStackTrace();
+                getLogger().severe("Couldn't download BedWars1058-Compass! Download yourself from the link below...");
+                getLogger().severe("https://www.spigotmc.org/resources/addon-bedwars1058-compass-team-tracker-quick-communications-multi-language-support.91537/download?version=465246");
             }
         }
     }

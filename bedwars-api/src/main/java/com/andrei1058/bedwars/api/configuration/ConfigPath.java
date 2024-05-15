@@ -155,7 +155,6 @@ public class ConfigPath {
     public static final String SB_CONFIG_SIDEBAR_HEALTH_ENABLE = "scoreboard-settings.health.enable";
     public static final String SB_CONFIG_SIDEBAR_HEALTH_IN_TAB = "scoreboard-settings.health.display-in-tab";
     public static final String SB_CONFIG_SIDEBAR_HEALTH_REFRESH = "scoreboard-settings.health.animation-refresh-interval";
-    public static final String USE_TAB_BY_NEZNAMY_FORK = "use-tab-by-neznamy-fork";
 
     public static final String SB_CONFIG_TAB_HEADER_FOOTER_ENABLE = "scoreboard-settings.tab-header-footer.enable";
     public static final String SB_CONFIG_TAB_HEADER_FOOTER_REFRESH_INTERVAL = "scoreboard-settings.tab-header-footer.refresh-interval";
@@ -364,4 +363,14 @@ public class ConfigPath {
 
     public static final String LOBBY_VOID_TELEPORT_ENABLED = "lobby-settings.void-tp";
     public static final String LOBBY_VOID_TELEPORT_HEIGHT = "lobby-settings.void-height";
+
+    public static final String ADDONS_DOWNLOAD_AUTOMATICALLY = "addons.download-auto";
+    public static final String ADDONS_TAB_BY_NEZNAMY_FORK = "addons.tab-by-neznamy-fork";
+    public static final String ADDONS_COMPASS = "addons.compass-addon";
+    public static final String ADDONS_LEAVE_DELAY = "addons.leave-delay";
+    public static final String ADDONS_SPECTATOR_OPTIONS = "addons.spectator-options";
+    public static final String ADDONS_XP_BAR = "addons.xp-bar-addon";
+    public static final String ADDONS_MAP_SELECTOR = "addons.map-selector";
+    public static final String ADDONS_REWARD_SUMMARY = "addons.reward-summary";
+    public static final String ADDONS_COSMETICS = "addons.cosmetics";
 }

@@ -77,7 +77,6 @@ public class MainConfig extends ConfigManager {
         yml.addDefault(ConfigPath.SB_CONFIG_SIDEBAR_HEALTH_REFRESH, 300);
         yml.addDefault(ConfigPath.SB_CONFIG_TAB_HEADER_FOOTER_ENABLE, false);
         yml.addDefault(ConfigPath.SB_CONFIG_TAB_HEADER_FOOTER_REFRESH_INTERVAL, 10);
-        yml.addDefault(ConfigPath.USE_TAB_BY_NEZNAMY_FORK, true);
 
         yml.addDefault(ConfigPath.GENERAL_CONFIGURATION_REJOIN_TIME, 60 * 5);
         yml.addDefault(ConfigPath.GENERAL_CONFIGURATION_RE_SPAWN_INVULNERABILITY, 4000);
@@ -229,6 +228,16 @@ public class MainConfig extends ConfigManager {
         yml.addDefault(ConfigPath.GENERAL_CONFIGURATION_ENABLE_SPONGE_EFFECT, true);
 
         yml.addDefault(ConfigPath.GENERAL_CONFIGURATION_BUCKET_REMOVE, true);
+
+        yml.addDefault(ConfigPath.ADDONS_DOWNLOAD_AUTOMATICALLY, true);
+        yml.addDefault(ConfigPath.ADDONS_TAB_BY_NEZNAMY_FORK, true);
+        yml.addDefault(ConfigPath.ADDONS_COMPASS, true);
+        yml.addDefault(ConfigPath.ADDONS_COSMETICS, true);
+        yml.addDefault(ConfigPath.ADDONS_LEAVE_DELAY, true);
+        yml.addDefault(ConfigPath.ADDONS_MAP_SELECTOR, true);
+        yml.addDefault(ConfigPath.ADDONS_REWARD_SUMMARY, true);
+        yml.addDefault(ConfigPath.ADDONS_SPECTATOR_OPTIONS, true);
+        yml.addDefault(ConfigPath.ADDONS_XP_BAR, true);
         save();
 
         //remove old config
