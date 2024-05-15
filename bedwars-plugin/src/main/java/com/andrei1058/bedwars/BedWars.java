@@ -50,7 +50,7 @@ import com.andrei1058.bedwars.commands.rejoin.RejoinCommand;
 import com.andrei1058.bedwars.commands.shout.ShoutCommand;
 import com.andrei1058.bedwars.configuration.*;
 import com.andrei1058.bedwars.database.SQLite;
-import com.andrei1058.bedwars.ghostfactory.listener.GhostListener;
+//import com.andrei1058.bedwars.ghostfactory.listener.GhostListener;
 import com.andrei1058.bedwars.language.*;
 import com.andrei1058.bedwars.levels.internal.InternalLevel;
 import com.andrei1058.bedwars.levels.internal.LevelListeners;
@@ -384,7 +384,7 @@ public class BedWars extends JavaPlugin {
 
         registerEvents(new PAGListener());
 
-        registerEvents(new GhostListener());
+        //registerEvents(new GhostListener());
 
         /* Load join signs. */
         loadArenasAndSigns();
