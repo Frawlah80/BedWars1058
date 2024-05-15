@@ -137,7 +137,7 @@ public class PAPISupport extends PlaceholderExpansion {
                 case "kills":
                     return String.valueOf(stats.getKills());
                 case "kdr":
-                    if (stats.getKills() == 0 || stats.getDeaths() == 0) {
+                    if (stats.getKills() == 0 && stats.getDeaths() == 0) {
                         return String.valueOf(0);
                     } else if (stats.getKills() == 0 && stats.getDeaths() != 0) {
                         return String.valueOf(0);
@@ -175,7 +175,7 @@ public class PAPISupport extends PlaceholderExpansion {
                 case "bedslost":
                     return String.valueOf(stats.getBedsLost());
                 case "bblr":
-                    if (stats.getBedsDestroyed() == 0 || stats.getBedsLost() == 0) {
+                    if (stats.getBedsDestroyed() == 0 && stats.getBedsLost() == 0) {
                         return String.valueOf(0);
                     } else if (stats.getBedsDestroyed() == 0 && stats.getBedsLost() != 0) {
                         return String.valueOf(0);
@@ -187,7 +187,7 @@ public class PAPISupport extends PlaceholderExpansion {
                         return String.valueOf(bblrDf.format(bblr));
                     }
                 case "wlr":
-                    if (stats.getWins() == 0 || stats.getLosses() == 0) {
+                    if (stats.getWins() == 0 && stats.getLosses() == 0) {
                         return String.valueOf(0);
                     } else if (stats.getWins() == 0 && stats.getLosses() != 0) {
                         return String.valueOf(0);
@@ -221,7 +221,7 @@ public class PAPISupport extends PlaceholderExpansion {
                 case "game_bedsdestroyed":
                     return String.valueOf(a.getPlayerBedsDestroyed(player));
                 case "game_kdr":
-                    if (a.getPlayerKills(player, false) == 0 || a.getPlayerDeaths(player, false) == 0) {
+                    if (a.getPlayerKills(player, false) == 0 && a.getPlayerDeaths(player, false) == 0) {
                         return String.valueOf(0);
                     } else if (a.getPlayerKills(player, false) == 0 && a.getPlayerDeaths(player, false) != 0) {
                         return String.valueOf(0);
@@ -233,7 +233,7 @@ public class PAPISupport extends PlaceholderExpansion {
                         return String.valueOf(gameKdrDf.format(gamekdr));
                     }
                 case "game_fkdr":
-                    if (a.getPlayerKills(player, true) == 0 || a.getPlayerDeaths(player, true) == 0) {
+                    if (a.getPlayerKills(player, true) == 0 && a.getPlayerDeaths(player, true) == 0) {
                         return String.valueOf(0);
                     } else if (a.getPlayerKills(player, true) == 0 && a.getPlayerDeaths(player, true) != 0) {
                         return String.valueOf(0);
