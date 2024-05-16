@@ -282,6 +282,9 @@ public class ConfigPath {
 
     public static final String GENERAL_CONFIGURATION_CLEAR_INVENTORY_ON_WIN = "clear-inventory-after-game";
 
+    public static final String GENERAL_CONFIGURATION_ENABLE_LEAVE_DELAY = "enable-leave-delay";
+    public static final String GENERAL_CONFIGURATION_LEAVE_DELAY_VALUE = "leave-delay-in-seconds";
+
     public static final String SHOP_SETTINGS_PATH = "shop-settings";
     public static final String SHOP_SPECIALS_PATH = "shop-specials";
     public static final String SHOP_QUICK_DEFAULTS_PATH = "quick-buy-defaults";

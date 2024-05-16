@@ -110,6 +110,8 @@ public class Messages {
     public static String COMMAND_SHOUT_IN_SOLO = "cmd-shout-in-solo";
     public static String COMMAND_SHOUT_IN_WAITING_STARTING = "cmd-shout-in-waiting-starting";
     public static String COMMAND_SHOUT_IN_RESTARTING = "cmd-shout-in-restarting";
+    public static String COMMAND_BED_LEAVE = "cmd-leave-by-bed";
+    public static String COMMAND_BED_LEAVE_CANCELLED = "cmd-leave-by-bed-cancelled";
 
     /**
      * Arena join/ leave related

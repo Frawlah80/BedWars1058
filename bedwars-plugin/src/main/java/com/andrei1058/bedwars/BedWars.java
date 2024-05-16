@@ -44,6 +44,7 @@ import com.andrei1058.bedwars.arena.upgrades.BaseListener;
 import com.andrei1058.bedwars.arena.upgrades.HealPoolListner;
 import com.andrei1058.bedwars.commands.bedwars.MainCommand;
 import com.andrei1058.bedwars.commands.leave.LeaveCommand;
+import com.andrei1058.bedwars.commands.leave.LeaveDelayCommand;
 import com.andrei1058.bedwars.commands.mapcmd.MapCommand;
 import com.andrei1058.bedwars.commands.party.PartyCommand;
 import com.andrei1058.bedwars.commands.rejoin.RejoinCommand;
@@ -631,6 +632,7 @@ public class BedWars extends JavaPlugin {
         nms.registerCommand("map", new MapCommand("map"));
         nms.registerCommand("wtfmap", new MapCommand("wtfmap"));
         nms.registerCommand("rejoin", new RejoinCommand("rejoin"));
+        nms.registerCommand("bedleave", new LeaveDelayCommand("bedleave"));
         if (!(nms.isBukkitCommandRegistered("leave") && getServerType() == ServerType.BUNGEE)) {
             nms.registerCommand("leave", new LeaveCommand("leave"));
         }
