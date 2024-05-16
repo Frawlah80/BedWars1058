@@ -54,3 +54,20 @@
     - Earlier upgrade shops used to close if the player didn't have enough diamonds, this no longer happens.
     - (Reason: Popular server).
     - Added shop reloads on purchase
+- Party
+    - Added /p command for internal party
+- Nick Support
+    - Added support to NickAPI (HaoNick uses this as well)
+- Improvements to shout command
+    - You can now enable or disable the usage of "!" to shout
+    - You can allow to only shout using command (/shout)
+- Game join items
+    - Added Aqua Affinity to helmets
+- Added Game ended chat format
+- Added "upgrade already unlocked" message if an upgrade is already unlocked
+- Added Leave Delay
+    - Toggleable in config
+    - Delay changeable
+- Fixed an inventory bug
+    - If inventory was full, resources (iron/gold) were consumed but the item was not given
+    - prevented resources from consuming
