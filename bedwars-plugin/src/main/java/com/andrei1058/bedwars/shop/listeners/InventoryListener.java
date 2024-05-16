@@ -23,6 +23,9 @@ package com.andrei1058.bedwars.shop.listeners;
 import com.andrei1058.bedwars.BedWars;
 import com.andrei1058.bedwars.api.arena.IArena;
 import com.andrei1058.bedwars.api.arena.shop.ICategoryContent;
+import com.andrei1058.bedwars.api.events.shop.ShopBuyEvent;
+import com.andrei1058.bedwars.api.language.Language;
+import com.andrei1058.bedwars.api.language.Messages;
 import com.andrei1058.bedwars.api.shop.ICachedItem;
 import com.andrei1058.bedwars.api.shop.IPlayerQuickBuyCache;
 import com.andrei1058.bedwars.api.shop.IQuickBuyElement;
@@ -34,6 +37,7 @@ import com.andrei1058.bedwars.shop.main.ShopCategory;
 import com.andrei1058.bedwars.shop.main.ShopIndex;
 import com.andrei1058.bedwars.shop.quickbuy.PlayerQuickBuyCache;
 import com.andrei1058.bedwars.shop.quickbuy.QuickBuyAdd;
+
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -272,5 +276,13 @@ public class InventoryListener implements Listener {
         return cachedItem != null;
         // the commented line bellow was blocking movement only if tiers amount > 1
         // return sc.getCachedItem(identifier).getCc().getContentTiers().size() > 1;
+    }
+
+    @EventHandler
+    public void onInventoryFullPurchase(ShopBuyEvent e) {
+        if (e.getBuyer().getInventory().firstEmpty() == -1) {
+            e.getBuyer().sendMessage(Language.getMsg(e.getBuyer(), Messages.SHOP_INVENTORY_FULL));
+            e.setCancelled(true);
+        }
     }
 }
