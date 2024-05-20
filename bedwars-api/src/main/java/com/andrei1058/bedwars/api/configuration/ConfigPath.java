@@ -285,6 +285,12 @@ public class ConfigPath {
     public static final String GENERAL_CONFIGURATION_ENABLE_LEAVE_DELAY = "enable-leave-delay";
     public static final String GENERAL_CONFIGURATION_LEAVE_DELAY_VALUE = "leave-delay-in-seconds";
 
+    public static final String GENERAL_CONFIGURATION_ENABLE_LOBBY_POTION_EFFECT = "lobby-potion-effect.enable";
+    public static final String GENERAL_CONFIGURATION_LOBBY_POTION_EFFECT_NORMAL = "lobby-potion-effect.normal-effect";
+    public static final String GENERAL_CONFIGURATION_LOBBY_POTION_EFFECT_NORMAL_AMPLIFIER = "lobby-potion-effect.normal-effect-amplifier";
+    public static final String GENERAL_CONFIGURATION_LOBBY_POTION_EFFECT_DONATOR = "lobby-potion-effect.donator-effect";
+    public static final String GENERAL_CONFIGURATION_LOBBY_POTION_EFFECT_DONATOR_AMPLIFIER = "lobby-potion-effect.donator-effect-amplifier";
+
     public static final String SHOP_SETTINGS_PATH = "shop-settings";
     public static final String SHOP_SPECIALS_PATH = "shop-specials";
     public static final String SHOP_QUICK_DEFAULTS_PATH = "quick-buy-defaults";

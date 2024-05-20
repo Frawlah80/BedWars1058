@@ -110,6 +110,13 @@ public class MainConfig extends ConfigManager {
         yml.addDefault(ConfigPath.GENERAL_CONFIGURATION_HEAL_POOL_ENABLE, true);
         yml.addDefault(ConfigPath.GENERAL_CONFIGURATION_HEAL_POOL_SEEN_TEAM_ONLY, false);
 
+        // lobby potion effects
+        yml.addDefault(ConfigPath.GENERAL_CONFIGURATION_ENABLE_LOBBY_POTION_EFFECT, true);
+        yml.addDefault(ConfigPath.GENERAL_CONFIGURATION_LOBBY_POTION_EFFECT_NORMAL, "SPEED");
+        yml.addDefault(ConfigPath.GENERAL_CONFIGURATION_LOBBY_POTION_EFFECT_NORMAL_AMPLIFIER, 1);
+        yml.addDefault(ConfigPath.GENERAL_CONFIGURATION_LOBBY_POTION_EFFECT_DONATOR, "SPEED");
+        yml.addDefault(ConfigPath.GENERAL_CONFIGURATION_LOBBY_POTION_EFFECT_DONATOR_AMPLIFIER, 2);
+
         // tnt jump category
         yml.addDefault(ConfigPath.GENERAL_TNT_JUMP_BARYCENTER_IN_Y, 0.5);
         yml.addDefault(ConfigPath.GENERAL_TNT_JUMP_STRENGTH_REDUCTION, 5);
