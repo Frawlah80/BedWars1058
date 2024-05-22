@@ -362,6 +362,7 @@ public enum TeamColor {
             case WHITE:
                 break;
             case DARK_GREEN:
+            case GREEN:
                 color = Color.GREEN;
                 break;
             case AQUA:
@@ -369,9 +370,6 @@ public enum TeamColor {
                 break;
             case RED:
                 color = Color.RED;
-                break;
-            case GREEN:
-                color = Color.LIME;
                 break;
             case YELLOW:
                 color = Color.YELLOW;
