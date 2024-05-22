@@ -11,6 +11,9 @@ import org.bukkit.event.player.PlayerChangedWorldEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
+import org.bukkit.scheduler.BukkitRunnable;
+
+import static com.andrei1058.bedwars.BedWars.plugin;
 
 public class LobbyPotionEffectListener implements Listener {
 
@@ -18,21 +21,36 @@ public class LobbyPotionEffectListener implements Listener {
     public void onLobbyWorldJoinEvent(PlayerChangedWorldEvent e) {
         Player player = e.getPlayer();
         if (player.getWorld().getName().equals(BedWars.getLobbyWorld())) {
-            applyLobbyPotionEffect(player);
+            new BukkitRunnable() {
+                @Override
+                public void run() {
+                    applyLobbyPotionEffect(player);
+                }
+            }.runTaskLater(plugin, 20L);
         }
     }
 
     @EventHandler
-    public void onArenaJoinEvent(PlayerReJoinEvent e) {
+    public void onArenaReJoinEvent(PlayerReJoinEvent e) {
         Player player = e.getPlayer();
-        removeLobbyPotionEffects(player);
+        new BukkitRunnable() {
+            @Override
+            public void run() {
+                removeLobbyPotionEffects(player);
+            }
+        }.runTaskLater(plugin, 20L);
     }
 
     @EventHandler
     public void onPlayerJoinEvent(PlayerJoinEvent e) {
         Player player = e.getPlayer();
         if (player.getWorld().getName().equals(BedWars.getLobbyWorld())) {
-            applyLobbyPotionEffect(player);
+            new BukkitRunnable() {
+                @Override
+                public void run() {
+                    applyLobbyPotionEffect(player);
+                }
+            }.runTaskLater(plugin, 20L);
         }
     }
 
