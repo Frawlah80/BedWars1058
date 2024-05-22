@@ -294,6 +294,10 @@ public class BedWars extends JavaPlugin {
                 new GameEndListener(), new DefaultStatsHandler(), new RemoveMagicMilkOnDeathTask()
         );
 
+        if (config.getBoolean(ConfigPath.GENERAL_CONFIGURATION_ENABLE_LOBBY_POTION_EFFECT)) {
+            registerEvents(new LobbyPotionEffectListener());
+        }
+
         if (config.getBoolean(ConfigPath.GENERAL_CONFIGURATION_HEAL_POOL_ENABLE)) {
             registerEvents(new HealPoolListner());
         }

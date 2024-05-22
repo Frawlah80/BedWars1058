@@ -8,6 +8,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerChangedWorldEvent;
+import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 
@@ -15,24 +16,53 @@ public class LobbyPotionEffectListener implements Listener {
 
     @EventHandler
     public void onLobbyWorldJoinEvent(PlayerChangedWorldEvent e) {
-        Player p = e.getPlayer();
-        if (p.getWorld().getName().equals(BedWars.getLobbyWorld())) {
-            if (p.hasPermission("bw.lobbyeffect.donator")) {
-                p.addPotionEffect(new PotionEffect(PotionEffectType.getByName(BedWars.config.getString(ConfigPath.GENERAL_CONFIGURATION_LOBBY_POTION_EFFECT_DONATOR)), Integer.MAX_VALUE, BedWars.config.getInt(ConfigPath.GENERAL_CONFIGURATION_LOBBY_POTION_EFFECT_DONATOR_AMPLIFIER)));
-            } else if (p.hasPermission("bw.lobbyeffect")) {
-                p.addPotionEffect(new PotionEffect(PotionEffectType.getByName(BedWars.config.getString(ConfigPath.GENERAL_CONFIGURATION_LOBBY_POTION_EFFECT_NORMAL)), Integer.MAX_VALUE, BedWars.config.getInt(ConfigPath.GENERAL_CONFIGURATION_LOBBY_POTION_EFFECT_NORMAL_AMPLIFIER)));
-            }
+        Player player = e.getPlayer();
+        if (player.getWorld().getName().equals(BedWars.getLobbyWorld())) {
+            applyLobbyPotionEffect(player);
         }
     }
 
     @EventHandler
     public void onArenaJoinEvent(PlayerReJoinEvent e) {
-        Player p = e.getPlayer();
-        if (p.hasPotionEffect(PotionEffectType.getByName(BedWars.config.getString(ConfigPath.GENERAL_CONFIGURATION_LOBBY_POTION_EFFECT_NORMAL)))) {
-            p.removePotionEffect(PotionEffectType.getByName(BedWars.config.getString(ConfigPath.GENERAL_CONFIGURATION_LOBBY_POTION_EFFECT_NORMAL)));
-        } else if (p.hasPotionEffect(PotionEffectType.getByName(BedWars.config.getString(ConfigPath.GENERAL_CONFIGURATION_LOBBY_POTION_EFFECT_DONATOR)))) {
-            p.removePotionEffect(PotionEffectType.getByName(BedWars.config.getString(ConfigPath.GENERAL_CONFIGURATION_LOBBY_POTION_EFFECT_DONATOR)));
+        Player player = e.getPlayer();
+        removeLobbyPotionEffects(player);
+    }
+
+    @EventHandler
+    public void onPlayerJoinEvent(PlayerJoinEvent e) {
+        Player player = e.getPlayer();
+        if (player.getWorld().getName().equals(BedWars.getLobbyWorld())) {
+            applyLobbyPotionEffect(player);
         }
     }
 
+    private void applyLobbyPotionEffect(Player player) {
+        PotionEffectType effectType = null;
+        int amplifier = 0;
+
+        if (player.hasPermission("bw.lobbyeffect.donator")) {
+            effectType = PotionEffectType.getByName(BedWars.config.getString(ConfigPath.GENERAL_CONFIGURATION_LOBBY_POTION_EFFECT_DONATOR));
+            amplifier = BedWars.config.getInt(ConfigPath.GENERAL_CONFIGURATION_LOBBY_POTION_EFFECT_DONATOR_AMPLIFIER);
+        } else if (player.hasPermission("bw.lobbyeffect")) {
+            effectType = PotionEffectType.getByName(BedWars.config.getString(ConfigPath.GENERAL_CONFIGURATION_LOBBY_POTION_EFFECT_NORMAL));
+            amplifier = BedWars.config.getInt(ConfigPath.GENERAL_CONFIGURATION_LOBBY_POTION_EFFECT_NORMAL_AMPLIFIER);
+        }
+
+        if (effectType != null) {
+            player.addPotionEffect(new PotionEffect(effectType, Integer.MAX_VALUE, amplifier));
+        }
+    }
+
+    private void removeLobbyPotionEffects(Player player) {
+        PotionEffectType normalEffect = PotionEffectType.getByName(BedWars.config.getString(ConfigPath.GENERAL_CONFIGURATION_LOBBY_POTION_EFFECT_NORMAL));
+        PotionEffectType donatorEffect = PotionEffectType.getByName(BedWars.config.getString(ConfigPath.GENERAL_CONFIGURATION_LOBBY_POTION_EFFECT_DONATOR));
+
+        if (normalEffect != null && player.hasPotionEffect(normalEffect)) {
+            player.removePotionEffect(normalEffect);
+        }
+
+        if (donatorEffect != null && player.hasPotionEffect(donatorEffect)) {
+            player.removePotionEffect(donatorEffect);
+        }
+    }
 }
