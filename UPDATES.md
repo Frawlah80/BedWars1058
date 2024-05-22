@@ -71,3 +71,6 @@
 - Fixed an inventory bug
     - If inventory was full, resources (iron/gold) were consumed but the item was not given
     - prevented resources from consuming
+- Added lobby potion effects
+    - Use "bw.lobbyeffect" permission for normal players and "bw.lobbyeffect.donator" for donators
+    - You can change amplifier and potion effect in config
