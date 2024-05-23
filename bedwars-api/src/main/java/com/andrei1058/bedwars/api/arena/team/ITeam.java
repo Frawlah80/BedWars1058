@@ -363,4 +363,14 @@ public interface ITeam {
     default void onBedDestroy(Location location) {
         throw new RuntimeException("Not implemented yet");
     }
+
+    /**
+     * set Bed Breaker
+     */
+    void setBedBreaker(Player bedBreaker);
+
+    /**
+     * get Bed Breaker
+     */
+    Player getBedBreaker();
 }

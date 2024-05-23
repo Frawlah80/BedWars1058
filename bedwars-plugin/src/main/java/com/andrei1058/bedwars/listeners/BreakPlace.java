@@ -316,6 +316,7 @@ public class BreakPlace implements Listener {
                                         } else {
                                             e.setCancelled(false);
                                             t.setBedDestroyed(true);
+                                            t.setBedBreaker(p);
                                             PlayerBedBreakEvent breakEvent;
                                             Bukkit.getPluginManager().callEvent(breakEvent = new PlayerBedBreakEvent(e.getPlayer(), a.getTeam(p), t, a,
                                                     player -> {
