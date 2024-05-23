@@ -28,8 +28,10 @@ import com.andrei1058.bedwars.api.arena.shop.ShopHolo;
 import com.andrei1058.bedwars.api.arena.team.ITeam;
 import com.andrei1058.bedwars.api.configuration.ConfigPath;
 import com.andrei1058.bedwars.api.entity.Despawnable;
+import com.andrei1058.bedwars.api.events.player.PlayerBedBreakEvent;
 import com.andrei1058.bedwars.api.events.player.PlayerInvisibilityPotionEvent;
 import com.andrei1058.bedwars.api.events.player.PlayerKillEvent;
+import com.andrei1058.bedwars.api.events.player.PlayerLeaveArenaEvent;
 import com.andrei1058.bedwars.api.events.team.TeamEliminatedEvent;
 import com.andrei1058.bedwars.api.language.Language;
 import com.andrei1058.bedwars.api.language.Messages;
@@ -43,23 +45,20 @@ import com.andrei1058.bedwars.listeners.dropshandler.PlayerDrops;
 import com.andrei1058.bedwars.support.nickapi.NameOrNick;
 import com.andrei1058.bedwars.support.paper.TeleportManager;
 import org.bukkit.Bukkit;
-import org.bukkit.ChatColor;
 import org.bukkit.Location;
 import org.bukkit.entity.*;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.*;
-import org.bukkit.event.player.PlayerItemConsumeEvent;
-import org.bukkit.event.player.PlayerMoveEvent;
-import org.bukkit.event.player.PlayerRespawnEvent;
-import org.bukkit.event.player.PlayerTeleportEvent;
+import org.bukkit.event.player.*;
 import org.bukkit.potion.PotionEffectType;
 import org.bukkit.projectiles.ProjectileSource;
 import org.bukkit.util.Vector;
 import org.jetbrains.annotations.NotNull;
 
 import java.text.DecimalFormat;
+import java.util.List;
 import java.util.Map;
 
 import static com.andrei1058.bedwars.BedWars.*;
@@ -369,6 +368,9 @@ public class DamageDeathMove implements Listener {
                             if (lh.getDamager() instanceof Player) killer = (Player) lh.getDamager();
                             if (killer != null && killer.getUniqueId().equals(victim.getUniqueId())) killer = null;
                         }
+                    } else if (bedBreaker != null && bedBreaker.getWorld().getName().equals(victim.getWorld().getName())) {
+                        killer = bedBreaker;
+                        if (killer.getUniqueId().equals(victim.getUniqueId())) killer = null;
                     }
                     if (killer == null) {
                         message = victimsTeam.isBedDestroyed() ? Messages.PLAYER_DIE_EXPLOSION_WITHOUT_SOURCE_FINAL_KILL : Messages.PLAYER_DIE_EXPLOSION_WITHOUT_SOURCE_REGULAR;
@@ -388,6 +390,9 @@ public class DamageDeathMove implements Listener {
                             if (lh.getDamager() instanceof Player) killer = (Player) lh.getDamager();
                             if (killer != null && killer.getUniqueId().equals(victim.getUniqueId())) killer = null;
                         }
+                    } else if (bedBreaker != null && bedBreaker.getWorld().getName().equals(victim.getWorld().getName())) {
+                        killer = bedBreaker;
+                        if (killer.getUniqueId().equals(victim.getUniqueId())) killer = null;
                     }
                     if (killer == null) {
                         message = victimsTeam.isBedDestroyed() ? Messages.PLAYER_DIE_VOID_FALL_FINAL_KILL : Messages.PLAYER_DIE_VOID_FALL_REGULAR_KILL;
@@ -437,6 +442,17 @@ public class DamageDeathMove implements Listener {
                             }
                             cause = victimsTeam.isBedDestroyed() ? PlayerKillEvent.PlayerKillCause.PLAYER_PUSH_FINAL : PlayerKillEvent.PlayerKillCause.PLAYER_PUSH;
                         }
+                    } else if (bedBreaker != null && bedBreaker.getWorld().getName().equals(victim.getWorld().getName())) {
+                        killer = bedBreaker;
+                        if (killer.getUniqueId().equals(victim.getUniqueId())) killer = null;
+                        if (killer != null) {
+                            if (killer != victim) {
+                                message = victimsTeam.isBedDestroyed() ? Messages.PLAYER_DIE_KNOCKED_BY_FINAL_KILL : Messages.PLAYER_DIE_KNOCKED_BY_REGULAR_KILL;
+                            } else {
+                                message = victimsTeam.isBedDestroyed() ? Messages.PLAYER_DIE_VOID_FALL_FINAL_KILL : Messages.PLAYER_DIE_VOID_FALL_REGULAR_KILL;
+                            }
+                        }
+                        cause = victimsTeam.isBedDestroyed() ? PlayerKillEvent.PlayerKillCause.PLAYER_PUSH_FINAL : PlayerKillEvent.PlayerKillCause.PLAYER_PUSH;
                     }
                 }
             }
