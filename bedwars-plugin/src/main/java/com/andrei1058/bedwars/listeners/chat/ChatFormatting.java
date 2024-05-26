@@ -150,6 +150,7 @@ public class ChatFormatting implements Listener {
                 //.replace("{player}", player.getDisplayName());
                 .replace("{player}", NameOrNick.getNickName(player))
                 .replace("{rankChatColor}", RankColorChat.rankColorChat(player));
+
         if (team != null) {
             String teamFormat = getMsg(player, Messages.FORMAT_PAPI_PLAYER_TEAM_TEAM)
                     .replace("{TeamColor}", team.getColor().chat() + "")
