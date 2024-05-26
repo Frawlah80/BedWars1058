@@ -180,12 +180,12 @@ public class English extends Language {
         yml.addDefault(Messages.GENERATOR_HOLOGRAM_TYPE_EMERALD, "&a&lEmerald");
         yml.addDefault(Messages.GENERATOR_HOLOGRAM_TIMER, "&eSpawns in &c{seconds} &eseconds");
         yml.addDefault(Messages.GENERATOR_UPGRADE_CHAT_ANNOUNCEMENT, "{prefix}{generatorType} Generators &ehave been upgraded to Tier &c{tier}");
-        yml.addDefault(Messages.FORMATTING_CHAT_LOBBY, "{level}{vPrefix}{player}&f: {message}");
-        yml.addDefault(Messages.FORMATTING_CHAT_WAITING, "{vPrefix}{player}&f: {message}");
+        yml.addDefault(Messages.FORMATTING_CHAT_LOBBY, "{level}{vPrefix}{player}{rankChatColor}: {message}");
+        yml.addDefault(Messages.FORMATTING_CHAT_WAITING, "{vPrefix}{player}{rankChatColor}: {message}");
         yml.addDefault(Messages.FORMATTING_CHAT_SHOUT, "&6[SHOUT] {team} {vPrefix}{player}&f: {message}");
-        yml.addDefault(Messages.FORMATTING_CHAT_TEAM, "{level}{team} {vPrefix}{player}&f: {message}");
-        yml.addDefault(Messages.FORMATTING_CHAT_SPECTATOR, "&7[SPECTATOR] {vPrefix}{player}&f: {message}");
-        yml.addDefault(Messages.FORMATTING_CHAT_GAME_END, "{vPrefix}{player}&f: {message}");
+        yml.addDefault(Messages.FORMATTING_CHAT_TEAM, "{level}{team} {vPrefix}{player}{rankChatColor}: {message}");
+        yml.addDefault(Messages.FORMATTING_CHAT_SPECTATOR, "&7[SPECTATOR] {vPrefix}{player}{rankChatColor}: {message}");
+        yml.addDefault(Messages.FORMATTING_CHAT_GAME_END, "{vPrefix}{player}{rankChatColor}: {message}");
         yml.addDefault(Messages.FORMATTING_SCOREBOARD_HEALTH, Arrays.asList("&c❤", "&aHealth"));
 
         yml.addDefault(Messages.FORMATTING_SCOREBOARD_DATE, "dd/MM/yy");
