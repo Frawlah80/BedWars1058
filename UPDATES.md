@@ -74,3 +74,5 @@
 - Added lobby potion effects
     - Use "bw.lobbyeffect" permission for normal players and "bw.lobbyeffect.donator" for donators
     - You can change amplifier and potion effect in config
+- Chat Color
+    - Players with no permission have gray chat, players with bw.chatcolor.donator permission have white color chat like on popular server.

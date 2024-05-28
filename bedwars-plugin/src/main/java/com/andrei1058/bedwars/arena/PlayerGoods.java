@@ -105,7 +105,7 @@ class PlayerGoods {
             p.setHealthScale(20);
             p.setHealth(20);
             p.setFoodLevel(20);
-            //p.getInventory().clear();
+            p.getInventory().clear();
             p.getInventory().setArmorContents(null);
             if (!rejoin) {
                 p.getEnderChest().clear();
@@ -144,10 +144,10 @@ class PlayerGoods {
         playerGoods.remove(player.getUniqueId());
 
 
-        //for (PotionEffect pf : player.getActivePotionEffects()) {
-        //    player.removePotionEffect(pf.getType());
-        //}
-        //player.getInventory().clear();
+        for (PotionEffect pf : player.getActivePotionEffects()) {
+            player.removePotionEffect(pf.getType());
+        }
+        player.getInventory().clear();
         player.getInventory().setArmorContents(null);
         player.setLevel(level);
         player.setExp(exp);

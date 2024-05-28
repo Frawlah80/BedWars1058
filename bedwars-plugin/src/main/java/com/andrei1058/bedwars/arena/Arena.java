@@ -1906,7 +1906,9 @@ public class Arena implements IArena {
                     if (!winner.getMembers().isEmpty()) {
                         for (Player p : winner.getMembers()) {
                             if (!p.isOnline()) continue;
-                            p.getInventory().clear();
+                            if (config.getBoolean(ConfigPath.GENERAL_CONFIGURATION_CLEAR_INVENTORY_ON_WIN)) {
+                                p.getInventory().clear();
+                            }
                         }
                     }
                     StringBuilder winners = new StringBuilder();
