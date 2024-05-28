@@ -23,6 +23,7 @@ package com.andrei1058.bedwars.listeners;
 import com.andrei1058.bedwars.BedWars;
 import com.andrei1058.bedwars.api.arena.GameState;
 import com.andrei1058.bedwars.api.arena.IArena;
+import com.andrei1058.bedwars.api.arena.team.TeamEnchant;
 import com.andrei1058.bedwars.api.events.gameplay.GameStateChangeEvent;
 import com.andrei1058.bedwars.api.language.Language;
 import com.andrei1058.bedwars.api.language.Messages;
@@ -39,11 +40,9 @@ import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
-import org.bukkit.event.inventory.ClickType;
-import org.bukkit.event.inventory.InventoryClickEvent;
-import org.bukkit.event.inventory.InventoryCloseEvent;
-import org.bukkit.event.inventory.InventoryType;
+import org.bukkit.event.inventory.*;
 import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.potion.PotionEffectType;
 
 import java.util.Objects;
@@ -279,9 +278,6 @@ public class Inventory implements Listener {
         }
     }
 
-    /**
-     * Manage click events for leave GUI
-     */
     /*@EventHandler
     public void onLeaveWithPartyClick(InventoryClickEvent event) {
         Player player = (Player) event.getWhoClicked();
@@ -323,5 +319,31 @@ public class Inventory implements Listener {
     public void onGameEnd(GameStateChangeEvent e) {
         if(e.getNewState() != GameState.restarting) return;
         e.getArena().getPlayers().forEach(Player::closeInventory); // close any open guis when the game ends (e.g. shop)
+    }
+
+    @EventHandler
+    public void onSwordEnchantInChest(InventoryOpenEvent e) {
+        Player player = (Player) e.getView().getPlayer();
+        IArena arena = Arena.getArenaByPlayer(player);
+        if (arena == null || BedWars.getAPI().getTeamUpgradesUtil().isWatchingGUI(player)) return;
+
+        if (ShopCategory.categoryViewers.contains(player.getUniqueId())) return;
+
+        if (ShopIndex.indexViewers.contains(player.getUniqueId())) return;
+
+        org.bukkit.inventory.Inventory inv = e.getInventory();
+        InventoryType invType = inv.getType();
+        if (invType == InventoryType.ENDER_CHEST || invType == InventoryType.CHEST) {
+            for (ItemStack item : inv.getContents()) {
+                if (item != null && VersionCommon.api.getVersionSupport().isSword(item)) {
+                    ItemMeta im = item.getItemMeta();
+                    for (TeamEnchant enchant : arena.getTeam(player).getSwordsEnchantments()) {
+                        im.addEnchant(enchant.getEnchantment(), enchant.getAmplifier(), true);
+                    }
+                    nms.setUnbreakable(im);
+                    item.setItemMeta(im);
+                }
+            }
+        }
     }
 }
