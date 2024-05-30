@@ -72,7 +72,8 @@ public class ShopCache implements IShopCache {
         return ci == null ? 1 : ci.getTier();
     }
 
-    public static ShopCache getShopCache(UUID player) {
+    @Override
+    public ShopCache getShopCache(UUID player) {
         for (ShopCache sc : new ArrayList<>(shopCaches)) {
             if (sc.player.equals(player)) return sc;
         }
