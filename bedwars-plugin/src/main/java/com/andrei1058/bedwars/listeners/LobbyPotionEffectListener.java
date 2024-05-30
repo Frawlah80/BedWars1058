@@ -28,6 +28,14 @@ public class LobbyPotionEffectListener implements Listener {
                 }
             }.runTaskLater(plugin, 20L);
         }
+        if (!player.getWorld().getName().equals(BedWars.getLobbyWorld())) {
+            new BukkitRunnable() {
+                @Override
+                public void run() {
+                    removeLobbyPotionEffects(player);
+                }
+            }.runTaskLater(plugin, 20L);
+        }
     }
 
     @EventHandler
