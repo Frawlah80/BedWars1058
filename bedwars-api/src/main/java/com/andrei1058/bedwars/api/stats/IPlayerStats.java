@@ -217,4 +217,14 @@ public interface IPlayerStats {
      * @return The total number of kills.
      */
     int getTotalKills();
+
+    int getOverAllWinStreak();
+    void setOverAllWinStreak(int overAllWinStreak);
+    int getOverAllHighestWinStreak();
+    void setOverAllHighestWinStreak(int overAllHighestWinStreak);
+
+    int getCoreWinStreak();
+    void setCoreWinStreak(int coreWinStreak);
+    int getCoreHighestWinStreak();
+    void setCoreHighestWinStreak(int coreHighestWinStreak);
 }

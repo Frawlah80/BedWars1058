@@ -44,6 +44,10 @@ public class PlayerStats implements IPlayerStats {
     private int winStreak;
     private int highestWinStreak;
     private int gamesPlayed;
+    private int overAllWinStreak;
+    private int overAllHighestWinStreak;
+    private int coreWinStreak;
+    private int coreHighestWinStreak;
 
     public PlayerStats(UUID uuid) {
         this.uuid = uuid;
@@ -169,5 +173,31 @@ public class PlayerStats implements IPlayerStats {
 
     public int getTotalKills() {
         return totalKills;
+    }
+
+    public int getOverAllWinStreak() {
+        return overAllWinStreak;
+    }
+    public void setOverAllWinStreak(int overAllWinStreak) {
+        this.overAllWinStreak = overAllWinStreak;
+    }
+    public int getOverAllHighestWinStreak() {
+        return overAllHighestWinStreak;
+    }
+    public void setOverAllHighestWinStreak(int overAllHighestWinStreak) {
+        this.overAllHighestWinStreak = overAllHighestWinStreak;
+    }
+
+    public int getCoreWinStreak() {
+        return coreWinStreak;
+    }
+    public void setCoreWinStreak(int coreWinStreak) {
+        this.coreWinStreak = coreWinStreak;
+    }
+    public int getCoreHighestWinStreak() {
+        return coreHighestWinStreak;
+    }
+    public void setCoreHighestWinStreak(int coreHighestWinStreak) {
+        this.coreHighestWinStreak = coreHighestWinStreak;
     }
 }

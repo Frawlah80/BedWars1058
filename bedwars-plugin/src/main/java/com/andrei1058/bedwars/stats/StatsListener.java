@@ -118,6 +118,7 @@ public class StatsListener implements Listener {
 
     @EventHandler
     public void onGameEnd(GameEndEvent event) {
+        String group = event.getArena().getGroup();
         for (UUID uuid : event.getLosers()) {
             Player player = Bukkit.getPlayer(uuid);
             if (player == null) continue;
@@ -129,6 +130,12 @@ public class StatsListener implements Listener {
             if (stats != null) {
                 stats.setLosses(stats.getLosses() + 1);
                 stats.setWinStreak(stats.getWinStreak() - stats.getWinStreak());
+                if (group.equals("Solo") || group.equals("Doubles") || group.equals("3v3v3v3") || group.equals("4v4v4v4") || group.equals("4v4")) {
+                    stats.setOverAllWinStreak(0);
+                }
+                if (group.equals("Solo") || group.equals("Doubles") || group.equals("3v3v3v3") || group.equals("4v4v4v4")) {
+                    stats.setCoreWinStreak(0);
+                }
             }
         }
 
@@ -144,6 +151,18 @@ public class StatsListener implements Listener {
             stats.setWins(stats.getWins() + 1);
             stats.setWinStreak(stats.getWinStreak() + 1);
 
+            if (group.equals("Solo") || group.equals("Doubles") || group.equals("3v3v3v3") || group.equals("4v4v4v4") || group.equals("4v4")) {
+                stats.setOverAllWinStreak(stats.getOverAllWinStreak() + 1);
+                if (stats.getOverAllHighestWinStreak() < stats.getOverAllWinStreak()) {
+                    stats.setOverAllHighestWinStreak(stats.getOverAllWinStreak());
+                }
+            }
+            if (group.equals("Solo") || group.equals("Doubles") || group.equals("3v3v3v3") || group.equals("4v4v4v4")) {
+                stats.setCoreWinStreak(stats.getCoreWinStreak() + 1);
+                if (stats.getCoreHighestWinStreak() < stats.getCoreWinStreak()) {
+                    stats.setCoreHighestWinStreak(stats.getCoreWinStreak());
+                }
+            }
             if (stats.getHighestWinStreak() < stats.getWinStreak()) {
                 stats.setHighestWinStreak(stats.getWinStreak());
             }

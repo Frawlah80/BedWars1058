@@ -140,6 +140,12 @@ public interface BedWars {
          * You get data from the local cache.
          */
         int getPlayerGamesPlayed(UUID p);
+
+        int getPlayerOverAllWinStreak(UUID p);
+        int getPlayerOverAllHighestWinStreak(UUID p);
+
+        int getPlayerCoreWinStreak(UUID p);
+        int getPlayerCoreHighestWinStreak(UUID p);
     }
 
 
