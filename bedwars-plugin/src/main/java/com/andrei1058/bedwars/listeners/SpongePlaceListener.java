@@ -19,7 +19,7 @@ public class SpongePlaceListener implements Listener {
         Player p = e.getPlayer();
         IArena a = Arena.getArenaByPlayer(p);
 
-        if (!a.isPlayer(p)) return;
+        if (a == null || !a.isPlayer(p)) return;
 
         Block block = e.getBlock();
         if (block.getType() != Material.SPONGE) return;
