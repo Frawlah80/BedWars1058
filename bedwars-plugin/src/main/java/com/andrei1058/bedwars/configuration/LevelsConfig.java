@@ -40,34 +40,34 @@ public class LevelsConfig extends ConfigManager {
         levels.getYml().options().copyDefaults(true);
         if (levels.isFirstTime()) {
 
-            levels.getYml().addDefault("levels.1-99.name", "&7[{number}✩] ");
+            levels.getYml().addDefault("levels.1-99.name", "&7[&7{number}✩] ");
             levels.getYml().addDefault("levels.1-99.rankup-cost", 1000);
 
-            levels.getYml().addDefault("levels.100-199.name", "&f[{number}✩] ");
+            levels.getYml().addDefault("levels.100-199.name", "&f[&f{number}✩] ");
             levels.getYml().addDefault("levels.100-199.rankup-cost", 1000);
 
-            levels.getYml().addDefault("levels.200-299.name", "&6[{number}✩] ");
+            levels.getYml().addDefault("levels.200-299.name", "&6[&6{number}✩] ");
             levels.getYml().addDefault("levels.200-299.rankup-cost", 1000);
 
-            levels.getYml().addDefault("levels.300-399.name", "&b[{number}✩] ");
+            levels.getYml().addDefault("levels.300-399.name", "&b[&b{number}✩] ");
             levels.getYml().addDefault("levels.300-399.rankup-cost", 1000);
 
-            levels.getYml().addDefault("levels.400-499.name", "&2[{number}✩] ");
+            levels.getYml().addDefault("levels.400-499.name", "&2[&2{number}✩] ");
             levels.getYml().addDefault("levels.400-499.rankup-cost", 1000);
 
-            levels.getYml().addDefault("levels.500-599.name", "&3[{number}✩] ");
+            levels.getYml().addDefault("levels.500-599.name", "&3[&3{number}✩] ");
             levels.getYml().addDefault("levels.500-599.rankup-cost", 1000);
 
-            levels.getYml().addDefault("levels.600-699.name", "&4[{number}✩] ");
+            levels.getYml().addDefault("levels.600-699.name", "&4[&4{number}✩] ");
             levels.getYml().addDefault("levels.600-699.rankup-cost", 1000);
 
-            levels.getYml().addDefault("levels.700-799.name", "&d[{number}✩] ");
+            levels.getYml().addDefault("levels.700-799.name", "&d[&d{number}✩] ");
             levels.getYml().addDefault("levels.700-799.rankup-cost", 1000);
 
-            levels.getYml().addDefault("levels.800-899.name", "&9[{number}✩] ");
+            levels.getYml().addDefault("levels.800-899.name", "&9[&9{number}✩] ");
             levels.getYml().addDefault("levels.800-899.rankup-cost", 1000);
 
-            levels.getYml().addDefault("levels.900-999.name", "&5[{number}✩] ");
+            levels.getYml().addDefault("levels.900-999.name", "&5[&5{number}✩] ");
             levels.getYml().addDefault("levels.900-999.rankup-cost", 1000);
 
             levels.getYml().addDefault("levels.1000.name", "&c[&61&e0&a0&b0&d✫&5] ");
