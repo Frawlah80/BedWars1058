@@ -86,5 +86,5 @@ public interface IShopCache {
      * @param player The UUID of the player.
      * @return The shop cache for the player, or null if not found.
      */
-    IShopCache getShopCache(UUID player);
+    //IShopCache getShopCache(UUID player);
 }
