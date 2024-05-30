@@ -70,7 +70,7 @@ public class BedWarsTeam implements ITeam {
     private Arena arena;
     private boolean bedDestroyed = false;
     private Vector killDropsLoc = null;
-    private Player bedBreaker = null;
+    //private Player bedBreaker = null;
 
     // team generators
     private List<IGenerator> generators = new ArrayList<>();
@@ -849,7 +849,7 @@ public class BedWarsTeam implements ITeam {
         armorsEnchantemnts = null;
         enemyBaseEnterTraps.clear();
         membersCache = null;
-        bedBreaker = null;
+        //bedBreaker = null;
     }
 
     @Override
@@ -901,6 +901,7 @@ public class BedWarsTeam implements ITeam {
         this.killDropsLoc = new Vector(loc.getBlockX() + 0.5, loc.getBlockY(), loc.getBlockZ() + 0.5);
     }
 
+    /*
     @Override
     public void setBedBreaker(Player bedBreaker) {
         this.bedBreaker = bedBreaker;
@@ -909,5 +910,5 @@ public class BedWarsTeam implements ITeam {
     @Override
     public Player getBedBreaker() {
         return bedBreaker;
-    }
+    }*/
 }

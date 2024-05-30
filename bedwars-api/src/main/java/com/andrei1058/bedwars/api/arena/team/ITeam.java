@@ -367,10 +367,10 @@ public interface ITeam {
     /**
      * set Bed Breaker
      */
-    void setBedBreaker(Player bedBreaker);
+    //void setBedBreaker(Player bedBreaker);
 
     /**
      * get Bed Breaker
      */
-    Player getBedBreaker();
+    //Player getBedBreaker();
 }
