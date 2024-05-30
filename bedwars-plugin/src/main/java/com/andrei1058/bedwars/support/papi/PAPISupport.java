@@ -244,6 +244,14 @@ public class PAPISupport extends PlaceholderExpansion {
                         DecimalFormat gameFkdrDf = new DecimalFormat("#.##");
                         return String.valueOf(gameFkdrDf.format(gamefkdr));
                     }
+                case "overAll_winstreak":
+                    return String.valueOf(stats.getOverAllWinStreak());
+                case "overAll_highestWinstreak":
+                    return String.valueOf(stats.getOverAllHighestWinStreak());
+                case "core_winstreak":
+                    return String.valueOf(stats.getCoreWinStreak());
+                case "core_highestWinstreak":
+                    return String.valueOf(stats.getCoreHighestWinStreak());
             }
         }
 
