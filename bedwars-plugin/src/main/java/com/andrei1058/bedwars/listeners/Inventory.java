@@ -23,6 +23,7 @@ package com.andrei1058.bedwars.listeners;
 import com.andrei1058.bedwars.BedWars;
 import com.andrei1058.bedwars.api.arena.GameState;
 import com.andrei1058.bedwars.api.arena.IArena;
+import com.andrei1058.bedwars.api.arena.team.ITeam;
 import com.andrei1058.bedwars.api.arena.team.TeamEnchant;
 import com.andrei1058.bedwars.api.events.gameplay.GameStateChangeEvent;
 import com.andrei1058.bedwars.api.language.Language;
@@ -45,6 +46,7 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.potion.PotionEffectType;
 
+import java.util.List;
 import java.util.Objects;
 
 import static com.andrei1058.bedwars.BedWars.nms;
@@ -337,7 +339,15 @@ public class Inventory implements Listener {
             for (ItemStack item : inv.getContents()) {
                 if (item != null && VersionCommon.api.getVersionSupport().isSword(item)) {
                     ItemMeta im = item.getItemMeta();
-                    for (TeamEnchant enchant : arena.getTeam(player).getSwordsEnchantments()) {
+                    if (im == null) return;
+
+                    ITeam team = arena.getTeam(player);
+                    if (team == null) return;
+
+                    List<TeamEnchant> enchantments = team.getSwordsEnchantments();
+                    if (enchantments == null) return;
+
+                    for (TeamEnchant enchant : enchantments) {
                         im.addEnchant(enchant.getEnchantment(), enchant.getAmplifier(), true);
                     }
                     nms.setUnbreakable(im);
@@ -346,4 +356,5 @@ public class Inventory implements Listener {
             }
         }
     }
+
 }
