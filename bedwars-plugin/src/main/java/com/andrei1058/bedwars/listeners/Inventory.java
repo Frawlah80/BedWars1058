@@ -339,13 +339,13 @@ public class Inventory implements Listener {
             for (ItemStack item : inv.getContents()) {
                 if (item != null && VersionCommon.api.getVersionSupport().isSword(item)) {
                     ItemMeta im = item.getItemMeta();
-                    if (im == null) return;
+                    if (im == null) continue;
 
                     ITeam team = arena.getTeam(player);
                     if (team == null) return;
 
                     List<TeamEnchant> enchantments = team.getSwordsEnchantments();
-                    if (enchantments == null) return;
+                    if (enchantments == null) continue;
 
                     for (TeamEnchant enchant : enchantments) {
                         im.addEnchant(enchant.getEnchantment(), enchant.getAmplifier(), true);
